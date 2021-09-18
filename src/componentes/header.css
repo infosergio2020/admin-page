@@ -1,0 +1,33 @@
+.nav-background {
+    background-color: #00695c;
+    max-width: 50rem;
+    padding: 1rem;
+}
+
+.navegacion-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    /* flex-direction: row-reverse; */
+}
+
+
+/* Voy a centrar todos los elementos de la pagina */
+
+
+/* margen como un reloj
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  */
+
+
+/* alinear central y verticalmente */
+
+
+/* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */

@@ -1,0 +1,20 @@
+:root {
+    --verdeBoton: #439889;
+    --blanco: #ffffff;
+}
+
+.btn {
+    font-family: "Source Sans Pro", sans-serif;
+    text-align: center;
+    font-weight: 400;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background-color: var(--verdeBoton);
+    width: 207px;
+    height: 63px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}

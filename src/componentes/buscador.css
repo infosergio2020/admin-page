@@ -1,0 +1,30 @@
+/* buscador */
+
+.buscador {
+    background-color: #004d40;
+    border-radius: 37px;
+    width: 100%;
+    height: auto;
+}
+
+.input {
+    background-color: #004d40;
+    color: #ffffff;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 37px;
+    border: none;
+    outline: none;
+}
+
+.divboton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    /* flex-direction: row-reverse; */
+}
+
+.label {
+    text-transform: uppercase;
+}
