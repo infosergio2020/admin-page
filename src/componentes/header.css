@@ -1,15 +1,22 @@
 .nav-background {
     background-color: #00695c;
-    max-width: 50rem;
-    padding: 1rem;
+    color: #ffffff;
+    max-width: auto;
+    padding: 1rem 10rem;
 }
 
 .navegacion-principal {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     gap: 2rem;
     /* flex-direction: row-reverse; */
+}
+
+.navegacion-principal a{
+    text-decoration: none;
+    color: red;
+    text-transform: uppercase;
 }
 
 
