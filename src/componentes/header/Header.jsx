@@ -1,12 +1,12 @@
 import React from "react";
-import { Button } from "./boton";
+import { Button } from "../boton/Boton.jsx";
 import "./header.css";
 //ICONOS
-import salir from './img/logout.svg';
-import mano from './img/hand.svg';
-import cancelar from './img/cancelar.svg';
-import agregar from './img/add.svg';
-import videoLogo from './img/video.svg';
+import salir from '../img/logout.svg';
+import mano from '../img/hand.svg';
+import cancelar from '../img/cancelar.svg';
+import agregar from '../img/add.svg';
+import videoLogo from '../img/video.svg';
 
 
 
