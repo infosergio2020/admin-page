@@ -8,7 +8,8 @@ export function Header({ href }) {
       <div className={"nav-background"}>
         <nav className={"navegacion-principal"}>
           <a href={"#"}>Inicio</a>
-          <h2 href={"#"}>Hola!</h2>
+          <h2 href={"#"}>Hola!  
+            <img src="https://img.icons8.com/ios/50/000000/hand.png"/></h2>
           <h2 href={"#"}>Eventos</h2>
           <Button> cerrar sesión</Button>
         </nav>

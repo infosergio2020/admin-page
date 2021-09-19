@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import './iconos/salida.svg';
 import './App.css';
 import { Button } from "./componentes/boton.jsx";
 import { Buscador } from "./componentes/buscador.jsx";
@@ -12,10 +12,12 @@ function App() {
             <h2> Start editing to see some magic happen! </h2>  
             {
                 /* <Button> Cerrar sesión</Button> 
-                <img src={"./componentes/svg/icono.svg"} /> */
+                 */
             }
+            <img src={"./iconos/salida.svg"} />
+
             <Header />
-            {/* <Buscador/>*/}
+            <Buscador/>
 
             
         </div>
