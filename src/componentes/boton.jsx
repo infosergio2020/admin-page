@@ -1,5 +1,6 @@
 import React from "react";
 import "./boton.css";
+import salir from './img/logout.svg';
 
 export function Button({
   src,
@@ -12,6 +13,7 @@ export function Button({
   return (
     <button className={"btn"} onClick={onClick} type={type}>
       {children}
+      <img src={salir} alt="React Logo" />
     </button>
   );
 }
