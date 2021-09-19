@@ -44,3 +44,9 @@
     background-color: var(--verde);
     color: var(--blanco);
 }
+
+.blanco{
+    
+    background-color: var(--blanco);
+    color: var(--verde);
+}

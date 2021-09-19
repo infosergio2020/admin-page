@@ -6,6 +6,8 @@ import salir from './img/logout.svg';
 import mano from './img/hand.svg';
 import cancelar from './img/cancelar.svg';
 import agregar from './img/add.svg';
+import videoLogo from './img/video.svg';
+
 
 
 export function Header({ href }) {
@@ -23,6 +25,8 @@ export function Header({ href }) {
           
             
           <h2 href={"#"}>Eventos</h2>
+          
+          <Button buttonStyle="blanco" icono={videoLogo}> video logo </Button>
           <Button buttonStyle="azul" icono={agregar}> video </Button>
           <Button buttonStyle="verde" icono={mano}> aceptar </Button>
           <Button buttonStyle="rojo" icono={cancelar}> cancelar </Button>
