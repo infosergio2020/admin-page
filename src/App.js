@@ -12,7 +12,6 @@ function App() {
                 /* <Button> Cerrar sesión</Button> 
                  */
             }
-            <img src={"./iconos/salida.svg"} />
 
             <Header />
             <Buscador/>

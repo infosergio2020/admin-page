@@ -13,7 +13,15 @@ export function Button({
   return (
     <button className={"btn"} onClick={onClick} type={type}>
       {children}
+
+      <div className={"sesion"}> 
+      <div> cerrar sesión</div>
+      
+      
       <img src={salir} alt="React Logo" />
+      </div>
+      
     </button>
+    
   );
 }
