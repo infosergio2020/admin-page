@@ -1,6 +1,9 @@
 :root {
     --verdeBoton: #439889;
     --blanco: #ffffff;
+    --azul: #10b5d3;
+    --rojo: #db1111;
+    --verde: #19e74d;
 }
 
 .btn {
@@ -14,12 +17,30 @@
     width: 207px;
     height: 63px;
     color: #ffffff;
-    font-size: 2.4rem;
+    font-size: 1.8rem; 
+    
 }
 .sesion{
-    display: flex; justify-content: center; width: 90%;
+    display: flex; justify-content: center; width: 90%; align-items: center;
+    padding: 0 .5rem;
+    gap: 1.2rem;
 }
 
 .btn:hover {
     transform: translateY(-3px);
+}
+
+.azul{
+    background-color: var(--azul);
+    color: var(--blanco);
+}
+
+.rojo{
+    background-color: var(--rojo);
+    color: var(--blanco);
+}
+
+.verde{
+    background-color: var(--verde);
+    color: var(--blanco);
 }
