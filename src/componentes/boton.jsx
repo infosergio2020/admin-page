@@ -1,24 +1,23 @@
 import React from "react";
 import "./boton.css";
-import salir from './img/logout.svg';
 
 export function Button({
   src,
   children,
   type,
   onClick,
-  buttonStyle,
-  buttonSize
+  buttonStyle="",
+  buttonSize,
+  icono=""
 }) {
   return (
-    <button className={"btn"} onClick={onClick} type={type}>
-      {children}
+    <button className={`btn ${buttonStyle}`} onClick={onClick} type={type}>
+      
 
       <div className={"sesion"}> 
-      <div> cerrar sesión</div>
+      {children}
       
-      
-      <img src={salir} alt="React Logo" />
+      <img src={icono} alt="React Logo" />
       </div>
       
     </button>
