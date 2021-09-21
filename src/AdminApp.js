@@ -1,13 +1,13 @@
 import React from 'react'
 import { PopWindow } from './components/general/popWindow/PopWindow';
-// import VideoApp from "./components/video/VideoApp";
+import video from './icons/photo.svg';
 
 import './main.css'
 
 function AdminApp() {
     return (
         <div>
-            <PopWindow title="Nuevo video"/>
+            <PopWindow icon={video} title="Nueva imagen"/>
             {/* <div className="hola">
                 <VideoApp url="https://youtu.be/or8QfmradNM" />
             </div> */}
