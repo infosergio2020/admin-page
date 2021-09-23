@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import {Button} from '../boton/boton';
 import './popWindow.css'
 
-
 // //ICONOS
-import guardar from '../../../icons/check.svg';
-import cancelar from '../../../icons/cancel.svg';
+// import iconos from '../../../icons/iconos.js';
 
+import iconos from '../../../icons/check.svg';
 
+console.log(iconos);
 export const PopWindow = ({title,icon,setData,video}) => {
 
 // declaracion de un estado
@@ -73,13 +73,26 @@ export const PopWindow = ({title,icon,setData,video}) => {
                 
                 }
 
+                {/* mostrar y esconder el campo cargar imagen */}
+                {!video && 
+                <input 
+                    className="input input-background" 
+                    type="text"
+                    name="url"
+                    placeholder="otra cosa que le corresponde a la imagen"
+                    // value={inputValue}
+                    onChange={handleInputChange}>
+                </input>
+                
+                }
+
                 <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción"></textarea>
 
             </div>
             <div className="center">
 
-            <Button buttonStyle="verde" icono={guardar}> Guardar </Button>
-            <Button buttonStyle="rojo" icono={cancelar}> Cancelar </Button>
+            <Button buttonStyle="verde" icono={iconos.check}> Guardar </Button>
+            <Button buttonStyle="rojo" > Cancelar </Button>
                 </div>
         </form>
         </>
