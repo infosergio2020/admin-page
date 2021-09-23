@@ -44,6 +44,11 @@
     color: #646464;
 }
 
+.input-textArea:focus,.input-textArea:focus-within{
+    color: #000000;
+}
+
+
 .input-background{
     background-color: var(--super-soft-green);
 }

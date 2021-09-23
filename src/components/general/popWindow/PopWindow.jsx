@@ -4,11 +4,10 @@ import {Button} from '../boton/boton';
 import './popWindow.css'
 
 // //ICONOS
-// import iconos from '../../../icons/iconos.js';
+import iconos from '../../../icons/iconos';
 
-import iconos from '../../../icons/check.svg';
+// import iconos from '../../../icons/check.svg';
 
-console.log(iconos);
 export const PopWindow = ({title,icon,setData,video}) => {
 
 // declaracion de un estado
@@ -42,11 +41,11 @@ export const PopWindow = ({title,icon,setData,video}) => {
         <>
         
         <div className="popWindow__header">
-            <h2> <img src={icon}/>  {title}</h2>
+            <h2 tabIndex="0" aria-label={title}> <img alt="imagen. icono de imagen." src={icon}/>  {title}</h2>
         </div>
         {/* <form  className="form background-form" onSubmit={handleSubmit}> */}
         <form  className="form background-form">
-            <h3>Complete los campos a continuación</h3>
+            <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
             <p>titulo: {datos.titulo} </p>
             <p>url: {datos.url} </p>
             <p>descripcion: {datos.descripcion} </p>
@@ -86,13 +85,13 @@ export const PopWindow = ({title,icon,setData,video}) => {
                 
                 }
 
-                <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción"></textarea>
+                <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
 
             </div>
             <div className="center">
 
             <Button buttonStyle="verde" icono={iconos.check}> Guardar </Button>
-            <Button buttonStyle="rojo" > Cancelar </Button>
+            <Button buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Button>
                 </div>
         </form>
         </>
