@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './popWindow.css'
 
-export const PopWindow = ({title,icon,setData}) => {
+export const PopWindow = ({title,icon,setData,video=false}) => {
 
 // declaracion de un estado
-    const [datos, setDatos] = useState({
-        titulo:" ",
-        url:" ",
-        descripcion: " "
-    });
-
+   
+        const [datos, setDatos] = useState({
+            titulo:" ",
+            url:" ",
+            descripcion: " "
+        });
+   
+    
     const handleInputChange = (e)=>{
         setDatos( {
             ...datos, 
@@ -51,6 +53,8 @@ export const PopWindow = ({title,icon,setData}) => {
                     onChange={handleInputChange}>
                 </input>
 
+                {/* mostrar y esconder el campo url de video */}
+                {video && 
                 <input 
                     className="input input-background" 
                     type="text"
@@ -60,6 +64,8 @@ export const PopWindow = ({title,icon,setData}) => {
                     onChange={handleInputChange}>
                 </input>
                 
+                }
+
                 <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción"></textarea>
 
             </div>
