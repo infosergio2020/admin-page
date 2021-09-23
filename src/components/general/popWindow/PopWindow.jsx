@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import {Boton} from '../boton/boton';
 import './popWindow.css'
 
-export const PopWindow = ({title,icon,setData,video=false}) => {
+export const PopWindow = ({title,icon,setData,video}) => {
 
 // declaracion de un estado
    
@@ -69,6 +70,7 @@ export const PopWindow = ({title,icon,setData,video=false}) => {
                 <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción"></textarea>
 
             </div>
+            {/* <Boton></Boton> */}
         </form>
         </>
     )
