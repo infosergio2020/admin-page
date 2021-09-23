@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {Boton} from '../boton/boton';
+import {Button} from '../boton/boton';
 import './popWindow.css'
+
+
+// //ICONOS
+import guardar from '../../../icons/check.svg';
+import cancelar from '../../../icons/cancel.svg';
+
 
 export const PopWindow = ({title,icon,setData,video}) => {
 
@@ -70,7 +76,11 @@ export const PopWindow = ({title,icon,setData,video}) => {
                 <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción"></textarea>
 
             </div>
-            {/* <Boton></Boton> */}
+            <div className="center">
+
+            <Button buttonStyle="verde" icono={guardar}> Guardar </Button>
+            <Button buttonStyle="rojo" icono={cancelar}> Cancelar </Button>
+                </div>
         </form>
         </>
     )

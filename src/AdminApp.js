@@ -16,7 +16,7 @@ function AdminApp() {
             {/* <div className="hola">
                 <VideoApp url="https://youtu.be/or8QfmradNM" />
             </div> */}
-            <Button/>
+            {/* <Button/> */}
         </div>
     )
 }
