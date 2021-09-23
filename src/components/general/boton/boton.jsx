@@ -8,7 +8,7 @@ export function Button({
   onClick,
   buttonStyle="",
   buttonSize,
-  icono="",
+  icono="/icons/cancel",
   active=""
 }) {
   return (

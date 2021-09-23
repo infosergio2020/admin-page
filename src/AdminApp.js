@@ -1,5 +1,7 @@
 import React from 'react'
 import { PopWindow } from './components/general/popWindow/PopWindow';
+
+import { Button } from './components/general/boton/boton';
 import foto from './icons/photo.svg';
 import video from './icons/video.svg';
 
@@ -14,7 +16,7 @@ function AdminApp() {
             {/* <div className="hola">
                 <VideoApp url="https://youtu.be/or8QfmradNM" />
             </div> */}
-
+            <Button/>
         </div>
     )
 }
