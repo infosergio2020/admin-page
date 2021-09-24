@@ -74,14 +74,26 @@ export const PopWindow = ({title,icon,setData,video}) => {
 
                 {/* mostrar y esconder el campo cargar imagen */}
                 {!video && 
-                <input 
+                <div>
+                {/* <input 
                     className="input input-background" 
                     type="text"
                     name="url"
                     placeholder="otra cosa que le corresponde a la imagen"
                     // value={inputValue}
                     onChange={handleInputChange}>
+                </input> */}
+                <input 
+                    className="input input-background" 
+                    type="file"
+                    name="url"
+                
+                    // value={inputValue}
+                    accept="image/gif, image/png, image/peg, "
+                    onChange={handleInputChange}>
                 </input>
+                </div>
+            
                 
                 }
 
