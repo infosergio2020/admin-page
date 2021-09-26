@@ -17,8 +17,10 @@ export const PopWindow = ({title,icon,setData,video}) => {
             url:" ",
             descripcion: " "
         });
+        // declaracion de un estado
    
-    
+        
+// crear funcion para ver los inputs
     const handleInputChange = (e)=>{
         setDatos( {
             ...datos, 
@@ -37,6 +39,25 @@ export const PopWindow = ({title,icon,setData,video}) => {
     //     }
     // }
 
+    const [archivos, setArchivos] = useState(
+        {url:" "}
+    );
+// crear funcion para almacenar las imagenes
+ 
+    const subirArchivos = (l)=>{
+        setArchivos( {
+            ...archivos, 
+            [l.target.name] : l.target.value
+        });
+    }
+    // const insertarArchivos= async()=>{
+    //     const f=new FormData();
+
+    //     for(let i=0; i<archivos.lenght;i++){
+    //         f.append("files",archivos[i]);
+    //     }
+    // }
+
     return (
         <>
         
@@ -49,6 +70,7 @@ export const PopWindow = ({title,icon,setData,video}) => {
             <p>titulo: {datos.titulo} </p>
             <p>url: {datos.url} </p>
             <p>descripcion: {datos.descripcion} </p>
+            <p>archivos: {archivos.url} </p>
             <div className="input-group">
                 <input 
                     className="input input-background" 
@@ -74,23 +96,19 @@ export const PopWindow = ({title,icon,setData,video}) => {
 
                 {/* mostrar y esconder el campo cargar imagen */}
                 {!video && 
-                <div>
-                {/* <input 
-                    className="input input-background" 
-                    type="text"
-                    name="url"
-                    placeholder="otra cosa que le corresponde a la imagen"
-                    // value={inputValue}
-                    onChange={handleInputChange}>
-                </input> */}
+                <div className="center">
+                
                 <input 
-                    className="input input-background" 
+                    className="" 
                     type="file"
                     name="url"
+                    placeholder="Subir archivo"
+                    
+                    
                 
                     // value={inputValue}
                     accept="image/gif, image/png, image/peg, "
-                    onChange={handleInputChange}>
+                    multiple onChange={()=>subirArchivos}>
                 </input>
                 </div>
             
