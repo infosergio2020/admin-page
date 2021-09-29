@@ -13,7 +13,10 @@ export const NewArea = ({setData,area,envivo,evento}) => {
    
         const [datos, setDatos] = useState({
             nombre:" ",
-            descripcion: " "
+            descripcion: " ",
+            urlEvento: " ",
+            eventoNom: " "
+
         });
         // declaracion de un estado
    
@@ -53,7 +56,6 @@ export const NewArea = ({setData,area,envivo,evento}) => {
             <p>descripcion: {datos.descripcion} </p>
             
             <div className="center flex">
-                
 
                 {/* mostrar y esconder los campos del primer div de AREA */}
                 {area && 
@@ -67,8 +69,7 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                 name="nombre"
                                 placeholder="Nombre del area"
                                 onChange={handleInputChange}>
-                            </input>
-                            
+                            </input>                   
                                 
                         </div>
                         <div>
@@ -78,11 +79,8 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                             
                             <Button buttonStyle="azul" icono={iconos.check}> Añadir video </Button>
                         
-                            <Button buttonStyle="azul" icono={iconos.check}> Añadir juego </Button>
-                    
-
-                        </div>
-                        
+                            <Button buttonStyle="azul" icono={iconos.check}> Añadir juego </Button>               
+                        </div>                        
                         
                     </div>
                 
@@ -109,24 +107,19 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                         name="url"
                                         placeholder="Url del en vivo"
                                         onChange={handleInputChange}>
-                                    </input>
-                                    
-                                        
+                                    </input>                                  
                                 </div>
                                 <div className="flex">
+                                    {/* boton de fecha y hora  */}
                                     <Button buttonStyle="azul" icono={iconos.check}> Fecha y hora </Button>
-                                    {/* <Button buttonStyle="azul" icono={iconos.check} type="file" accept="image/gif, image/png, image/peg," multiple onChange={()=>subirArchivos}  name="url" placeholder="Subir archivo" > mm </Button> */}
+                                    {/* boton añadir imagen */}
                                     <label className="label center sesion icon" for="cambio"> Añadir imagen </label>
-                                    <div className="center">
-                
+                                    <div className="center">    
                                         <input 
-                                            id="cambio"
-                                             
+                                            id="cambio"                                    
                                             type="file"
                                             name="url"
-                                            placeholder="Añadir imagen"   
-                                                                                
-                                        
+                                            placeholder="Añadir imagen"                                                                                                              
                                             // value={inputValue}
                                             accept="image/gif, image/png, image/peg, "
                                             multiple onChange={()=>subirArchivos}>
@@ -154,7 +147,7 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                         className="input input-background alargar" 
                                         type="text"
                                         // value={inputValue}
-                                        name="nombre"
+                                        name="eventoNom"
                                         placeholder="Nombre del evento"
                                         onChange={handleInputChange}>
                                     </input>
@@ -179,26 +172,20 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                             id="cambio"
                                              
                                             type="file"
-                                            name="url"
-                                            placeholder="Añadir imagen"   
-                                                                                
-                                        
+                                            name="urlEvento"
+                                            placeholder="Añadir imagen"                       
                                             // value={inputValue}
                                             accept="image/gif, image/png, image/peg, "
                                             multiple onChange={()=>subirArchivos}>
                                         </input>
                                     </div>
             
-
                                 </div>
-                                
-                                
+                                    
                             </div>
                         
                 </div>  
-                
-                
-            
+                      
                 }
             </div>
             
