@@ -7,7 +7,7 @@ import './NewArea.css'
 import iconos from '../../../src/icons/iconos';
 
 
-export const NewArea = ({setData,area}) => {
+export const NewArea = ({setData,area,envivo,evento}) => {
 
 // declaracion de un estado
    
@@ -26,7 +26,18 @@ export const NewArea = ({setData,area}) => {
         });
     }
 
-    
+    const [archivos, setArchivos] = useState(
+        {url:" "}
+    );
+// crear funcion para almacenar las imagenes
+ 
+    const subirArchivos = (l)=>{
+        setArchivos( {
+            ...archivos, 
+            [l.target.name] : l.target.value
+        });
+    }
+   
     return (
         <>
         
@@ -34,14 +45,14 @@ export const NewArea = ({setData,area}) => {
             <h2 tabIndex="0" aria-label={title}> <img alt="imagen. icono de imagen." src={icon}/>  {title}</h2>
         </div> */}
         {/* <form  className="form background-form" onSubmit={handleSubmit}> */}
-        
+        <div className="flex">
         <form  className="form background-form">
             <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
             <p>nombre: {datos.nombre} </p>
         
             <p>descripcion: {datos.descripcion} </p>
             
-            <div className="center">
+            <div className="center flex">
                 
 
                 {/* mostrar y esconder los campos del primer div de AREA */}
@@ -79,36 +90,129 @@ export const NewArea = ({setData,area}) => {
                 }
 
                 {/* mostrar y esconder los campos del primer div de ENVIVO */}
-                {!area && 
-                <div className="center">
+                {envivo && 
+                    <div className="tamaño flex">
+                            <div className="input-group">
+                                <div>
+                                    <input 
+                                        className="input input-background alargar" 
+                                        type="text"
+                                        // value={inputValue}
+                                        name="nombre"
+                                        placeholder="Nombre del en vivo"
+                                        onChange={handleInputChange}>
+                                    </input>
+                                    <input 
+                                        className="input input-background alargar" 
+                                        type="text"
+                                        // value={inputValue}
+                                        name="url"
+                                        placeholder="Url del en vivo"
+                                        onChange={handleInputChange}>
+                                    </input>
+                                    
+                                        
+                                </div>
+                                <div className="flex">
+                                    <Button buttonStyle="azul" icono={iconos.check}> Fecha y hora </Button>
+                                    {/* <Button buttonStyle="azul" icono={iconos.check} type="file" accept="image/gif, image/png, image/peg," multiple onChange={()=>subirArchivos}  name="url" placeholder="Subir archivo" > mm </Button> */}
+                                    <label className="label center sesion icon" for="cambio"> Añadir imagen </label>
+                                    <div className="center">
                 
-                <input 
-                    className="" 
-                    type="file"
-                    name="url"
-                    placeholder="Subir archivo"
-                    
-                    
-                
-                    // value={inputValue}
-                    accept="image/gif, image/png, image/peg, "
-                    multiple onChange={()=>handleInputChange}>
-                </input>
-                </div>
+                                        <input 
+                                            id="cambio"
+                                             
+                                            type="file"
+                                            name="url"
+                                            placeholder="Añadir imagen"   
+                                                                                
+                                        
+                                            // value={inputValue}
+                                            accept="image/gif, image/png, image/peg, "
+                                            multiple onChange={()=>subirArchivos}>
+                                        </input>
+                                    </div>
             
-           
+
+                                </div>
+                                
+                                
+                            </div>
+                        
+                </div>  
+                
+                
+            
                 }
 
+             {/* mostrar y esconder los campos del primer div de EVENTO */}
+             {evento && 
+                    <div className="tamaño flex">
+                            <div className="input-group">
+                                <div>
+                                    <input 
+                                        className="input input-background alargar" 
+                                        type="text"
+                                        // value={inputValue}
+                                        name="nombre"
+                                        placeholder="Nombre del evento"
+                                        onChange={handleInputChange}>
+                                    </input>
+                                    <input 
+                                        className="input input-background alargar" 
+                                        type="text"
+                                        // value={inputValue}
+                                        name="url"
+                                        placeholder="Lugar del evento"
+                                        onChange={handleInputChange}>
+                                    </input>
+                                    
+                                        
+                                </div>
+                                <div className="flex">
+                                    <Button buttonStyle="azul" icono={iconos.video}> Añadir video </Button>
+                                    {/* <Button buttonStyle="azul" icono={iconos.check} type="file" accept="image/gif, image/png, image/peg," multiple onChange={()=>subirArchivos}  name="url" placeholder="Subir archivo" > mm </Button> */}
+                                    <label className="label center sesion icon" for="cambio"> Añadir imagen </label>
+                                    <div className="center">
+                
+                                        <input 
+                                            id="cambio"
+                                             
+                                            type="file"
+                                            name="url"
+                                            placeholder="Añadir imagen"   
+                                                                                
+                                        
+                                            // value={inputValue}
+                                            accept="image/gif, image/png, image/peg, "
+                                            multiple onChange={()=>subirArchivos}>
+                                        </input>
+                                    </div>
+            
 
+                                </div>
+                                
+                                
+                            </div>
+                        
+                </div>  
+                
+                
+            
+                }
             </div>
-            {/* <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea> */}
-
+            
             <div className="center">
 
             <Button buttonStyle="verde" icono={iconos.check}> Guardar </Button>
             <Button buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Button>
-                </div>
+            </div>
         </form>
+        <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+
+
+        </div>
+        
         
         </>
         

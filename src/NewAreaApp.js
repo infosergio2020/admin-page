@@ -11,7 +11,7 @@ import './main.css'
 function NewAreaApp() {
     return (
         <div class="tamañoNewArea">
-            <NewArea area={true} />
+            <NewArea area={false} envivo={false} evento={true} />
             
             {/* <div className="hola">
                 <VideoApp url="https://youtu.be/or8QfmradNM" />
