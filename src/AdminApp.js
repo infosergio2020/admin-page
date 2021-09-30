@@ -1,7 +1,7 @@
 import React from 'react'
 import { PopWindow } from './components/general/popWindow/PopWindow';
 
-import { VideoApp } from './components/video/VideoApp';
+import  VideoApp  from './components/video/VideoApp';
 
 import { Button } from './components/general/boton/boton';
 import foto from './icons/photo.svg';
