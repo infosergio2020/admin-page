@@ -15,9 +15,8 @@ export function Button({
       
 
       <div className={"sesion"}> 
-      {children}
-      
-      <img src={icono} alt="React Logo" />
+        {children} 
+        <img src={icono} alt="React Logo" />
       </div>
       
     </button>
