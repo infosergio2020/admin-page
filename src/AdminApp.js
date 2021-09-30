@@ -12,12 +12,16 @@ import './main.css'
 
 function AdminApp() {
     return (
-         <div class="tamaño">
+         <div class="tamaño center flex">
         {/* <PopWindow icon={foto} title="Nueva imagen" video={false} />
         <PopWindow icon={video} title="Nuevo video" video={true} /> */}
-            <div className="hola">
-                <VideoApp url="https://youtu.be/or8QfmradNM" />
+            <div className="apariencia">
+                <VideoApp url="https://youtu.be/or8QfmradNM"/>
             </div> 
+            <div className="apariencia">
+            <textarea className="input-textAreaV input-backgroundV" type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
+
+            </div>
             {/* <Button/> */}
         </div>
     )

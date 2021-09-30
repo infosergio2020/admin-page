@@ -26,13 +26,7 @@ body {
   background-color: green;
 }
 
-.hola{
-  border-radius: 20px;
-  color: #2e2e2e;
-  background-color: #00000046;
-  width: 600px;
-  height: 480px;
-}
+
 
 .tamañoPopWindow{
   width: 500px;
@@ -43,3 +37,6 @@ body {
   width: 100rem;
   height: 500px;
 }
+
+
+
