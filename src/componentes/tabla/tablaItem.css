@@ -1,0 +1,17 @@
+.table-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-item p{
+    flex-basis: calc(24.975% - 1rem);
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.verde-oscuro{
+    background-color: #004d4d70;
+}

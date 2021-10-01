@@ -1,0 +1,13 @@
+.table-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-header h2{
+    flex-basis: calc(24.975% - 1rem);
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+    text-transform: uppercase;
+}
+
