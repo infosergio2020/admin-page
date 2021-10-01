@@ -13,10 +13,6 @@ function NewAreaApp() {
         <div class="tamañoNewArea">
             <NewArea area={false} envivo={true} evento={false} />
             
-            {/* <div className="hola">
-                <VideoApp url="https://youtu.be/or8QfmradNM" />
-            </div> */}
-            {/* <Button/> */}
         </div>
     )
 }
