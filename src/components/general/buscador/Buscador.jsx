@@ -1,7 +1,7 @@
 import React from "react";
 import "./buscador.css";
 
-export function Buscador({ type, placeholder, name }) {
+export const Buscador = ({ type, placeholder, name }) => {
   return (
     <div className={"divboton"}>
       <form className={"buscador"}>

@@ -1,25 +1,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {Button} from '../boton/boton';
+//COMPONENTES
+import {Button} from '../boton/Boton';
+//CSS
 import './popWindow.css'
-
-// //ICONOS
-import iconos from '../../../icons/iconos';
-
-// import iconos from '../../../icons/check.svg';
+//ICONOS
+import iconos from '../../../img/iconos';
 
 export const PopWindow = ({title,icon,setData,video}) => {
-
 // declaracion de un estado
-   
         const [datos, setDatos] = useState({
             titulo:" ",
             url:" ",
             descripcion: " "
         });
-        // declaracion de un estado
-   
-        
+
 // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
         setDatos( {
@@ -27,7 +22,6 @@ export const PopWindow = ({title,icon,setData,video}) => {
             [e.target.name] : e.target.value
         });
     }
-
     // const handleSubmit = (e)=>{
     //     console.log('hadleSubmit',inputValue);
     //     e.preventDefault();        
@@ -42,8 +36,7 @@ export const PopWindow = ({title,icon,setData,video}) => {
     const [archivos, setArchivos] = useState(
         {url:" "}
     );
-// crear funcion para almacenar las imagenes
- 
+// crear funcion para almacenar las imagenes 
     const subirArchivos = (l)=>{
         setArchivos( {
             ...archivos, 

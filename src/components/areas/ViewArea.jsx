@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {Button} from '../general/boton/boton';
+import {Button} from '../general/boton/Boton';
 import './ViewArea.css'
-import  VideoApp  from '../video/VideoApp';
-
-
+import  {VideoApp}  from '../video/VideoApp';
 //ICONOS
-import iconos from '../../icons/iconos';
-
+import iconos from '../../img/iconos';
 // FUNCION para los TABS view
 export const ViewArea = () => {
 
@@ -154,8 +151,6 @@ export const ViewArea = () => {
     </>
   )
 }
-
-
 // con esto prevengo que alguien que reutilize mi funcion se olvide de mandar una funcion como parametro
 ViewArea.propTypes = { 
     setData: PropTypes.func.isRequired,
