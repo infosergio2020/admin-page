@@ -22,22 +22,3 @@
 .alinear{
     display: flex; justify-content: center; width: 0;
 }
-
-/* Voy a centrar todos los elementos de la pagina */
-
-
-/* margen como un reloj
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  */
-
-
-/* alinear central y verticalmente */
-
-
-/* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */

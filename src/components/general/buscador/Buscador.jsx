@@ -7,7 +7,6 @@ export function Buscador({ type, placeholder, name }) {
       <form className={"buscador"}>
         <input
           className={"input"}
-          // ref={register}
           type={"text"}
           placeholder={"Ingrese el nombre del evento"}
           name={"evento"}
