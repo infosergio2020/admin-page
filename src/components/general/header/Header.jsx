@@ -5,7 +5,7 @@ import "./header.css";
 import salir from '../../img/logout.svg';
 import mano from '../../img/hand.svg';
 
-export function Header({ src }) {
+export const Header = ({ src }) => {
   return (
     <header>
         <div className={"nav-background"}>
