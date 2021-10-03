@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AdminApp from './AdminApp';
-import './main.css';
-ReactDOM.render( <AdminApp />, document.getElementById('root') );
+import './index.css';
+import App from './App';
+ReactDOM.render( <App />, document.getElementById('root') );
