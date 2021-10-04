@@ -15,8 +15,6 @@ export const VideoApp = ({ video=false ,url, title="insertar-titulo" }) => {
                 (<ReactPlayer className="react-player" url={url} width='100%' height='100%' controls={true}/>) 
                 :(<img className="react-player img-w100" src="https://i.ytimg.com/vi/NV5bmaHWQr0/maxresdefault.jpg"></img>)
             }
-            
-
             </div>
         </div>
         }

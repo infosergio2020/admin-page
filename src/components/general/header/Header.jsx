@@ -2,8 +2,8 @@ import React from "react";
 import { Button } from "../boton/Boton.jsx";
 import "./header.css";
 //ICONOS
-import salir from '../../img/logout.svg';
-import mano from '../../img/hand.svg';
+import salir from '../../../img/logout.svg';
+import mano from '../../../img/hand.svg';
 
 export const Header = ({ src }) => {
   return (
