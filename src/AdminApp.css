@@ -1,0 +1,21 @@
+.apariencia-container{
+  background-color: #7e7e7e;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+}
+
+.apariencia{
+    position: relative;
+    margin: 0px auto;
+    flex-basis: calc( 49% - 1rem );
+    border-radius: 2rem;
+    overflow: hidden;
+    color: #ffffff;
+  }
+
+.input-textArea{
+  width: 100%;
+  margin: 5rem auto 0 auto;
+}

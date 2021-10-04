@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 //COMPONENTES
-import {Button} from '../boton/Boton';
+import {Boton} from '../boton/Boton';
 //CSS
 import './popWindow.css'
 //ICONOS
@@ -113,8 +113,8 @@ export const PopWindow = ({title,icon,setData,video}) => {
             </div>
             <div className="center">
 
-            <Button buttonStyle="verde" icono={iconos.check}> Guardar </Button>
-            <Button buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Button>
+            <Boton buttonStyle="verde" icono={iconos.check}> Guardar </Boton>
+            <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
                 </div>
         </form>
         </>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from "../boton/Boton";
+import { Boton } from "../boton/Boton";
 import erase from "../../../img/erase.svg";
 import edit from "../../../img/edit.svg";
 import show from "../../../img/show.svg";
@@ -10,20 +10,20 @@ export const BotonAcciones = ({acciones}) => {
         <div className="btn-group">
                     {acciones === 1 
                         && <>
-                                <Button buttonStyle={'btn-circle transparent'} icono={erase}/> 
+                                <Boton buttonStyle={'btn-circle transparent'} icono={erase}/> 
                            </>
                     }
                     {acciones === 2
                         && <>
-                                <Button buttonStyle={'btn-circle'} icono={edit}/>
-                                <Button buttonStyle={'btn-circle transparent'} icono={erase}/> 
+                                <Boton buttonStyle={'btn-circle'} icono={edit}/>
+                                <Boton buttonStyle={'btn-circle transparent'} icono={erase}/> 
                            </>
                     }
                     {acciones === 3 
                         && <>
-                            <Button buttonStyle={'btn-circle'} icono={edit}/> 
-                            <Button buttonStyle={'btn-circle transparent'} icono={erase}/> 
-                            <Button buttonStyle={'btn-circle transparent'} icono={show}/> 
+                            <Boton buttonStyle={'btn-circle'} icono={edit}/> 
+                            <Boton buttonStyle={'btn-circle transparent'} icono={erase}/> 
+                            <Boton buttonStyle={'btn-circle transparent'} icono={show}/> 
                            </>
                     }
         </div>

@@ -6,7 +6,7 @@ import  {ViewArea}  from './components/areas/ViewArea';
 import  { ViewEvento } from "./components/eventos/ViewEvento";
 //COMPONENTE-GENERAL
 import  {VideoApp}  from './components/video/VideoApp';
-import  {Button}  from './components/general/boton/Boton';
+import  {Boton}  from './components/general/boton/Boton';
 //ICONOS
 import foto from './img/photo.svg';
 import video from './img/video.svg';

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../boton/Boton.jsx";
+import { Boton } from "../boton/Boton.jsx";
 import "./header.css";
 //ICONOS
 import salir from '../../../img/logout.svg';
@@ -16,7 +16,7 @@ export const Header = ({ src }) => {
                 <img src={mano} />
               </div>
               <h2 href={"#"}>Eventos</h2>
-              <Button icono={salir}> cerrar sesion </Button>
+              <Boton icono={salir}> cerrar sesion </Boton>
           </nav>
         </div>
     </header>
