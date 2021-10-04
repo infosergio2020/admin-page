@@ -1,19 +1,18 @@
 /* buscador */
 .buscador {
-    background-color: #004d40;
-    border-radius: 37px;
     width: 100%;
-    height: auto;
+    margin: 0 3rem;
 }
 
 .input {
     background-color: #004d40;
     color: #ffffff;
+    font-size: 2rem;
     width: 100%;
-    padding: 1rem;
-    border-radius: 37px;
+    border-radius: 3rem;
     border: none;
     outline: none;
+    padding: 2rem;
 }
 
 .divboton {

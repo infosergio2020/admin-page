@@ -1,6 +1,10 @@
 .table-header{
     display: flex;
     justify-content: space-between;
+    padding: 1.2rem 4rem;
+    margin-bottom: 0rem;
+    border-bottom: 1px solid #000000;
+    
 }
 
 .table-header h2{
