@@ -24,6 +24,7 @@
 .flex{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     
     
 }
@@ -32,13 +33,15 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
-    align-items:center;
+    justify-content:center;
 }
+
 .horizontalBotones{
     display: flex;
     gap: 2rem;
     align-items:center;
 }
+
 .input-group{
     display: flex;
     flex-direction: column;
@@ -85,7 +88,7 @@
     
     background-color: var(--light-soft-green);
     padding: 2rem 0;
-    /* width: 500px; */
+    width: 100%;
 }
 
 .center{
@@ -108,19 +111,20 @@
     border-radius: 50px;
     cursor: pointer;
     transition: transform 0.3s ease;
-    background-color: var(--azul);
-    width: 207px;
+    width: 199px;
     height: 63px;
     color: #ffffff;
-    font-size: 1.8rem; 
+    font-size: 1.8rem;
+     
    
 }
+
 .label:hover {
     transform: translateY(-3px);
 }
 
 .sesion{ 
-    padding: 0 .5rem;
+    /* padding: 0 .5rem; */
 
 }
 #cambio{
@@ -130,7 +134,9 @@
 }
 
 .icon{
-    background: url("../../img/check.svg") no-repeat;
+    background: url("../../img/photo.svg") no-repeat;
     background-position: right;   
     background-color: var(--azul);
+    justify-content: space-between;
+    
 }

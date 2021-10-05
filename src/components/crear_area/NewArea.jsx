@@ -67,15 +67,17 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                         </div>
                         <div className="acomodarBotones">
                             <div className="horizontalBotones">
-                            <Boton buttonStyle="azul" icono={iconos.check}> Añadir Posicion </Boton>
+                            <Boton buttonStyle="azul" icono={iconos.coord}> Añadir Posicion </Boton>
+                            
+                            <Boton buttonStyle="azul" icono={iconos.play}> Añadir juego </Boton> 
 
-                            <Boton buttonStyle="azul" icono={iconos.check}> Añadir imagen </Boton>
 
                             </div>
                             <div className="horizontalBotones">
-                            <Boton buttonStyle="azul" icono={iconos.check}> Añadir video </Boton>
-                        
-                            <Boton buttonStyle="azul" icono={iconos.check}> Añadir juego </Boton>          
+                            <Boton buttonStyle="azul" icono={iconos.video}> Añadir video </Boton>
+                            
+                            <Boton buttonStyle="azul" icono={iconos.photo}> Añadir imagen </Boton>
+                                 
                             </div>
                                  
                         </div>                        
@@ -109,11 +111,15 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                 </div>
                                 <div className="flex">
                                     {/* boton de fecha y hora  */}
-                                    <Boton buttonStyle="azul" icono={iconos.check}> Fecha y hora </Boton>
+                                    <Boton buttonStyle="azul" icono={iconos.calendar}> Fecha y hora </Boton>
                                     {/* boton añadir imagen */}
+                                    <div>
                                     <label className="label center sesion icon" for="cambio"> Añadir imagen </label>
+                                    
+                                    </div>
                                     <div className="center">    
                                         <input 
+                                        
                                             id="cambio"                                    
                                             type="file"
                                             name="url"
@@ -193,8 +199,11 @@ export const NewArea = ({setData,area,envivo,evento}) => {
             <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
             </div>
         </form>
-        <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+        
+        <textarea  className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
 
+        
+        
 
         </div>
         
