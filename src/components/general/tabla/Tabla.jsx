@@ -5,7 +5,7 @@ import "./tabla.css";
 import { useFetchEventos } from '../../../hooks/useFetchEventos';
 
 
-export const Tabla = ({item}) => {
+export const Tabla = ({item,tipo}) => {
 
     const {data:eventos,loading} = useFetchEventos(item);
     
@@ -19,13 +19,7 @@ export const Tabla = ({item}) => {
             }
 
             {/* <TablaHeader columna={3} titulo={'atraccion'}/>
-            <TablaItem columna={3} data={{id:1,titulo:"hola456"}} acciones={3} espar={true} />
-            
-            <TablaHeader columna={3} titulo={'areas'}/>
-            <TablaItem columna={3} data={{id:1,titulo:"chau123"}} acciones={1} />
-
-            <TablaHeader columna={3} titulo={'titulo'}/>
-            <TablaItem columna={3} data={{id:1,titulo:"chau456"}} acciones={2} /> */}
+                <TablaItem columna={3} data={{id:1,titulo:"hola456"}} acciones={3} espar={true} /> */}
         </div>
     )
 }

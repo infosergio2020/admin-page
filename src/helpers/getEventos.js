@@ -22,14 +22,4 @@ export const getEventos = async ( titulo ) => {
         ]
         return eventos;
     }
-    // CONVERTIR A JSON FORMAT
-    // const {data} = await resp.json();
-    // FORMATEAR EVENTOS
-    // const eventos = data.map(img => {
-    //     return {
-    //         id: img.id,
-    //         title: img.title,
-    //         url: img.images.downsized_medium.url
-    //     }
-    // })
 }
