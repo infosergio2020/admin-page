@@ -1,0 +1,14 @@
+.eventoContainer{
+    position: relative;
+}
+
+.tablaContainer{
+    margin: 0 auto;
+    width: 88%;
+}
+
+.boton-AddEvento{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
