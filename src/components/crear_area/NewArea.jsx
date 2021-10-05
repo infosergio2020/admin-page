@@ -65,14 +65,19 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                             </input>                   
                                 
                         </div>
-                        <div>
-                            <Boton buttonStyle="azul" icono={iconos.check}> Tomar coordenadas </Boton>
+                        <div className="acomodarBotones">
+                            <div className="horizontalBotones">
+                            <Boton buttonStyle="azul" icono={iconos.check}> Añadir Posicion </Boton>
 
                             <Boton buttonStyle="azul" icono={iconos.check}> Añadir imagen </Boton>
-                            
+
+                            </div>
+                            <div className="horizontalBotones">
                             <Boton buttonStyle="azul" icono={iconos.check}> Añadir video </Boton>
                         
-                            <Boton buttonStyle="azul" icono={iconos.check}> Añadir juego </Boton>               
+                            <Boton buttonStyle="azul" icono={iconos.check}> Añadir juego </Boton>          
+                            </div>
+                                 
                         </div>                        
                         
                     </div>

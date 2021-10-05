@@ -18,12 +18,12 @@ import './AdminApp.css';
 export const AdminApp = () => {
     return (
         <div>
-
-        {/* <div class="tamaño center flex">
-            <div class="tamañoNewArea"> <ViewArea  /> </div>
+{/* 
+         <div class="tamaño center flex">
+            <div class="tamañoNewArea"> <ViewArea/> </div>
         </div> */}
         {/* <div> <ViewEvento /> </div> */}
-        {/* <div> <NewArea area={true} /> </div> */}
+        <div> <NewArea area={true} /> </div>
         {/* <div> <NewEvento /> </div> */}
             {/* probar popWindow */}
                 {/* <PopWindow icon={iconos.photo} title="Nueva imagen" video={false} />
@@ -43,9 +43,9 @@ export const AdminApp = () => {
                         {/* <Boton icono={iconos.video}/> */}
 
             {/* probar vista del multimedia */}
-                        <div class="tamañoNewArea">
+                        {/* <div class="tamañoNewArea">
                             <ViewMultimedia />
-                        </div>
+                        </div> */}
         </div>
     )
 }
