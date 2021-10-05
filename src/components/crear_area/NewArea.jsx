@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {Button} from '../general/boton/boton';
-import './NewArea.css'
-
+import { Boton } from '../general/boton/Boton';
 // //ICONOS
-import iconos from '../../../src/icons/iconos';
-
+import iconos from '../../img/iconos';
+//CSS
+import "./NewArea.css"
 
 export const NewArea = ({setData,area,envivo,evento}) => {
-
 // declaracion de un estado
-   
         const [datos, setDatos] = useState({
             nombre:" ",
             descripcion: " ",
             urlEvento: " ",
             eventoNom: " "
-
         });
-        // declaracion de un estado
-   
-        
 // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
         setDatos( {
@@ -73,13 +66,13 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                 
                         </div>
                         <div>
-                            <Button buttonStyle="azul" icono={iconos.check}> Tomar coordenadas </Button>
+                            <Boton buttonStyle="azul" icono={iconos.check}> Tomar coordenadas </Boton>
 
-                            <Button buttonStyle="azul" icono={iconos.check}> Añadir imagen </Button>
+                            <Boton buttonStyle="azul" icono={iconos.check}> Añadir imagen </Boton>
                             
-                            <Button buttonStyle="azul" icono={iconos.check}> Añadir video </Button>
+                            <Boton buttonStyle="azul" icono={iconos.check}> Añadir video </Boton>
                         
-                            <Button buttonStyle="azul" icono={iconos.check}> Añadir juego </Button>               
+                            <Boton buttonStyle="azul" icono={iconos.check}> Añadir juego </Boton>               
                         </div>                        
                         
                     </div>
@@ -111,7 +104,7 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                 </div>
                                 <div className="flex">
                                     {/* boton de fecha y hora  */}
-                                    <Button buttonStyle="azul" icono={iconos.check}> Fecha y hora </Button>
+                                    <Boton buttonStyle="azul" icono={iconos.check}> Fecha y hora </Boton>
                                     {/* boton añadir imagen */}
                                     <label className="label center sesion icon" for="cambio"> Añadir imagen </label>
                                     <div className="center">    
@@ -163,7 +156,7 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                         
                                 </div>
                                 <div className="flex">
-                                    <Button buttonStyle="azul" icono={iconos.video}> Añadir video </Button>
+                                    <Boton buttonStyle="azul" icono={iconos.video}> Añadir video </Boton>
                                     {/* <Button buttonStyle="azul" icono={iconos.check} type="file" accept="image/gif, image/png, image/peg," multiple onChange={()=>subirArchivos}  name="url" placeholder="Subir archivo" > mm </Button> */}
                                     <label className="label center sesion icon" for="cambio"> Añadir imagen </label>
                                     <div className="center">
@@ -191,8 +184,8 @@ export const NewArea = ({setData,area,envivo,evento}) => {
             
             <div className="center">
 
-            <Button buttonStyle="verde" icono={iconos.check}> Guardar </Button>
-            <Button buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Button>
+            <Boton buttonStyle="verde" icono={iconos.check}> Guardar </Boton>
+            <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
             </div>
         </form>
         <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>

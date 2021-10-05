@@ -4,8 +4,6 @@ import photo from './photo.svg';
 import video from './video.svg';
 import img from './descarga.png';
 import lol from './lol.png';
-// import cancel from 'cancel.svg';
-// import cancel from 'cancel.svg';
 
 export default{
     "cancel": cancel,

@@ -23,7 +23,7 @@ export const VideoApp = ({ video=false ,url, title="insertar-titulo" }) => {
         <div>  
             <h2 className="video-title">{title}</h2>
             <div className="player-wrapper">
-                <img className="react-player img-w100"
+                <img className="react-player img-w100" alt="imagen alternativa"
                      src={url? url:"https://img.icons8.com/plasticine/2x/fa314a/no-image.png"}>
                 </img>
             </div>

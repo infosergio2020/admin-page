@@ -4,6 +4,8 @@ import  {PopWindow}  from './components/general/popWindow/PopWindow';
 import  {ViewMultimedia}  from './components/multimedia/ViewMultimedia';
 import  {ViewArea}  from './components/areas/ViewArea';
 import  { ViewEvento } from "./components/eventos/ViewEvento";
+import  { NewArea } from "./components/crear_area/NewArea";
+import  { NewEvento } from "./components/crear_evento/NewEvento";
 //COMPONENTE-GENERAL
 import  {VideoApp}  from './components/video/VideoApp';
 import  {Boton}  from './components/general/boton/Boton';
@@ -20,8 +22,9 @@ export const AdminApp = () => {
         {/* <div class="tamaño center flex">
             <div class="tamañoNewArea"> <ViewArea  /> </div>
         </div> */}
-        <div> <ViewEvento /> </div>
-
+        {/* <div> <ViewEvento /> </div> */}
+        {/* <div> <NewArea /> </div> */}
+        <div> <NewEvento /> </div>
             {/* probar popWindow */}
                 {/* <PopWindow icon={iconos.photo} title="Nueva imagen" video={false} />
                 <PopWindow icon={iconos.video} title="Nuevo video" video={true} /> */}
