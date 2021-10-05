@@ -23,8 +23,8 @@ export const AdminApp = () => {
             <div class="tamañoNewArea"> <ViewArea  /> </div>
         </div> */}
         {/* <div> <ViewEvento /> </div> */}
-        {/* <div> <NewArea /> </div> */}
-        <div> <NewEvento /> </div>
+        {/* <div> <NewArea area={true} /> </div> */}
+        {/* <div> <NewEvento /> </div> */}
             {/* probar popWindow */}
                 {/* <PopWindow icon={iconos.photo} title="Nueva imagen" video={false} />
                 <PopWindow icon={iconos.video} title="Nuevo video" video={true} /> */}
@@ -40,12 +40,12 @@ export const AdminApp = () => {
             </div> */}
 
             {/* probar boton */}
-                        {/* <Button icono={iconos.video}/> */}
+                        {/* <Boton icono={iconos.video}/> */}
 
             {/* probar vista del multimedia */}
-                        {/* <div class="tamañoNewArea">
+                        <div class="tamañoNewArea">
                             <ViewMultimedia />
-                        </div> */}
+                        </div>
         </div>
     )
 }
