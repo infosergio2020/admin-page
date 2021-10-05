@@ -1,17 +1,17 @@
 import { useState,useEffect } from "react"
-import { getEventos } from "../helpers/getEventos";
+import { getAtracciones } from "../helpers/getAtracciones";
 
-export const useFetchEventos = ( ) => {
+export const useFetchAtracciones = ( ) => {
     const [state, setState] = useState({
         data:[],
         loading: true
     });
 
     useEffect(()=>{
-        getEventos()
-            .then( eventos => {
+        getAtracciones()
+            .then( atracciones => {
                     setState({
-                        data:eventos,
+                        data:atracciones,
                         loading:false
                     });
             })

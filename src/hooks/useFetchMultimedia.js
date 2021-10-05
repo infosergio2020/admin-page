@@ -1,17 +1,17 @@
 import { useState,useEffect } from "react"
-import { getEventos } from "../helpers/getEventos";
+import { getArchivos } from "../helpers/getArchivos";
 
-export const useFetchEventos = ( ) => {
+export const useFetchArchivos = ( ) => {
     const [state, setState] = useState({
         data:[],
         loading: true
     });
 
     useEffect(()=>{
-        getEventos()
-            .then( eventos => {
+        getArchivos()
+            .then( archivos => {
                     setState({
-                        data:eventos,
+                        data:archivos,
                         loading:false
                     });
             })

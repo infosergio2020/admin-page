@@ -4,10 +4,15 @@ import "./tablaItem.css"
 import { BotonAcciones } from './BotonAcciones';
 
 
-export const TablaItem = ({columna, data, acciones, espar=false}) => {
+export const TablaItem = ({columna, data, acciones, index}) => {
+    //retorna true si es impar 
+    function isEven(value) {
+        return !(value % 2)
+    }
+
     if(columna === 4){
         return (
-            <div className={`table-item ${espar ? "verde-oscuro":""}`}>
+            <div className={`table-item ${ isEven(index) ? "verde-oscuro":""}`}>
                <p>{data.id}</p>
                <p>{data.titulo}</p>
                <p>{data.tipo}</p>
@@ -16,7 +21,7 @@ export const TablaItem = ({columna, data, acciones, espar=false}) => {
         )    
     } else if(columna === 3) {
         return (
-            <div className={`table-item ${espar ? "verde-oscuro":""}`}>
+            <div className={`table-item ${ isEven(index) ? "verde-oscuro":""}`}>
                <p>{data.id}</p>
                <p>{data.titulo}</p>
                <BotonAcciones acciones={acciones}/>
