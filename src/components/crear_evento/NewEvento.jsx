@@ -1,13 +1,13 @@
 import React from 'react';
 //COMPONENTES
-import { Header } from "../general/header/Header";
+import { NavBar } from "../navBar/NavBar";
 //CSS
 import "./NewEvento.css"
 
 export const NewEvento = () => {
     return (
         <>
-            <Header titulo={'Nuevo Evento'} saludo={false}/>
+            <NavBar titulo={'Nuevo Evento'} saludo={false}/>
         </>
     )
 }

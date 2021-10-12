@@ -1,24 +1,25 @@
-.nav-background {
+.header-background {
     background-color: #00695c;
     color: #ffffff;
     max-width: auto;
     padding: 1rem 10rem;
 }
 
-.navegacion-principal {
+.header-container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     gap: 12rem;
-    /* flex-direction: row-reverse; */
 }
 
-.navegacion-principal a{
+.header-container a{
     text-decoration: none;
     color: red;
     text-transform: uppercase;
 }
 
-.alinear{
-    display: flex; justify-content: center; width: 0;
+.saludo{
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
 }

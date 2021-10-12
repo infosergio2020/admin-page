@@ -6,9 +6,16 @@ import  {ViewArea}  from './components/areas/ViewArea';
 import  { ViewEvento } from "./components/eventos/ViewEvento";
 import  { NewArea } from "./components/crear_area/NewArea";
 import  { NewEvento } from "./components/crear_evento/NewEvento";
+import { NavBar } from "./components/navBar/NavBar";
 //COMPONENTE-GENERAL
 import  {VideoApp}  from './components/video/VideoApp';
 import  {Boton}  from './components/general/boton/Boton';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 //ICONOS
 import foto from './img/photo.svg';
 import video from './img/video.svg';
@@ -18,12 +25,26 @@ import './AdminApp.css';
 export const AdminApp = () => {
     return (
         <div>
+        {/* <Router>
+            <NavBar />
+            <Switch>
+                <Route path='/'/>
+            </Switch>
+        </Router> */}
 {/* 
          <div class="tamaño center flex">
             <div class="tamañoNewArea"> <ViewArea/> </div>
         </div> */}
         {/* <div> <ViewEvento /> </div> */}
-        <div> <NewArea area={true} /> </div>
+        {/* <div> <NewArea area={true} /> </div> */}
+
+        <Router>
+            <NewEvento />
+            <Switch>
+                <Route path='/'/>
+            </Switch>
+        </Router>
+
         {/* <div> <NewEvento /> </div> */}
             {/* probar popWindow */}
                 {/* <PopWindow icon={iconos.photo} title="Nueva imagen" video={false} />
