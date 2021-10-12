@@ -25,26 +25,18 @@ import './AdminApp.css';
 export const AdminApp = () => {
     return (
         <div>
-        {/* <Router>
+        <Router>
             <NavBar />
             <Switch>
                 <Route path='/'/>
             </Switch>
-        </Router> */}
+        </Router>
 {/* 
          <div class="tamaño center flex">
             <div class="tamañoNewArea"> <ViewArea/> </div>
         </div> */}
         {/* <div> <ViewEvento /> </div> */}
         {/* <div> <NewArea area={true} /> </div> */}
-
-        <Router>
-            <NewEvento />
-            <Switch>
-                <Route path='/'/>
-            </Switch>
-        </Router>
-
         {/* <div> <NewEvento /> </div> */}
             {/* probar popWindow */}
                 {/* <PopWindow icon={iconos.photo} title="Nueva imagen" video={false} />

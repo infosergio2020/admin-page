@@ -7,15 +7,23 @@ import { Header } from "../general/header/Header";
 // ----  ICONS  ----
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+
+
 import { IconContext } from "react-icons";
 // ----  DATA ----
 import { SideBarData } from "./SideBarData";
 // CSS
 import './NavBar.css';
 
-export const NavBar = ({src="#", titulo="titulo", saludo=true}) => {
+export const NavBar = () => {
     const [sidebar, setSidebar] = useState(false)
     const showSidebar = () => setSidebar(!sidebar)
+
+    const [title, setTitle] = useState('ingresar titulo')
+    const cambiarTitulo = (e) => { setTitle(e.target.innerText) }
+
+
+
     return (
         <>
         <IconContext.Provider value={{color: '#fff'}}>
@@ -23,7 +31,7 @@ export const NavBar = ({src="#", titulo="titulo", saludo=true}) => {
               <Link to="#" className="menu-bars">
                 <FaIcons.FaBars onClick={showSidebar}/>
               </Link>
-              <Header src={src} titulo={titulo} saludo={saludo}/>
+              <Header src={'#'} titulo={title} saludo={false}/>
           </div>
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
               <ul className='nav-menu-items' onClick={showSidebar}>
@@ -37,7 +45,7 @@ export const NavBar = ({src="#", titulo="titulo", saludo=true}) => {
                       <li key={index} className={item.cName}>
                         <Link to={item.path}>
                           {item.icon}
-                          <span>{item.title}</span>
+                          <span onClick={cambiarTitulo}>{item.title}</span>
                         </Link>
                       </li>
                     )
