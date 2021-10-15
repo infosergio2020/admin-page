@@ -28,8 +28,11 @@ export const AdminApp = () => {
         <Router>
             <NavBar />
             <Switch>
-                <Route path='/'>
+                <Route path='/viewEvento'>
                     <ViewEvento />
+                </Route>
+                <Route path='/viewMultimedia'>
+                    <ViewMultimedia />
                 </Route>
             </Switch>
         </Router>

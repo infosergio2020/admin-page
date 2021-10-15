@@ -23,6 +23,7 @@
     display: flex;
     justify-content: center;
     position: fixed;
+    z-index:3;
     top: 0; /*con esto esta arriba de todo en la esquina izquierda*/
     left: -100%; /*con esto escondes el nav en la izquierda*/
     transition: 850ms;
