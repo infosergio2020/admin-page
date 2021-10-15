@@ -11,7 +11,6 @@ import add from "../../img/add.svg";
 export const ViewEvento = ({item=''}) => {
     return (
         <>
-            <Header titulo={'Eventos'}/>
             <div className="eventoContainer">
                 <div className="tablaContainer">        
                     <Buscador />
