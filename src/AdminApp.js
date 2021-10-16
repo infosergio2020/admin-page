@@ -28,7 +28,7 @@ export const AdminApp = () => {
         <Router>
             <NavBar />
             <Switch>
-                <Route path='/'>
+                <Route path='/reports'>
                     <ViewEvento />
                 </Route>
             </Switch>
