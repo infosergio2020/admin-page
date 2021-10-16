@@ -19,6 +19,11 @@ export const getEventos = async ( titulo ) => {
 
     if(titulo){
         const result = eventos.filter(evento => evento['titulo'] === titulo);
+        
+        if(result.length===0){
+            console.log(result);
+            return eventos;
+        }
         return result;
     } else {
         return eventos;
