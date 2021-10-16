@@ -25,7 +25,7 @@ export const SideBarData = [
     },
     {
         title: 'Areas',
-        path: '/support',
+        path: '/ViewArea',
         icon: <FaIcons.FaKaaba />,
         cName: 'nav-text'
     },

@@ -30,9 +30,12 @@ export const AdminApp = () => {
             <Switch>
                 <Route path='/viewEvento'>
                     <ViewEvento />
-                </Route>
+                </Route>  
                 <Route path='/viewMultimedia'>
                     <ViewMultimedia />
+                </Route>
+                <Route path='/ViewArea'>
+                    <ViewArea />
                 </Route>
             </Switch>
         </Router>
