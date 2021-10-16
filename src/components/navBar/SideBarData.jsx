@@ -30,9 +30,16 @@ export const SideBarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Support',
-        path: '/support',
+        title: 'nuevo evento vista',
+        path: '/NewEvento',
         icon: <IoIcons.IoMdHelpCircle />,
         cName: 'nav-text'
     },
+    {
+        title: 'nuevo area vista',
+        path: '/NewArea',
+        icon: <IoIcons.IoMdHelpCircle />,
+        cName: 'nav-text'
+    },
+
 ]

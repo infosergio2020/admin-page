@@ -2,8 +2,13 @@ import React from 'react'
 //COMPONENTES
 import  {PopWindow}  from './components/general/popWindow/PopWindow';
 import  {ViewMultimedia}  from './components/multimedia/ViewMultimedia';
-import  {ViewArea}  from './components/areas/ViewArea';
-import  { ViewEvento } from "./components/eventos/ViewEvento";
+// import  {ViewArea}  from './components/areas/ViewArea';
+// views de las tablas
+import  { ViewEvento } from "./components/vista_tabla/ViewEvento";
+import  { ViewEnVivo } from "./components/vista_tabla/ViewEnVivo";
+import  { ViewArea } from "./components/vista_tabla/ViewArea";
+import  { ViewAtraccion } from "./components/vista_tabla/ViewAtraccion";
+// paginas
 import  { NewArea } from "./components/crear_area/NewArea";
 import  { NewEvento } from "./components/crear_evento/NewEvento";
 import { NavBar } from "./components/navBar/NavBar";
@@ -30,12 +35,23 @@ export const AdminApp = () => {
             <Switch>
                 <Route path='/viewEvento'>
                     <ViewEvento />
-                </Route>  
+                    
+                </Route>
+                  
                 <Route path='/viewMultimedia'>
-                    <ViewMultimedia />
+                    {/* <ViewEnVivo/> */}
+                    {/* <ViewMultimedia /> */}
                 </Route>
                 <Route path='/ViewArea'>
                     <ViewArea />
+                    
+                </Route>
+                <Route path='/NewArea'>
+                     {/* <NewArea area={true}/> */}
+                </Route> 
+                <Route path='/NewEvento'>
+                     <ViewAtraccion/>
+                    {/* <NewArea area={false} evento={true}/> */}
                 </Route>
             </Switch>
         </Router>

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+// COMPONENTES
 import PropTypes from 'prop-types';
 import {Button} from '../general/boton/Boton';
-import './ViewArea.css'
 import  {VideoApp}  from '../video/VideoApp';
+// CSS
+import './ViewArea.css'
+
 //ICONOS
 import iconos from '../../img/iconos';
 // FUNCION para los TABS view

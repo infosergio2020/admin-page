@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 //COMPONENTES
 import { Buscador } from "../general/buscador/Buscador";
-import { TablaEventos } from "../general/tabla/TablaEventos";
+import { TablaAtraccion } from "../general/tabla/TablaAtraccion";
 import { Boton } from "../general/boton/Boton";
 //CSS
+// Ori viendo
 import './ViewEvento.css'
 import add from "../../img/add.svg";
 
-export const ViewEvento = () => {
+export const ViewAtraccion = () => {
     const [titulo, setTitulo] = useState('')
     return (
         <>
@@ -15,7 +16,7 @@ export const ViewEvento = () => {
                 <div className="tablaContainer">        
                     <Buscador setTitle={setTitulo}/>
                     {/* <h2>{titulo}</h2> */}
-                    <TablaEventos item={titulo} />
+                    <TablaAtraccion item={titulo} />
                 </div>
                 <div className="boton-AddEvento">
                     <Boton buttonStyle={'btn-circle'} icono={add}/>

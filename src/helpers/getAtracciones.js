@@ -1,4 +1,4 @@
-export const getAtracciones = async ( ) => {
+export const getAtracciones = async ( titulo ) => {
     const atracciones = [
         {   "id":1,
             "titulo":"Juego 1",
@@ -13,5 +13,17 @@ export const getAtracciones = async ( ) => {
             "acciones":2
         }
     ]
-    return atracciones;
+
+    if(titulo){
+        const result = atracciones.filter(atraccion => atraccion['titulo'] === titulo);
+        
+        if(result.length===0){
+            console.log(result);
+            return atracciones;
+        }
+        return result;
+    } else {
+        return atracciones;
+    }
+    
 }
