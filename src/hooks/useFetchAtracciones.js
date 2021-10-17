@@ -17,5 +17,5 @@ export const useFetchAtracciones = (item ) => {
             })
     }, [ item]);
 
-    return state;
+    return {state,setState};
 }
