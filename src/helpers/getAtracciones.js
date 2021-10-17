@@ -15,7 +15,7 @@ export const getAtracciones = async ( titulo ) => {
     ]
 
     if(titulo){
-        const result = atracciones.filter(atraccion => atraccion['titulo'] === titulo);
+        const result = atracciones.filter(atraccion => atraccion['titulo'].toLowerCase() === titulo.toLowerCase());
         
         if(result.length===0){
             console.log(result);
