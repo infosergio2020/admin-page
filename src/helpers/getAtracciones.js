@@ -1,19 +1,8 @@
-export const getAtracciones = async ( titulo ) => {
-    const atracciones = [
-        {   "id":1,
-            "titulo":"Juego 1",
-            "acciones":2
-        },
-        {   "id":2,
-            "titulo":"4 casos",
-            "acciones":2
-        },
-        {   "id":3,
-            "titulo":"Poster",
-            "acciones":2
-        }
-    ]
+// import atracciones from "../mockData/atracciones.json";
+// let fs = require('fs');
+let atracciones = require('../mockData/atracciones.json');
 
+export const getAtracciones = async ( titulo ) => {
     if(titulo){
         const result = atracciones.filter(atraccion => atraccion['titulo'].toLowerCase() === titulo.toLowerCase());
         
@@ -26,4 +15,18 @@ export const getAtracciones = async ( titulo ) => {
         return atracciones;
     }
     
+}
+
+export const eliminarAtraccion = (item)=>{
+    // console.log("eliminar atraccion");
+    // console.log(atracciones);
+    // let contador=0
+    // atracciones.map((atraccion) => {
+    //     if (atraccion.id === item){
+    //         atracciones.splice(contador,1);
+    //     }
+    //     ++contador;
+    // });
+    // console.log(atracciones);
+    // console.log('OH NOOOOOOOOO');
 }

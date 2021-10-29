@@ -3,6 +3,7 @@ import React from 'react'
 import { TablaHeader } from "./TablaHeader";
 import { TablaItem } from './TablaItem';
 import { useFetchAtracciones } from '../../../hooks/useFetchAtracciones';
+import { eliminarAtraccion } from "../../../helpers/getAtracciones";
 // CSS
 import "./tabla.css";
 
@@ -28,6 +29,8 @@ export const TablaAtraccion = ({item}) => {
                 data:lista,
                 loading:false
             })
+        //llamar al servicio para eliminarlo de la BD
+        eliminarAtraccion(item);
     }
 
     return (

@@ -15,7 +15,7 @@ export const useFetchAtracciones = (item ) => {
                         loading:false
                     });
             })
-    }, [ item]);
+    }, [ item ]);
 
     return {state,setState};
 }

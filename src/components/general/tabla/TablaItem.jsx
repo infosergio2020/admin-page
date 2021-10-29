@@ -4,7 +4,7 @@ import "./tablaItem.css"
 import { BotonAcciones } from './BotonAcciones';
 
 
-export const TablaItem = ({columna, data, acciones, index, eliminar}) => {
+export const TablaItem = ({columna, data, acciones, index, eliminar=()=>{console.log('no tengo nada pasa una funcion gil');}}) => {
     //retorna true si es impar 
     function isEven(value) {
         return !(value % 2)

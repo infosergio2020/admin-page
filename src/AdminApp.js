@@ -19,7 +19,6 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
   } from "react-router-dom";
 //ICONOS
 import foto from './img/photo.svg';
@@ -33,56 +32,32 @@ export const AdminApp = () => {
         <Router>
             <NavBar />
             <Switch>
+                <Route exact path='/'>
+                    <h1>Welcome!</h1>
+                </Route>
+
                 <Route path='/viewEvento'>
                     <ViewEvento />
-                    
                 </Route>
                   
                 <Route path='/viewMultimedia'>
-                    {/* <ViewEnVivo/> */}
+                    <ViewEnVivo/>
                     {/* <ViewMultimedia /> */}
                 </Route>
                 <Route path='/ViewArea'>
                     <ViewArea />
-                    
                 </Route>
                 <Route path='/NewArea'>
-                     {/* <NewArea area={true}/> */}
+                     <NewArea area={true}/>
                 </Route> 
                 <Route path='/NewEvento'>
-                     <ViewAtraccion/>
+                    <h1>HHHHHHHHHAAAAAAAAAAAAAAAAAAA</h1>
+                     {/* <ViewAtraccion/> */}
                     {/* <NewArea area={false} evento={true}/> */}
                 </Route>
             </Switch>
         </Router>
-{/* 
-         <div class="tamaño center flex">
-            <div class="tamañoNewArea"> <ViewArea/> </div>
-        </div> */}
-        {/* <div> <ViewEvento /> </div> */}
-        {/* <div> <NewArea area={true} /> </div> */}
-        {/* <div> <NewEvento /> </div> */}
-            {/* probar popWindow */}
-                {/* <PopWindow icon={iconos.photo} title="Nueva imagen" video={false} />
-                <PopWindow icon={iconos.video} title="Nuevo video" video={true} /> */}
-            
-            {/* probar VideoApp */}
-            {/* <div className="apariencia-container">
-                <div className="apariencia">
-                    <VideoApp url="https://youtu.be/or8QfmradNM" video={true} title="lo que sea" />
-                </div> 
-                <div className="apariencia">
-                    <textarea className="input-textArea" type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
-                </div>
-            </div> */}
 
-            {/* probar boton */}
-                        {/* <Boton icono={iconos.video}/> */}
-
-            {/* probar vista del multimedia */}
-                        {/* <div class="tamañoNewArea">
-                            <ViewMultimedia />
-                        </div> */}
         </div>
     )
 }
