@@ -3,17 +3,15 @@ import React,{useState} from 'react'
 // ----  ROUTER  ----
 import { Link } from "react-router-dom";
 // ----  COMPONENTES
-import { Header } from "../general/header/Header";
+import { Header } from "./Header";
 // ----  ICONS  ----
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-
-
 import { IconContext } from "react-icons";
 // ----  DATA ----
-import { SideBarData } from "./SideBarData";
+import { NavBarData } from "./NavBarData";
 // CSS
-import './NavBar.css';
+import '../styles/NavBar.css';
 
 export const NavBar = () => {
     const [sidebar, setSidebar] = useState(false)
@@ -21,8 +19,6 @@ export const NavBar = () => {
 
     const [title, setTitle] = useState('ingresar titulo')
     const cambiarTitulo = (e) => { setTitle(e.target.innerText) }
-
-
 
     return (
         <>
@@ -40,7 +36,7 @@ export const NavBar = () => {
                         <AiIcons.AiOutlineClose />
                     </Link>
                   </li>
-                  {SideBarData.map((item,index)=>{
+                  {NavBarData.map((item,index)=>{
                     return (
                       <li key={index} className={item.cName}>
                         <Link to={item.path}>

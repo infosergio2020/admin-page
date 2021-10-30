@@ -1,5 +1,5 @@
 import React from "react";
-import "./boton.css";
+import "../styles/boton.css";
 
 export const Boton = ({ src, children, type, onClick, buttonStyle="", icono="" }) => {
   return (

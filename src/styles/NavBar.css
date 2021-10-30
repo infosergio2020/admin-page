@@ -1,9 +1,10 @@
 .navbar{
     background-color: #00695c;
-    height: 8rem;
+    height: 9rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    column-gap: 2rem;
 }
 
 .navbar a{

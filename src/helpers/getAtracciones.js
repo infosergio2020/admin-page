@@ -1,6 +1,6 @@
 // import atracciones from "../mockData/atracciones.json";
 // let fs = require('fs');
-let atracciones = require('../mockData/atracciones.json');
+let atracciones = require('../assets/mockData/atracciones.json');
 
 export const getAtracciones = async ( titulo ) => {
     if(titulo){

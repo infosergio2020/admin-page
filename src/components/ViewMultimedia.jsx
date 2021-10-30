@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {Button} from '../general/boton/Boton';
 import './ViewMultimedia.css'
-import  {VideoApp}  from '../video/VideoApp';
+import  {VideoApp}  from './VideoApp';
 
 
 //ICONOS

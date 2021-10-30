@@ -26,14 +26,6 @@ export const ViewEvento = () => {
                 </div>
               
             </div>
-            {/* <Switch>
-                <Route exact path={path}>
-                    <h3>Elija al menos un link</h3>
-                </Route>
-                <Route exact path={`${path}/:linkId`}>
-                    <NewEvento />
-                </Route>
-            </Switch> */}
         </>
     )
 }
