@@ -69,8 +69,23 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                             <div className="horizontalBotones">
                             <Boton buttonStyle="azul" icono={iconos.video}> Añadir video </Boton>
                             
-                            <Boton buttonStyle="azul" icono={iconos.photo}> Añadir imagen </Boton>
-                                 
+                            {/* boton añadir imagen */}
+                                    
+                            <label className="label" for="cambio">
+                                        <p>Añadir imagen</p> 
+                                        <img src={iconos.photo} />
+                            </label>                                   
+                                        <input 
+                                        
+                                            id="cambio"                                    
+                                            type="file"
+                                            name="url"
+                                            placeholder="Añadir imagen"                                                                                                              
+                                            // value={inputValue}
+                                            accept="image/gif, image/png, image/peg, "
+                                            multiple onChange={()=>subirArchivos}>
+                                        </input>
+     
                             </div>
                                  
                         </div>                        
