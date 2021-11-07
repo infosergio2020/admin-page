@@ -2,7 +2,7 @@ import React from 'react'
 // COMPONENTE
 import { TablaHeader } from "./TablaHeader";
 import { TablaItem } from './TablaItem';
-import { useFetchArchivos } from '../../../hooks/useFetchMultimedia';
+import { useFetchArchivos } from '../../hooks/useFetchMultimedia';
 // CSS
 import "./tabla.css";
 

@@ -6,28 +6,84 @@
     --verde: #19e74d;
 }
 
-.popWindow__header{
-    padding: 0.1rem 0;
-    font-family: var(--sans-pro);
-    color: #ffffff;
-    background-color: var(--light-blue);
-    text-align: center;
+.container-Switch{
+    padding: 0 1rem;
 }
 
-.popWindow__header h2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
-    column-gap: 2rem;
-}
 .flex{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
+   display: block;
+   
+}
+
+@media (min-width: 768px){
+    .flex{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
     
 }
+
+.bg-gray{
+    background-color: #BACFCB;
+}
+
+/* EVENTOS */
+.container-evento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-input-evento{
+    width: 95%;
+}
+
+@media (min-width: 768px){
+    .container-input-evento{
+        width: 60%;
+    }
+}
+
+.container-addBtn-evento{
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px){
+    .container-addBtn-evento{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 60%;
+    }    
+}
+
+.container-addBtn-evento #cambhio{
+    display: none;
+}
+
+
+/* AREA */
+
+
+/* ENVIVO */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .acomodarBotones{
     display: flex;
     flex-direction: row;
@@ -71,6 +127,12 @@
     color: #646464;
 }
 
+@media (min-width: 768px){
+    .input-textArea{
+        flex: 0 0 calc(35% - 1rem);
+    }
+}
+
 .input-textArea:focus,.input-textArea:focus-within{
     color: #000000;
 }
@@ -105,17 +167,18 @@
 /* comienzo del boton label */
 
 .label{
+    display: flex;
     font-family: "Source Sans Pro", sans-serif;
     text-align: center;
     font-weight: 400;
     border-radius: 50px;
+    border: 1px solid #000000;
     cursor: pointer;
     transition: transform 0.3s ease;
-    width: 199px;
-    height: 63px;
+    background-color: var(--azul);
+    padding: .5rem 3rem;
     color: #ffffff;
-    font-size: 1.8rem;
-     
+    font-size: 1.8rem; 
    
 }
 
@@ -123,20 +186,9 @@
     transform: translateY(-3px);
 }
 
-.sesion{ 
-    /* padding: 0 .5rem; */
 
-}
 #cambio{
     position: absolute;
    z-index: -1;
     opacity: 0;
-}
-
-.icon{
-    background: url("../../img/photo.svg") no-repeat;
-    background-position: right;   
-    background-color: var(--azul);
-    justify-content: space-between;
-    
 }

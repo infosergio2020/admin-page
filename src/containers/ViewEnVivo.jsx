@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 //COMPONENTES
-import { Buscador } from "../general/buscador/Buscador";
-import { TablaEnvivo } from "../general/tabla/TablaEnvivo";
-import { Boton } from "../general/boton/Boton";
+import { Buscador } from "../components/Buscador";
+import { TablaEnvivo } from "../components/tabla/TablaEnvivo";
+import { Boton } from "../components/Boton";
 //CSS
 // Ori viendo
-import './ViewEvento.css'
-import add from "../../img/add.svg";
+import '../styles/ViewEvento.css'
+import iconos from '../assets/img/iconos';
 
 export const ViewEnVivo = () => {
     const [titulo, setTitulo] = useState('')
@@ -19,7 +19,7 @@ export const ViewEnVivo = () => {
                     <TablaEnvivo item={titulo} />
                 </div>
                 <div className="boton-AddEvento">
-                    <Boton buttonStyle={'btn-circle'} icono={add}/>
+                    <Boton buttonStyle={'btn-circle'} icono={iconos.add}/>
                 </div>
             </div>
         </>

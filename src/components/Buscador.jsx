@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import "./buscador.css";
+import "../styles/buscador.css";
 
 export const Buscador = ({setTitle}) => {
 const [inputValue, setInputValue] = useState('');

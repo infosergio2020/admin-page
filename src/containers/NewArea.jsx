@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Boton } from '../general/boton/Boton';
+import { Boton } from '../components/Boton';
 // //ICONOS
-import iconos from '../../img/iconos';
+import iconos from '../assets/img/iconos';
 //CSS
-import "./NewArea.css"
+import "../styles/NewArea.css"
 
 export const NewArea = ({setData,area,envivo,evento}) => {
 // declaracion de un estado
@@ -36,19 +36,12 @@ export const NewArea = ({setData,area,envivo,evento}) => {
    
     return (
         <>
-        
-        {/* <div className="popWindow__header">
-            <h2 tabIndex="0" aria-label={title}> <img alt="imagen. icono de imagen." src={icon}/>  {title}</h2>
-        </div> */}
-        {/* <form  className="form background-form" onSubmit={handleSubmit}> */}
-        <div className="flex">
+        <div className="container-Switch">
+        <div className="flex bg-gray">
         <form  className="form background-form">
             <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
             <p>nombre: {datos.nombre} </p>
-        
             <p>descripcion: {datos.descripcion} </p>
-            
-            <div className="center flex">
 
                 {/* mostrar y esconder los campos del primer div de AREA */}
                 {area && 
@@ -108,8 +101,9 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                         placeholder="Url del en vivo"
                                         onChange={handleInputChange}>
                                     </input>                                  
-                                </div>
-                                <div className="flex">
+                                </div> {/* nombre y URL */}
+
+                                <div className="flex-botones">
                                     {/* boton de fecha y hora  */}
                                     <Boton buttonStyle="azul" icono={iconos.calendar}> Fecha y hora </Boton>
                                     {/* boton añadir imagen */}
@@ -132,23 +126,16 @@ export const NewArea = ({setData,area,envivo,evento}) => {
             
 
                                 </div>
-                                
-                                
                             </div>
-                        
-                </div>  
-                
-                
-            
+                    </div>  
                 }
 
              {/* mostrar y esconder los campos del primer div de EVENTO */}
              {evento && 
-                    <div className="tamaño flex">
-                            <div className="input-group">
-                                <div>
+                    <div className="container-evento">
+                            <div className="container-input-evento">
                                     <input 
-                                        className="input input-background alargar" 
+                                        className="input input-background" 
                                         type="text"
                                         // value={inputValue}
                                         name="eventoNom"
@@ -156,22 +143,23 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                         onChange={handleInputChange}>
                                     </input>
                                     <input 
-                                        className="input input-background alargar" 
+                                        className="input input-background" 
                                         type="text"
                                         // value={inputValue}
                                         name="url"
                                         placeholder="Lugar del evento"
                                         onChange={handleInputChange}>
-                                    </input>
-                                    
-                                        
-                                </div>
-                                <div className="flex">
-                                    <Boton buttonStyle="azul" icono={iconos.video}> Añadir video </Boton>
+                                    </input>  
+                            </div>
+
+                            <div className="container-addBtn-evento">
+                                    <Boton buttonStyle="azul" icono={iconos.video}> <p>Añadir video</p> </Boton>
                                     {/* <Button buttonStyle="azul" icono={iconos.check} type="file" accept="image/gif, image/png, image/peg," multiple onChange={()=>subirArchivos}  name="url" placeholder="Subir archivo" > mm </Button> */}
-                                    <label className="label center sesion icon" for="cambio"> Añadir imagen </label>
-                                    <div className="center">
-                
+                                    <label className="label" for="cambio"> 
+                                        <p>Añadir imagen</p> 
+                                        <img src={iconos.photo} />
+                                    </label>
+                                    
                                         <input 
                                             id="cambio"
                                              
@@ -182,16 +170,13 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                             accept="image/gif, image/png, image/peg, "
                                             multiple onChange={()=>subirArchivos}>
                                         </input>
-                                    </div>
             
                                 </div>
-                                    
-                            </div>
                         
                 </div>  
                       
                 }
-            </div>
+
             
             <div className="center">
 
@@ -207,7 +192,7 @@ export const NewArea = ({setData,area,envivo,evento}) => {
 
         </div>
         
-        
+        </div>
         </>
         
       
