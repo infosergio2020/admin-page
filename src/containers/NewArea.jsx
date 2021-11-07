@@ -45,11 +45,11 @@ export const NewArea = ({setData,area,envivo,evento}) => {
 
                 {/* mostrar y esconder los campos del primer div de AREA */}
                 {area && 
-                <div className="tamaño">
-                    <div className="input-group">
+                <div className="container-evento">
+                    <div className="container-input-evento">
                         <div>
                             <input 
-                                className="input input-background alargar" 
+                                className="input input-background" 
                                 type="text"
                                 // value={inputValue}
                                 name="nombre"
@@ -58,7 +58,7 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                             </input>                   
                                 
                         </div>
-                        <div className="acomodarBotones">
+                        <div className="flex-botones">
                             <div className="horizontalBotones">
                             <Boton buttonStyle="azul" icono={iconos.coord}> Añadir Posicion </Boton>
                             
@@ -82,11 +82,11 @@ export const NewArea = ({setData,area,envivo,evento}) => {
 
                 {/* mostrar y esconder los campos del primer div de ENVIVO */}
                 {envivo && 
-                    <div className="tamaño flex">
-                            <div className="input-group">
-                                <div>
+                    <div className="container-evento">
+                            <div className="container-input-evento">
+                                
                                     <input 
-                                        className="input input-background alargar" 
+                                        className="input input-background" 
                                         type="text"
                                         // value={inputValue}
                                         name="nombre"
@@ -94,24 +94,24 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                         onChange={handleInputChange}>
                                     </input>
                                     <input 
-                                        className="input input-background alargar" 
+                                        className="input input-background" 
                                         type="text"
                                         // value={inputValue}
                                         name="url"
                                         placeholder="Url del en vivo"
                                         onChange={handleInputChange}>
                                     </input>                                  
-                                </div> {/* nombre y URL */}
+                                 {/* nombre y URL */}
 
-                                <div className="flex-botones">
+                                <div className="container-addBtn-evento">
                                     {/* boton de fecha y hora  */}
                                     <Boton buttonStyle="azul" icono={iconos.calendar}> Fecha y hora </Boton>
                                     {/* boton añadir imagen */}
-                                    <div>
-                                    <label className="label center sesion icon" for="cambio"> Añadir imagen </label>
                                     
-                                    </div>
-                                    <div className="center">    
+                                    <label className="label" for="cambio">
+                                        <p>Añadir imagen</p> 
+                                        <img src={iconos.photo} />
+                                    </label>                                   
                                         <input 
                                         
                                             id="cambio"                                    
@@ -122,8 +122,6 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                             accept="image/gif, image/png, image/peg, "
                                             multiple onChange={()=>subirArchivos}>
                                         </input>
-                                    </div>
-            
 
                                 </div>
                             </div>
