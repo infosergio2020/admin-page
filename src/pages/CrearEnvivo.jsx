@@ -5,7 +5,7 @@ import { ViewEnVivo } from "../containers/ViewEnVivo";
 export const CrearEnvivo = () => {
     return (
         <>
-            <NewArea area={true} evento={false} envivo={true} />
+            <NewArea area={true} evento={false} envivo={false} />
             {/* <ViewEnVivo /> */}
         </>
     )
