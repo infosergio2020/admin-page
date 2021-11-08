@@ -1,8 +1,8 @@
 import React from 'react';
 //COMPONENTES
-import { Header } from "../general/header/Header";
+import { Header } from "../components/Header";
 //CSS
-import "./NewEvento.css"
+import "../styles/NewEvento.css"
 
 export const NewEvento = () => {
     return (

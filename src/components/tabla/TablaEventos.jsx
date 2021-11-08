@@ -2,7 +2,7 @@ import React from 'react'
 // COMPONENTE
 import { TablaHeader } from "./TablaHeader";
 import { TablaItem } from './TablaItem';
-import { useFetchEventos } from '../../../hooks/useFetchEventos';
+import { useFetchEventos } from '../../hooks/useFetchEventos';
 // CSS
 import "./tabla.css";
 

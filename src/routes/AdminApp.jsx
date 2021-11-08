@@ -3,6 +3,8 @@ import React from 'react'
 import { NavBar } from "../components/NavBar";
 import { NotFound404 } from '../pages/NotFound404';
 import { CrearEnvivo } from '../pages/CrearEnvivo';
+import { CrearArea } from '../pages/CrearArea';
+import { CrearEvento } from '../pages/CrearEvento';
 // REACT-ROUTER
 import {
     BrowserRouter as Router,
@@ -25,20 +27,22 @@ export const AdminApp = () => {
                     <h1>Eventos</h1>
                 </Route>
                 <Route exact path='/CrearEvento'>
-                    <h1>CrearEvento</h1>
+                        <CrearEvento/>
                 </Route> 
                 <Route exact path='/Areas'>
                     <h1>Areas</h1>
                 </Route>
                 <Route exact path='/CrearArea'>
-                    <h1>CrearArea</h1>
+                    <CrearArea/>
                 </Route> 
                 <Route exact path='/Atracciones'>
                     <h1>Atracciones</h1>
                 </Route>
                 <Route exact path='/CrearAtraccion'>
-                    <h1>CrearAtraccion</h1>
+                    {/* <CrearAtraccion /> */}
+                    
                 </Route>
+
                 <Route exact path='/Envivos'>
                     <h1>Envivos</h1>
                 </Route>

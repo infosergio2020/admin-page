@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 // COMPONENTES
 import PropTypes from 'prop-types';
-import {Button} from '../general/boton/Boton';
-import  {VideoApp}  from '../video/VideoApp';
+import {Button} from "../components/Boton";
+import  {VideoApp}  from "../components/VideoApp";
 // CSS
-import './ViewArea.css'
+import '../styles/ViewArea.css'
 
 //ICONOS
-import iconos from '../../img/iconos';
+import iconos from '../../src/assets/img/iconos';
 // FUNCION para los TABS view
 export const ViewArea = () => {
 

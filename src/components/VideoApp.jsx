@@ -2,7 +2,7 @@ import React from 'react';
 //COMPONENTES
 import ReactPlayer from 'react-player'
 //CSS
-import './VideoApp.css';
+import '../styles/VideoApp.css';
 export const VideoApp = ({ video=false ,url, title="insertar-titulo" }) => {
     return (
     <>

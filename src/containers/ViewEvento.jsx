@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 //COMPONENTES
-import { Buscador } from "../general/buscador/Buscador";
-import { TablaEventos } from "../general/tabla/TablaEventos";
-import { Boton } from "../general/boton/Boton";
+import { Buscador } from "../components/Buscador";
+import { TablaEventos } from "../components/tabla/TablaEventos";
+import { Boton } from "../components/Boton";
 import { Link,useHistory } from "react-router-dom";
 //CSS
 // Ori viendo
-import './ViewEvento.css'
-import add from "../../img/add.svg";
-import { NewEvento } from '../crear_evento/NewEvento';
+import '../styles/ViewEvento.css'
+import add from "../../src/assets/img/iconos";
+import { NewEvento } from './NewEvento';
+// import { NewArea } from "../containers/NewArea";
 
 export const ViewEvento = () => {
     let history = useHistory();
