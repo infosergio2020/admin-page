@@ -17,6 +17,15 @@ export const ViewArea = () => {
       setToggleState(index);
     };
 
+// LocalStorage
+function getDescripcion() {
+  const nombre = localStorage.getItem('nombreArea');
+  const descripcion = localStorage.getItem('descripcionArea');
+  return descripcion;
+
+}
+
+
 // comienzo del MAIN
     return (
         <>
@@ -118,7 +127,7 @@ export const ViewArea = () => {
                     <div class="tamaño center flex">      
                       
                       <div className="apariencia paddingArea">
-                          <textarea className="input-textAreaV input-backgroundV" type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
+                          <textarea className="input-textAreaV input-backgroundV" type="text" value={getDescripcion()} name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
                          
                       </div>
                                    

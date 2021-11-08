@@ -33,7 +33,14 @@ export const NewArea = ({setData,area,envivo,evento}) => {
             [l.target.name] : l.target.value
         });
     }
-   
+// me guardo los datos que se escribieron en el NewArea
+function guardar() {
+    localStorage.setItem('nombreArea', datos.nombre);
+    localStorage.setItem('descripcionArea', datos.descripcion);
+  }
+
+ 
+
     return (
         <>
         <div className="container-Switch">
@@ -41,7 +48,7 @@ export const NewArea = ({setData,area,envivo,evento}) => {
         <form  className="form background-form">
             <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
             <p>nombre: {datos.nombre} </p>
-            <p>descripcion: {datos.descripcion} </p>
+            <p>descripcion: {datos.descripcion}  </p>
 
                 {/* mostrar y esconder los campos del primer div de AREA */}
                 {area && 
@@ -53,8 +60,10 @@ export const NewArea = ({setData,area,envivo,evento}) => {
                                 type="text"
                                 // value={inputValue}
                                 name="nombre"
+                            
                                 placeholder="Nombre del area"
                                 onChange={handleInputChange}>
+                                    
                             </input>                   
                                 
                         </div>
@@ -193,7 +202,7 @@ export const NewArea = ({setData,area,envivo,evento}) => {
             
             <div className="center">
 
-            <Boton buttonStyle="verde" icono={iconos.check}> Guardar </Boton>
+            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardar}> Guardar </Boton>
             <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
             </div>
         </form>

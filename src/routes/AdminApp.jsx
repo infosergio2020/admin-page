@@ -5,6 +5,8 @@ import { NotFound404 } from '../pages/NotFound404';
 import { CrearEnvivo } from '../pages/CrearEnvivo';
 import { CrearArea } from '../pages/CrearArea';
 import { CrearEvento } from '../pages/CrearEvento';
+
+import { VerArea } from '../pages/VerArea';
 // REACT-ROUTER
 import {
     BrowserRouter as Router,
@@ -30,7 +32,7 @@ export const AdminApp = () => {
                         <CrearEvento/>
                 </Route> 
                 <Route exact path='/Areas'>
-                    <h1>Areas</h1>
+                    <VerArea/>
                 </Route>
                 <Route exact path='/CrearArea'>
                     <CrearArea/>
