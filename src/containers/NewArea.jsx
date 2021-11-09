@@ -9,16 +9,24 @@ import "../styles/NewArea.css"
 export const NewArea = ({setData,area,envivo,evento}) => {
 // declaracion de un estado
         const [datos, setDatos] = useState({
-            nombre:" ",
-            descripcion: " ",
+            nombreArea:" ",
+            nombreEnvivo:" ",
+            nombreEvento:" ",
+            descripcionArea: " ",
+            descripcionEnvivo: " ",
+            descripcionEvento: " ",
             urlEvento: " ",
-            eventoNom: " "
+            urlArea: " ",
+            urlEnvivo:" ",
+    
+            
         });
 // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
         setDatos( {
             ...datos, 
             [e.target.name] : e.target.value
+            
         });
     }
 
@@ -34,9 +42,23 @@ export const NewArea = ({setData,area,envivo,evento}) => {
         });
     }
 // me guardo los datos que se escribieron en el NewArea
-function guardar() {
-    localStorage.setItem('nombreArea', datos.nombre);
-    localStorage.setItem('descripcionArea', datos.descripcion);
+function guardarArea() {
+    localStorage.setItem('nombreArea', datos.nombreArea);
+    localStorage.setItem('descripcionArea', datos.descripcionArea);
+  }
+  function guardarEvento() {
+    localStorage.setItem('nombreEvento', datos.nombreEvento);
+    localStorage.setItem('descripcionEvento', datos.descripcionEvento);
+    getEvento();
+  }
+  function getEvento(){
+    // const nomEvento= localStorage.getItem('nombreEvento');
+    // const  desEvento= localStorage.getItem('descripcionEvento');
+    // return desEvento;
+  }
+  function guardarEnvivo() {
+    localStorage.setItem('nombreEnvivo', datos.nombreEnvivo);
+    localStorage.setItem('descripcionEnvivo', datos.descripcionEnvivo);
   }
 
  
@@ -45,67 +67,81 @@ function guardar() {
         <>
         <div className="container-Switch">
         <div className="flex bg-gray">
-        <form  className="form background-form">
-            <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
-            <p>nombre: {datos.nombre} </p>
-            <p>descripcion: {datos.descripcion}  </p>
-
+        {/* aca estaba el form */}
+            
                 {/* mostrar y esconder los campos del primer div de AREA */}
                 {area && 
-                <div className="container-evento">
-                    <div className="container-input-evento">
-                        <div>
-                            <input 
-                                className="input input-background" 
-                                type="text"
-                                // value={inputValue}
-                                name="nombre"
-                            
-                                placeholder="Nombre del area"
-                                onChange={handleInputChange}>
-                                    
-                            </input>                   
-                                
-                        </div>
-                        <div className="flex-botones">
-                            <div className="horizontalBotones">
-                            <Boton buttonStyle="azul" icono={iconos.coord}> Añadir Posicion </Boton>
-                            
-                            <Boton buttonStyle="azul" icono={iconos.play}> Añadir juego </Boton> 
+                <form  className="form background-form">
+                        <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
+                        {/* <p>nombre: {datos.nombre} </p>
+                        <p>descripcion: {datos.descripcion}  </p> */}
 
-
-                            </div>
-                            <div className="horizontalBotones">
-                            <Boton buttonStyle="azul" icono={iconos.video}> Añadir video </Boton>
-                            
-                            {/* boton añadir imagen */}
+                        <div className="container-evento">
+                            <div className="container-input-evento">
+                                <div className="tamañoInputDes">
+                                    <input 
+                                        className="input input-background" 
+                                        type="text"
+                                        // value={inputValue}
+                                        name="nombreArea"
                                     
-                            <label className="label" for="cambio">
-                                        <p>Añadir imagen</p> 
-                                        <img src={iconos.photo} />
-                            </label>                                   
-                                        <input 
+                                        placeholder="Nombre del area"
+                                        onChange={handleInputChange}>
+                                            
+                                    </input>                   
                                         
-                                            id="cambio"                                    
-                                            type="file"
-                                            name="url"
-                                            placeholder="Añadir imagen"                                                                                                              
-                                            // value={inputValue}
-                                            accept="image/gif, image/png, image/peg, "
-                                            multiple onChange={()=>subirArchivos}>
-                                        </input>
-     
+                                </div>
+                                <div className="">
+                                    <div className="horizontalBotones">
+                                    <Boton buttonStyle="azul" icono={iconos.coord}> Añadir Posicion </Boton>
+                                    
+                                    <Boton buttonStyle="azul" icono={iconos.play}> Añadir juego </Boton> 
+
+
+                                    </div>
+                                    <div className="horizontalBotones">
+                                    <Boton buttonStyle="azul" icono={iconos.video}> Añadir video </Boton>
+                                    
+                                    {/* boton añadir imagen */}
+                                            
+                                    <label className="label" for="cambio">
+                                                <p>Añadir imagen</p> 
+                                                <img src={iconos.photo} />
+                                    </label>                                   
+                                                <input 
+                                                
+                                                    id="cambio"                                    
+                                                    type="file"
+                                                    name="urlArea"
+                                                    placeholder="Añadir imagen"                                                                                                              
+                                                    // value={inputValue}
+                                                    accept="image/gif, image/png, image/peg, "
+                                                    multiple onChange={()=>subirArchivos}>
+                                                </input>
+            
+                                    </div>
+                                        
+                                </div>                        
+                                
                             </div>
-                                 
-                        </div>                        
+                            <textarea  className="input-textArea input-background" type="text" name="descripcionArea" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+
                         
-                    </div>
-                
-                </div>               
+                        </div>  
+                        <div className="center">
+
+                            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarArea}> Guardar </Boton>
+                            <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
+                        </div>
+                        
+              </form>             
+              
                 }
 
                 {/* mostrar y esconder los campos del primer div de ENVIVO */}
                 {envivo && 
+                <form  className="form background-form">
+                    <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
                     <div className="container-evento">
                             <div className="container-input-evento">
                                 
@@ -113,7 +149,7 @@ function guardar() {
                                         className="input input-background" 
                                         type="text"
                                         // value={inputValue}
-                                        name="nombre"
+                                        name="nombreEnvivo"
                                         placeholder="Nombre del en vivo"
                                         onChange={handleInputChange}>
                                     </input>
@@ -140,7 +176,7 @@ function guardar() {
                                         
                                             id="cambio"                                    
                                             type="file"
-                                            name="url"
+                                            name="urlEnvivo"
                                             placeholder="Añadir imagen"                                                                                                              
                                             // value={inputValue}
                                             accept="image/gif, image/png, image/peg, "
@@ -149,18 +185,34 @@ function guardar() {
 
                                 </div>
                             </div>
-                    </div>  
+                            <textarea  className="input-textArea input-background" type="text" name="descripcionEnvivo" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+
+                   
+                    </div> 
+
+                    
+                        
+                        
+                        <div className="center">
+
+                            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarEnvivo}> Guardar </Boton>
+                            <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
+                        </div>
+
+                </form> 
                 }
 
              {/* mostrar y esconder los campos del primer div de EVENTO */}
              {evento && 
+             <form  className="form background-form">
+                    <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
                     <div className="container-evento">
                             <div className="container-input-evento">
                                     <input 
                                         className="input input-background" 
                                         type="text"
                                         // value={inputValue}
-                                        name="eventoNom"
+                                        name="nombreEvento"
                                         placeholder="Nombre del evento"
                                         onChange={handleInputChange}>
                                     </input>
@@ -194,21 +246,26 @@ function guardar() {
                                         </input>
             
                                 </div>
+                                <textarea  className="input-textArea input-background" type="text" name="descripcionEvento" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+
                         
-                </div>  
-                      
-                }
+                    </div>  
+                    
+                        
+                          
+                        <div className="center">
+
+                            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarEvento}> Guardar </Boton>
+                            <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
+                        </div>
+
+             </form> 
+             }
 
             
-            <div className="center">
-
-            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardar}> Guardar </Boton>
-            <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
-            </div>
-        </form>
+            
         
-        <textarea  className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
-
+        
         
         
 

@@ -31,7 +31,7 @@
 
 .container-evento {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -66,6 +66,13 @@
 
 /* AREA */
 
+.tamañoInputDes {
+    background-color: chartreuse;
+    width: 80%;
+    display: grid;
+    /* grid-auto-columns: ;: ; */
+}
+
 
 /* ENVIVO */
 
@@ -82,16 +89,15 @@
     flex-direction: column;
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
     .horizontalBotones {
         flex-direction: row;
         background-color: red;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        column-gap: 2rem;
     }
 }
-
-
 
 .input-group {
     display: flex;
@@ -177,7 +183,7 @@ input:focus-within {
     transform: translateY(-3px);
 }
 
-.label p{
+.label p {
     margin: 0;
 }
 
