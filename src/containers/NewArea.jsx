@@ -42,25 +42,10 @@ export const NewArea = ({setData,area,envivo,evento}) => {
         });
     }
 // me guardo los datos que se escribieron en el NewArea
-function guardarArea() {
-    localStorage.setItem('nombreArea', datos.nombreArea);
-    localStorage.setItem('descripcionArea', datos.descripcionArea);
-  }
-  function guardarEvento() {
-    localStorage.setItem('nombreEvento', datos.nombreEvento);
-    localStorage.setItem('descripcionEvento', datos.descripcionEvento);
-    getEvento();
-  }
-  function getEvento(){
-    // const nomEvento= localStorage.getItem('nombreEvento');
-    // const  desEvento= localStorage.getItem('descripcionEvento');
-    // return desEvento;
-  }
-  function guardarEnvivo() {
-    localStorage.setItem('nombreEnvivo', datos.nombreEnvivo);
-    localStorage.setItem('descripcionEnvivo', datos.descripcionEnvivo);
-  }
-
+function guardarDatos() {
+    localStorage.setItem('datos', JSON.stringify(datos));
+}
+  
  
 
     return (
@@ -130,7 +115,7 @@ function guardarArea() {
                         </div>  
                         <div className="center">
 
-                            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarArea}> Guardar </Boton>
+                            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarDatos}> Guardar </Boton>
                             <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
                         </div>
                         
@@ -195,7 +180,7 @@ function guardarArea() {
                         
                         <div className="center">
 
-                            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarEnvivo}> Guardar </Boton>
+                            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarDatos}> Guardar </Boton>
                             <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
                         </div>
 
@@ -255,7 +240,7 @@ function guardarArea() {
                           
                         <div className="center">
 
-                            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarEvento}> Guardar </Boton>
+                            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarDatos}> Guardar </Boton>
                             <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
                         </div>
 

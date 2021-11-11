@@ -18,11 +18,14 @@ export const ViewArea = () => {
     };
 
 // LocalStorage
-function getDescripcion() {
-  const nombre = localStorage.getItem('nombreArea');
-  const descripcion = localStorage.getItem('descripcionArea');
-  return descripcion;
-
+function getDatos() {
+  const area = JSON.parse( localStorage.getItem('datos'));
+  let resultado=area;
+  console.log(resultado)
+  if (area === null){
+    resultado="Sin informacion";
+  }
+  return resultado;
 }
 
 
@@ -127,7 +130,7 @@ function getDescripcion() {
                     <div class="tamaño center flex">      
                       
                       <div className="apariencia paddingArea">
-                          <textarea className="input-textAreaV input-backgroundV" type="text" value={getDescripcion()} name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
+                          <textarea className="input-textAreaV input-backgroundV" type="text" value={getDatos().descripcionArea} name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
                          
                       </div>
                                    
