@@ -7,7 +7,7 @@ import '../styles/popWindow.css'
 //ICONOS
 import iconos from '../../src/assets/img/iconos';
 
-export const PopWindow = ({title,icon,setData,video}) => {
+export const PopWindow = ({title,icon,setData,video, setDatosArea }) => {
 // declaracion de un estado
         const [datos, setDatos] = useState({
             titulo:" ",
@@ -21,6 +21,14 @@ export const PopWindow = ({title,icon,setData,video}) => {
             ...datos, 
             [e.target.name] : e.target.value
         });
+    }
+
+    const guardar = (e)=>{
+        setDatosArea( {
+            ...datos, 
+            datos           
+        });
+        // revisar si esta parte funciona
     }
     // const handleSubmit = (e)=>{
     //     console.log('hadleSubmit',inputValue);
@@ -113,7 +121,7 @@ export const PopWindow = ({title,icon,setData,video}) => {
             </div>
             <div className="center">
 
-            <Boton buttonStyle="verde" icono={iconos.check}> Guardar </Boton>
+            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardar}> Guardar </Boton>
             <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
                 </div>
         </form>
