@@ -7,6 +7,8 @@ import { CrearArea } from '../pages/CrearArea';
 import { CrearEvento } from '../pages/CrearEvento';
 
 import { VerArea } from '../pages/VerArea';
+import { VerMultimedia } from '../pages/VerMultimedia';
+import { VerEnvivo } from '../pages/VerEnvivo';
 // REACT-ROUTER
 import {
     BrowserRouter as Router,
@@ -37,16 +39,16 @@ export const AdminApp = () => {
                 <Route exact path='/CrearArea'>
                     <CrearArea/>
                 </Route> 
-                <Route exact path='/Atracciones'>
-                    <h1>Atracciones</h1>
+                <Route exact path='/Multimedia'>
+                    <VerMultimedia/>
                 </Route>
-                <Route exact path='/CrearAtraccion'>
+                <Route exact path='/Multimedia'>
                     {/* <CrearAtraccion /> */}
                     
                 </Route>
 
                 <Route exact path='/Envivos'>
-                    <h1>Envivos</h1>
+                    <VerEnvivo/>
                 </Route>
                 <Route exact path='/CrearEnvivo'>
                     <CrearEnvivo />

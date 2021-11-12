@@ -48,14 +48,14 @@ export const NavBarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Atracciones',
-        path: '/Atracciones',
+        title: 'Multimedia',
+        path: '/Multimedia',
         icon: <IoIcons.IoIosArrowForward />,
         cName: 'nav-text'
     },
     {
-        title: 'Crear Atraccion',
-        path: '/CrearAtraccion',
+        title: 'Crear Juego',
+        path: '/CrearJuego',
         icon: <IoIcons.IoIosArrowForward />,
         cName: 'nav-text'
     },

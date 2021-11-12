@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {Button} from '../general/boton/Boton';
-import './ViewMultimedia.css'
-import  {VideoApp}  from './VideoApp';
+import {Button} from '../components/Boton';
+import '../styles/ViewMultimedia.css'
+import  {VideoApp}  from '../components/VideoApp';
 
 
 //ICONOS
-import iconos from '../../img/iconos';
+import iconos from '../../src/assets/img/iconos';
 
 // FUNCION para los TABS viewMultimedia
 export const ViewMultimedia = () => {
