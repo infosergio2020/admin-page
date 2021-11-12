@@ -1,14 +1,22 @@
-*, ::before, ::after {
+*,
+ ::before,
+ ::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
-  body {
+}
+
+body {
     background: #fff;
-  }
-  
-  .container {
+}
+
+.nombreArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -18,13 +26,13 @@
     margin: 100px auto 0;
     word-break: break-all;
     border: 1px solid rgba(0, 0, 0, 0.274);
-  }
-  
-  .bloc-tabs {
+}
+
+.bloc-tabs {
     display: flex;
-  }
-  .tabs {
-  
+}
+
+.tabs {
     padding: 15px;
     text-align: center;
     width: 50%;
@@ -34,17 +42,18 @@
     box-sizing: content-box;
     position: relative;
     outline: none;
-  }
-  .tabs:not(:last-child){
+}
+
+.tabs:not(:last-child) {
     border-right: 1px solid rgba(0, 0, 0, 0.274);
-  }
-  
-  .active-tabs  {
+}
+
+.active-tabs {
     background: white;
     border-bottom: 1px solid transparent;
-  }
-  
-  .active-tabs::before {
+}
+
+.active-tabs::before {
     content: "";
     display: block;
     position: absolute;
@@ -54,53 +63,57 @@
     width: calc(100% + 2px);
     height: 5px;
     background: rgb(88, 147, 241);
-  }
-  
-  
-  
-  button {
+}
+
+button {
     border: none;
-    
-  }
-  .content-tabs {
-    flex-grow : 1;
-  }
-  .content {
+}
+
+.content-tabs {
+    flex-grow: 1;
+}
+
+.content {
     background: rgb(65, 64, 64);
-    padding: 20px; 
+    padding: 20px;
     width: 100%;
     height: 100%;
     display: none;
     overflow-x: scroll;
-  }
-  .content h2 {
+}
+
+.content h2 {
     padding: 0px 0 5px 0px;
-  }
-  .content hr {
+}
+
+.content hr {
     width: 100px;
     height: 2px;
     background: #222;
     margin-bottom: 5px;
-  }
-  .content p {
+}
+
+.content p {
     width: 100%;
     height: 100%;
-  }
-  .active-content {
+}
+
+.active-content {
     display: block;
-  }
+}
 
-  .izquierda{
-    text-align:left;
-  }
+.izquierda {
+    text-align: left;
+}
 
-  .valor-latitud{
+.valor-latitud {
     padding: 2rem 0 0 0;
     text-align: left;
     display: flex;
     flex-direction: row;
     gap: 2rem;
-  }
-  .asanchar{
+}
+
+.asanchar {
     width: 95rem;
-  }
+}

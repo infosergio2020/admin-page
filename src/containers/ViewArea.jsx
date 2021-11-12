@@ -28,12 +28,24 @@ function getDatos() {
   return resultado;
 }
 
+function getDatosF() {
+  const area = JSON.parse( localStorage.getItem('datosF'));
+  let resultado=area;
+  console.log(resultado)
+  if (area === null){
+    resultado="Sin informacion";
+  }
+  return resultado;
+}
+
 
 // comienzo del MAIN
     return (
         <>
-
+<h3  className="nombreArea" tabIndex="0">Complete los campos a continuación.</h3>
+      
 <div className="container">
+                        
       {/* las 4 pestañas de arriba */}
       <div className="bloc-tabs">
         <button
@@ -79,7 +91,7 @@ function getDatos() {
                           <VideoApp url={"https://youtu.be/or8QfmradNM"} video={true} />
                       </div> 
                       <div className="apariencia paddingArea">
-                          <textarea className="input-textAreaV input-backgroundV" type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
+                          <textarea className="input-textAreaV input-backgroundV" value={getDatos().descripcion} type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
                           <textarea className="input-textAreaV input-backgroundV" type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
                      
                       </div>             
@@ -100,7 +112,7 @@ function getDatos() {
                           <VideoApp url={iconos.lol} video={false} />
                       </div> 
                       <div className="apariencia paddingArea">
-                          <textarea className="input-textAreaV input-backgroundV" type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
+                          <textarea className="input-textAreaV input-backgroundV" value={getDatosF().descripcion} type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
                           <textarea className="input-textAreaV input-backgroundV" type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
                       
                       </div>

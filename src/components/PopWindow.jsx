@@ -23,13 +23,27 @@ export const PopWindow = ({title,icon,setData,video, setDatosArea }) => {
         });
     }
 
-    const guardar = (e)=>{
-        setDatosArea( {
-            ...datos, 
-            datos           
-        });
-        // revisar si esta parte funciona
-    }
+    // const guardar = (e)=>{
+    //     setDatosArea( {
+    //         ...datos, 
+    //         datos        
+               
+    //     });
+    //     // revisar si esta parte funciona--> Oriana dice: NO ES NECESARIO TENERLO PORQUE PODEMOS ACCEDER
+    // DESDE CUALQUIER ARCHIVO MEDIANTE EL NOMBRE DE LA CLAVE DEL LOCALSTORAGE
+    // SOY RE CAPA, ME HABIA OLVIDADO DE ESO Y RECIEN ME ACUERDO JE
+    // Nota: tengo la necesidad de separar video de foto, porque se van a pisar 
+    // }
+
+    // guardado del LocalStorage
+        function guardar(){
+            localStorage.setItem('datos', JSON.stringify(datos));
+        }
+
+        function guardarF(){
+            localStorage.setItem('datosF', JSON.stringify(datos));
+        }
+
     // const handleSubmit = (e)=>{
     //     console.log('hadleSubmit',inputValue);
     //     e.preventDefault();        
@@ -59,6 +73,9 @@ export const PopWindow = ({title,icon,setData,video, setDatosArea }) => {
     //     }
     // }
 
+
+
+// MAIN()
     return (
         <>
         
@@ -119,11 +136,21 @@ export const PopWindow = ({title,icon,setData,video, setDatosArea }) => {
                 <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
 
             </div>
-            <div className="center">
-
-            <Boton buttonStyle="verde" icono={iconos.check} onClick={guardar}> Guardar </Boton>
-            <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
+            {/* si es un VIDEO muestra los botones de video */}
+            {video &&
+                <div className="center">
+                    <Boton buttonStyle="verde" icono={iconos.check} onClick={guardar}> Guardar </Boton>
+                    <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
                 </div>
+            }
+            {/* si NO es un VIDEO muestra los botones de FOTO */}
+            {!video &&
+                <div className="center">
+
+                    <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarF}> GuardarFoto </Boton>
+                    <Boton buttonStyle="rojo" icono={iconos.cancel}> CancelarFOTO </Boton>
+                </div>
+            }
         </form>
         </>
     )

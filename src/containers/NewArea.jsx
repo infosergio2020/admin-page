@@ -8,10 +8,15 @@ import iconos from '../assets/img/iconos';
 import "../styles/NewArea.css"
 
 export const NewArea = ({setData,area,envivo,evento}) => {
-        const [active, setactive] = useState(false);
+        const [activeV, setactiveV] = useState(false);
         
+        const [activeF, setactiveF] = useState(false);
+        
+// Nota: Tuve que crear 2 estados separados para no eliminar 
+// o cambiar la estrucutra del POPWindow que en ese
+// mismo componente estan video y foto---> es una mierda
 
-// declaracion de un estado
+// declaracion de un estado area para video
         const [datos, setDatos] = useState({
             nombreArea:" ",
             nombreEnvivo:" ",
@@ -22,9 +27,13 @@ export const NewArea = ({setData,area,envivo,evento}) => {
             urlEvento: " ",
             urlArea: " ",
             urlEnvivo:" ",
+            urlVideoArea:" ",
+            urlImagenArea:" ",
     
             
         });
+
+   
 // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
         setDatos( {
@@ -47,14 +56,24 @@ export const NewArea = ({setData,area,envivo,evento}) => {
     }
 // me guardo los datos que se escribieron en el NewArea
 function guardarDatos() {
-    localStorage.setItem('datos', JSON.stringify(datos));
+    localStorage.setItem('datos', JSON.stringify(datos));// para el video
+    localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
 }
-  
-function popAp(e){
+
+
+ 
+// funcion para simular el POPUP del video y la foto
+function popApV(e){
     e.preventDefault()
-    setactive(!active);
+    setactiveV(!activeV);
+} 
+function popApF(e){
+    e.preventDefault()
+    setactiveF(!activeF);
 } 
 
+
+// COMIENZO DEL MAIN()
     return (
         <>
         <div className="container-Switch">
@@ -92,7 +111,7 @@ function popAp(e){
 
                                         </div>
                                         <div className="horizontalBotones">
-                                        <Boton buttonStyle="azul" icono={iconos.video} onClick={popAp}> Añadir video </Boton>
+                                        <Boton buttonStyle="azul" icono={iconos.video} onClick={popApV}> Añadir video </Boton>
                                         
                                         {/* boton añadir imagen */}
                                                 
@@ -108,7 +127,7 @@ function popAp(e){
                                                         placeholder="Añadir imagen"                                                                                                              
                                                         // value={inputValue}
                                                         accept="image/gif, image/png, image/peg, "
-                                                        multiple onChange={()=>subirArchivos}>
+                                                        multiple onChange={()=>subirArchivos} onClick={popApF}>
                                                     </input>
                 
                                         </div>
@@ -262,9 +281,15 @@ function popAp(e){
             
 
             </div>
-            <div className={active ? 'pop-display pop-display-active' : 'pop-display'}>
+            <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
                     <PopWindow title="video" icon={iconos.video} video={true} setDatosArea={setDatos} > </PopWindow>
+                </div>
+                
+            </div>
+            <div className={activeF ? 'pop-display pop-display-active' : 'pop-display'}>
+                <div className="card-popup">
+                    <PopWindow title="imagen" icon={iconos.photo} video={false} setDatosArea={setDatos} > </PopWindow>
                 </div>
                 
             </div>
