@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 //COMPONENTES
-import {Boton} from '../boton/Boton';
+import {Boton} from '../components/Boton';
 //CSS
-import './popWindow.css'
+import '../styles/popWindow.css'
 //ICONOS
-import iconos from '../../../img/iconos';
+import iconos from '../../src/assets/img/iconos';
 
 export const PopWindow = ({title,icon,setData,video}) => {
 // declaracion de un estado

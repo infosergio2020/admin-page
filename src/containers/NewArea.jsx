@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Boton } from '../components/Boton';
+import {PopWindow} from '../components/PopWindow';
 // //ICONOS
 import iconos from '../assets/img/iconos';
 //CSS
@@ -46,7 +47,9 @@ function guardarDatos() {
     localStorage.setItem('datos', JSON.stringify(datos));
 }
   
- 
+function popAp(){
+    <PopWindow title="video" icon={iconos.video} video={true} > </PopWindow>
+} 
 
     return (
         <>
@@ -85,7 +88,7 @@ function guardarDatos() {
 
                                     </div>
                                     <div className="horizontalBotones">
-                                    <Boton buttonStyle="azul" icono={iconos.video}> Añadir video </Boton>
+                                    <Boton buttonStyle="azul" icono={iconos.video} onClick={popAp()}> Añadir video </Boton>
                                     
                                     {/* boton añadir imagen */}
                                             
