@@ -5,7 +5,7 @@ import { ViewArea } from "../containers/ViewArea";
 export const CrearArea = () => {
     return (
         <>
-            <NewArea area={true} evento={false} envivo={false} />
+            <NewArea area={true}/>
             {/* <ViewArea /> */}
         </>
     )

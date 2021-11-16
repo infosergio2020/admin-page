@@ -19,18 +19,11 @@ export const NewArea = ({setData,area}) => {
 // declaracion de un estado area para video
         const [datos, setDatos] = useState({
             nombreArea:" ",
-            nombreEnvivo:" ",
-            nombreEvento:" ",
             descripcionArea: " ",
-            descripcionEnvivo: " ",
-            descripcionEvento: " ",
-            urlEvento: " ",
             urlArea: " ",
             urlEnvivo:" ",
             urlVideoArea:" ",
-            urlImagenArea:" ",
-    
-            
+            urlImagenArea:" ", 
         });
 
    
