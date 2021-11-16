@@ -7,7 +7,7 @@ import iconos from '../assets/img/iconos';
 //CSS
 import "../styles/NewArea.css"
 
-export const NewArea = ({setData,area}) => {
+export const NewEnvivo = ({setData,envivo}) => {
         const [activeV, setactiveV] = useState(false);
         
         const [activeF, setactiveF] = useState(false);
@@ -80,74 +80,71 @@ function popApF(e){
             <div className="flex bg-gray">
             {/* aca estaba el form */}
                 
-                    {/* mostrar y esconder los campos del primer div de AREA */}
-                    {area && 
+                    
+                    {/* mostrar y esconder los campos del primer div de ENVIVO */}
+                    {envivo && 
                     <form  className="form background-form">
-                            <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
-                            {/* <p>nombre: {datos.nombre} </p>
-                            <p>descripcion: {datos.descripcion}  </p> */}
-
-                            <div className="container-evento">
+                        <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
+                        <div className="container-evento">
                                 <div className="container-input-evento">
-                                    <div className="tamañoInputDes">
+                                    
                                         <input 
                                             className="input input-background" 
                                             type="text"
                                             // value={inputValue}
-                                            name="nombreArea"
-                                        
-                                            placeholder="Nombre del area"
+                                            name="nombreEnvivo"
+                                            placeholder="Nombre del en vivo"
                                             onChange={handleInputChange}>
-                                                
-                                        </input>                   
-                                            
-                                    </div>
-                                    <div className="">
-                                        <div className="horizontalBotones">
-                                        <Boton buttonStyle="azul" icono={iconos.coord}> Añadir Posicion </Boton>
-                                        
-                                        <Boton buttonStyle="azul" icono={iconos.play}> Añadir juego </Boton> 
+                                        </input>
+                                        <input 
+                                            className="input input-background" 
+                                            type="text"
+                                            // value={inputValue}
+                                            name="url"
+                                            placeholder="Url del en vivo"
+                                            onChange={handleInputChange}>
+                                        </input>                                  
+                                    {/* nombre y URL */}
 
-
-                                        </div>
-                                        <div className="horizontalBotones">
-                                        <Boton buttonStyle="azul" icono={iconos.video} onClick={popApV}> Añadir video </Boton>
-                                        
+                                    <div className="container-addBtn-evento">
+                                        {/* boton de fecha y hora  */}
+                                        <Boton buttonStyle="azul" icono={iconos.calendar}> Fecha y hora </Boton>
                                         {/* boton añadir imagen */}
-                                                
+                                        
                                         <label className="label" for="cambio">
-                                                    <p>Añadir imagen</p> 
-                                                    <img src={iconos.photo} />
+                                            <p>Añadir imagen</p> 
+                                            <img src={iconos.photo} />
                                         </label>                                   
-                                                    <input 
-                                                    
-                                                        id="cambio"                                    
-                                                        type="file"
-                                                        name="urlArea"
-                                                        placeholder="Añadir imagen"                                                                                                              
-                                                        // value={inputValue}
-                                                        accept="image/gif, image/png, image/peg, "
-                                                        multiple onChange={()=>subirArchivos} onClick={popApF}>
-                                                    </input>
-                
-                                        </div>
+                                            <input 
                                             
-                                    </div>                        
-                                    
-                                </div>
-                                <textarea  className="input-textArea input-background" type="text" name="descripcionArea" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+                                                id="cambio"                                    
+                                                type="file"
+                                                name="urlEnvivo"
+                                                placeholder="Añadir imagen"                                                                                                              
+                                                // value={inputValue}
+                                                accept="image/gif, image/png, image/peg, "
+                                                multiple onChange={()=>subirArchivos}>
+                                            </input>
 
+                                    </div>
+                                </div>
+                                <textarea  className="input-textArea input-background" type="text" name="descripcionEnvivo" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+
+                    
+                        </div> 
+
+                        
                             
-                            </div>  
+                            
                             <div className="center">
 
                                 <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarDatos}> Guardar </Boton>
                                 <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
                             </div>
-                            
-                </form>             
-                
-                    }       
+
+                    </form> 
+                    }
+
             </div>
             <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
@@ -170,6 +167,6 @@ function popApF(e){
 }
 
 // con esto prevengo que alguien que reutilize mi funcion se olvide de mandar una funcion como parametro
-NewArea.propTypes = { 
+NewEnvivo.propTypes = { 
     setData: PropTypes.func.isRequired,
 }
