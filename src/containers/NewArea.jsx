@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Boton } from '../components/Boton';
 import {PopWindow} from '../components/PopWindow';
@@ -11,7 +11,18 @@ export const NewArea = ({setData,area}) => {
         const [activeV, setactiveV] = useState(false);
         
         const [activeF, setactiveF] = useState(false);
+
+        const [arrayF, setarrayF] = useState( // para la foto
+            []
+        );
         
+        useEffect(()=>{    }, [ arrayF ]);
+
+        const [arrayV, setarrayV] = useState( // para el video
+            []
+        );
+        
+        useEffect(()=>{    }, [ arrayV ]);
 // Nota: Tuve que crear 2 estados separados para no eliminar 
 // o cambiar la estrucutra del POPWindow que en ese
 // mismo componente estan video y foto---> es una mierda
@@ -48,11 +59,24 @@ export const NewArea = ({setData,area}) => {
         });
     }
 // me guardo los datos que se escribieron en el NewArea
-function guardarDatos() {
+function guardarDatos(e) {
     localStorage.setItem('datos', JSON.stringify(datos));// para el video
-    localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
+    //localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
+    guardarFoto();
+    guardarVideo();
+    e.preventDefault(); // la pagina no se regargue
+    console.log(e); // que evento nos tira
 }
 
+function guardarFoto(){
+    localStorage.setItem('ListaFotos', JSON.stringify(arrayF));
+    
+}
+
+function guardarVideo(){
+    localStorage.setItem('ListaVideos', JSON.stringify(arrayV));
+    
+}
 
  
 // funcion para simular el POPUP del video y la foto
@@ -144,13 +168,13 @@ function popApF(e){
             </div>
             <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="video" icon={iconos.video} video={true} setDatosArea={setDatos} > </PopWindow>
+                    <PopWindow title="video" icon={iconos.video} video={true} setarray={setarrayV} esconder={setactiveV}> </PopWindow>
                 </div>
                 
             </div>
             <div className={activeF ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="imagen" icon={iconos.photo} video={false} setDatosArea={setDatos} > </PopWindow>
+                    <PopWindow title="imagen" icon={iconos.photo} video={false} setarray={setarrayF} esconder={setactiveF}> </PopWindow>
                 </div>
                 
             </div>
