@@ -70,6 +70,8 @@ function guardarDatos(e) {
 
 function guardarFoto(){
     localStorage.setItem('ListaFotos', JSON.stringify(arrayF));
+    console.log("guardar")
+    // verImagen()
     
 }
 
@@ -88,6 +90,25 @@ function popApF(e){
     e.preventDefault()
     setactiveF(!activeF);
 } 
+
+// function verImagen(){
+    
+//     console.log("hola")
+    
+
+
+//     const area = JSON.parse( localStorage.getItem('ListaFotos'));
+//     let resultado=area;
+//     console.log(resultado[0].src)
+//     var preview = document.getElementById('hola');
+    
+//         preview.url = resultado[0].url
+    
+//     if (area === null){
+//         resultado="Sin informacion";
+//     }
+//     //return resultado;
+// }
 
 
 // COMIENZO DEL MAIN()
@@ -160,6 +181,8 @@ function popApF(e){
 
                                 <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarDatos}> Guardar </Boton>
                                 <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
+                                {/* <br></br>
+                                <img src="" id="hola" height="200" alt="Image preview..."></img> */}
                             </div>
                             
                 </form>             

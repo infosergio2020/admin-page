@@ -32,17 +32,23 @@ export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
             //localStorage.setItem('datosF', JSON.stringify(datos));
             //insertar elemento en un array
             e.preventDefault();
-            if(!video){
-                console.log(document.getElementById('bannerImg').value)
-                let bannerImage = document.getElementById('bannerImg').addEventListener('change', function(){
-                    const reader= new FileReader();
-                    reader.addEventListener("load",()=>{
-                        datos.url=reader.result;
-                      
-                    })
-                });
+            
+            // if(!video){
+            //     var preview = document.querySelector('img');
+            //     var file    = document.querySelector('input[type=file]').files[0];
+            //     var reader  = new FileReader();
                 
-            }  
+            //     reader.onloadend = function () {
+            //     preview.src = reader.result;
+            //     }
+            
+            //     if (file) {
+            //         reader.readAsDataURL(file);
+            //         console.log(preview.src)
+            //     } else {
+            //         preview.src = "";
+            //     }                
+            // }  
             setarray(array=>
                 [...array,datos]  
             );    
@@ -51,10 +57,24 @@ export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
         }
 // Funciones
 
+function previewFile(e) {
+    var preview = document.getElementById('hola');
+    var file = document.getElementById('lol').files[0];
+    
+    var reader = new FileReader();
 
+    reader.onloadend = function() {
+        preview.src = reader.result;
+        datos.url=reader.result;
+    }
 
+    if (file) {
+        reader.readAsDataURL(file);
 
-
+    } else {
+        preview.src = "";
+    }
+}
 
 // MAIN()
     return (
@@ -91,17 +111,21 @@ export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
 
                 {/* mostrar y esconder el campo cargar imagen */}
                 {!video && 
+
                 <div className="center">
                 <input 
                     className="" 
                     type="file"
                     name="url"
-                    id= "bannerImg"
+                    id= "lol"
                     placeholder="Subir archivo"              
                     // value={inputValue}
                     accept="image/gif, image/png, image/peg, "
-                    onChange={handleInputChange}>
+                    onChange={previewFile}
+                    >
                 </input>
+                <br></br>
+                <img src="" id="hola" height="200" alt="Image preview..."></img>
                 </div>           
                 }
 
