@@ -19,6 +19,11 @@
     font-size: 1.8rem; 
 }
 
+.btn-small-circle{
+    padding: 0rem;
+    border-radius: 100%;
+}
+
 .btn-circle{
     padding: .05rem;
 }

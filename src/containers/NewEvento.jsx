@@ -5,153 +5,132 @@ import {PopWindow} from '../components/PopWindow';
 // //ICONOS
 import iconos from '../assets/img/iconos';
 //CSS
-import "../styles/NewArea.css"
+import "../styles/NewEvento.css"
 
 export const NewEvento = ({setData,evento}) => {
+        const [eventos, setEventos] = useState([]);
+        // SWITCH PARA LOS POPWINDOWS
         const [activeV, setactiveV] = useState(false);
-        
         const [activeF, setactiveF] = useState(false);
-        
-// Nota: Tuve que crear 2 estados separados para no eliminar 
-// o cambiar la estrucutra del POPWindow que en ese
-// mismo componente estan video y foto---> es una mierda
-
-// declaracion de un estado area para video
+        // FOTOS Y VIDEOS DEL EVENTO
+        const [fotos, setFotos] = useState([]);
+        const [videos, setVideos] = useState([]);        
+        // FORMULARIO DEL EVENTO
         const [datos, setDatos] = useState({
-            nombreArea:" ",
-            nombreEnvivo:" ",
-            nombreEvento:" ",
-            descripcionArea: " ",
-            descripcionEnvivo: " ",
-            descripcionEvento: " ",
-            urlEvento: " ",
-            urlArea: " ",
-            urlEnvivo:" ",
-            urlVideoArea:" ",
-            urlImagenArea:" ",
-    
-            
+            nombreEvento:"Nombre del evento",
+            lugarEvento: "Lugar del evento",
+            descripcionEvento:"Descripcion del evento",
+            imagenes: " ",
+            videos: " ",
         });
 
-   
+// crear funcion para ver los inputs
+    const handleInputFocus = (e)=>{
+        setDatos( {
+            ...datos, 
+            [e.target.name] : " "            
+        });
+    }
 // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
         setDatos( {
             ...datos, 
-            [e.target.name] : e.target.value
-            
+            [e.target.name] : e.target.value            
         });
     }
-
-    const [archivos, setArchivos] = useState(
-        {url:" "}
-    );
-// crear funcion para almacenar las imagenes
- 
-    const subirArchivos = (l)=>{
-        setArchivos( {
-            ...archivos, 
-            [l.target.name] : l.target.value
-        });
-    }
-// me guardo los datos que se escribieron en el NewArea
-function guardarDatos() {
-    localStorage.setItem('datos', JSON.stringify(datos));// para el video
-    localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
-}
-
-
- 
 // funcion para simular el POPUP del video y la foto
-function popApV(e){
-    e.preventDefault()
-    setactiveV(!activeV);
-} 
-function popApF(e){
-    e.preventDefault()
-    setactiveF(!activeF);
-} 
+    function popApV(e){
+        e.preventDefault()
+        setactiveV(!activeV);
+    } 
 
-
+    function popApF(e){
+        e.preventDefault()
+        setactiveF(!activeF);
+    } 
+// FUNCIONES DEL FORMULARIO
+    const save = (e)=>{
+        e.preventDefault();
+        setEventos( eventos => [...eventos,datos]);
+    };
+    const reset = (e)=>{
+        e.preventDefault();
+        setDatos({
+            nombreEvento:" ",
+            lugarEvento: " ",
+            descripcionEvento:" ",
+            imagenes: " ",
+            videos: " ",
+        });
+    };
 // COMIENZO DEL MAIN()
     return (
         <>
         <div className="container-Switch">
             <div className="flex bg-gray">
-            {/* aca estaba el form */}
-                
-                {/* mostrar y esconder los campos del primer div de EVENTO */}
-                {evento && 
                 <form  className="form background-form">
                         <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
-                        <div className="container-evento">
-                                <div className="container-input-evento">
+                        <div className="">
+                            <div>
+                                <div className="">
                                         <input 
                                             className="input input-background" 
                                             type="text"
-                                            // value={inputValue}
+                                            value={datos.nombreEvento}
                                             name="nombreEvento"
                                             placeholder="Nombre del evento"
-                                            onChange={handleInputChange}>
+                                            onChange={handleInputChange}
+                                            onFocus={handleInputFocus}
+                                            >
                                         </input>
                                         <input 
                                             className="input input-background" 
                                             type="text"
-                                            // value={inputValue}
-                                            name="url"
+                                            value={datos.lugarEvento}
+                                            name="lugarEvento"
                                             placeholder="Lugar del evento"
-                                            onChange={handleInputChange}>
+                                            onChange={handleInputChange}
+                                            onFocus={handleInputFocus}
+                                            >
                                         </input>  
                                 </div>
 
-                                <div className="container-addBtn-evento">
-                                        <Boton buttonStyle="azul" icono={iconos.video}> <p>Añadir video</p> </Boton>
-                                        {/* <Button buttonStyle="azul" icono={iconos.check} type="file" accept="image/gif, image/png, image/peg," multiple onChange={()=>subirArchivos}  name="url" placeholder="Subir archivo" > mm </Button> */}
-                                        <label className="label" for="cambio"> 
-                                            <p>Añadir imagen</p> 
-                                            <img src={iconos.photo} />
-                                        </label>
-                                        
-                                            <input 
-                                                id="cambio"
-                                                
-                                                type="file"
-                                                name="urlEvento"
-                                                placeholder="Añadir imagen"                       
-                                                // value={inputValue}
-                                                accept="image/gif, image/png, image/peg, "
-                                                multiple onChange={()=>subirArchivos}>
-                                            </input>
-                
-                                    </div>
-                                    <textarea  className="input-textArea input-background" type="text" name="descripcionEvento" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
-
-                            
-                        </div>  
-                        
-                            
-                            
-                            <div className="center">
-
-                                <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarDatos}> Guardar </Boton>
-                                <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
+                                <div className="">
+                                    <Boton buttonStyle="azul" icono={iconos.video} onClick={(e) => {e.preventDefault(); setactiveV(!activeV); }}> <p>Añadir video</p> </Boton>
+                                    <Boton buttonStyle="azul" icono={iconos.video} onClick={(e) => {e.preventDefault(); setactiveF(!activeF); }}> <p>Añadir foto</p> </Boton>
+                                </div>
                             </div>
-
+                            <div className="">
+                                <textarea  
+                                    className="input-textArea input-background" 
+                                    type="text" 
+                                    placeholder="Descripción" 
+                                    name="descripcionEvento"
+                                    value={datos.descripcionEvento}
+                                    aria-multiline="true"
+                                    onChange={handleInputChange}
+                                    onFocus={handleInputFocus}
+                                >
+                                </textarea>
+                            </div>         
+                        </div>           
+                        <div className="center">
+                            <Boton buttonStyle="verde" icono={iconos.check} onClick={save}> Guardar </Boton>
+                            <Boton buttonStyle="rojo" icono={iconos.cancel} onClick={reset}> Cancelar </Boton>
+                        </div>
                 </form> 
-                }
-
             </div>
+            {/* POPUP PARA IMAGENES */}
             <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="video" icon={iconos.video} video={true} setDatosArea={setDatos} > </PopWindow>
+                    <PopWindow title="video" icon={iconos.video} video={true} setArray={setFotos} > </PopWindow>
                 </div>
-                
             </div>
+            {/* POPUP PARA VIDEOS */}
             <div className={activeF ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="imagen" icon={iconos.photo} video={false} setDatosArea={setDatos} > </PopWindow>
+                    <PopWindow title="imagen" icon={iconos.photo} video={false} setArray={setVideos} > </PopWindow>
                 </div>
-                
             </div>
         </div>
         </>

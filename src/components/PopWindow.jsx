@@ -81,6 +81,7 @@ export const PopWindow = ({title,icon,setData,video, setDatosArea }) => {
         
         <div className="popWindow__header">
             <h2 tabIndex="0" aria-label={title}> <img alt="imagen. icono de imagen." src={icon}/>  {title}</h2>
+            <Boton buttonStyle={"btn-small-circle blanco"} icono={iconos.close}></Boton>
         </div>
         {/* <form  className="form background-form" onSubmit={handleSubmit}> */}
         <form  className="form background-form">

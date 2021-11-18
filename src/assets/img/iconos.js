@@ -15,6 +15,7 @@ import photo from './photo.svg';
 import play from './play.svg';
 import show from './show.svg';
 import video from './video.svg';
+import close from './close.svg';
 
 export default {
     'add':add,
@@ -34,4 +35,5 @@ export default {
     'play':play,
     'show':show,
     'video':video,
+    'close':close,
 }
