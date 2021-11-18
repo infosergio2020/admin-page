@@ -23,7 +23,6 @@ export const NewEvento = ({setData,evento}) => {
             imagenes: " ",
             videos: " ",
         });
-
 // crear funcion para ver los inputs
     const handleInputFocus = (e)=>{
         setDatos( {
@@ -43,7 +42,6 @@ export const NewEvento = ({setData,evento}) => {
         e.preventDefault()
         setactiveV(!activeV);
     } 
-
     function popApF(e){
         e.preventDefault()
         setactiveF(!activeF);
@@ -96,8 +94,8 @@ export const NewEvento = ({setData,evento}) => {
                                 </div>
 
                                 <div className="">
-                                    <Boton buttonStyle="azul" icono={iconos.video} onClick={(e) => {e.preventDefault(); setactiveV(!activeV); }}> <p>Añadir video</p> </Boton>
-                                    <Boton buttonStyle="azul" icono={iconos.video} onClick={(e) => {e.preventDefault(); setactiveF(!activeF); }}> <p>Añadir foto</p> </Boton>
+                                    <Boton buttonStyle="azul" icono={iconos.video} onClick={popApV}> <p>Añadir video</p> </Boton>
+                                    <Boton buttonStyle="azul" icono={iconos.photo} onClick={popApF}> <p>Añadir foto</p> </Boton>
                                 </div>
                             </div>
                             <div className="">
@@ -123,24 +121,16 @@ export const NewEvento = ({setData,evento}) => {
             {/* POPUP PARA IMAGENES */}
             <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="video" icon={iconos.video} video={true} setArray={setFotos} > </PopWindow>
+                    <PopWindow title="video" icon={iconos.video} video={true} setArray={setVideos} hidePop={popApV}> </PopWindow>
                 </div>
             </div>
             {/* POPUP PARA VIDEOS */}
             <div className={activeF ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="imagen" icon={iconos.photo} video={false} setArray={setVideos} > </PopWindow>
+                    <PopWindow title="imagen" icon={iconos.photo} video={false} setArray={setFotos} hidePop={popApF}> </PopWindow>
                 </div>
             </div>
         </div>
         </>
-        
-      
     )
-
-}
-
-// con esto prevengo que alguien que reutilize mi funcion se olvide de mandar una funcion como parametro
-NewEvento.propTypes = { 
-    setData: PropTypes.func.isRequired,
 }

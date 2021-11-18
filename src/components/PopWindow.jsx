@@ -7,7 +7,7 @@ import '../styles/popWindow.css'
 //ICONOS
 import iconos from '../../src/assets/img/iconos';
 
-export const PopWindow = ({title,icon,setData,video, setDatosArea }) => {
+export const PopWindow = ({title,icon,setData,video, setDatosArea, hidePop }) => {
 // declaracion de un estado
         const [datos, setDatos] = useState({
             titulo:" ",
@@ -81,7 +81,7 @@ export const PopWindow = ({title,icon,setData,video, setDatosArea }) => {
         
         <div className="popWindow__header">
             <h2 tabIndex="0" aria-label={title}> <img alt="imagen. icono de imagen." src={icon}/>  {title}</h2>
-            <Boton buttonStyle={"btn-small-circle blanco"} icono={iconos.close}></Boton>
+            <Boton buttonStyle={"btn-small-circle blanco"} icono={iconos.close} onClick={hidePop}></Boton>
         </div>
         {/* <form  className="form background-form" onSubmit={handleSubmit}> */}
         <form  className="form background-form">

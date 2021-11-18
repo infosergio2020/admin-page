@@ -1,4 +1,5 @@
 .popWindow__header{
+    position: relative;
     padding: 0.1rem 0;
     font-family: var(--sans-pro);
     color: #ffffff;
@@ -65,4 +66,10 @@
 
 .center{
     text-align: center;
+}
+
+.fix-top-right{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
