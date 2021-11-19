@@ -1,13 +1,18 @@
 .popWindow__header{
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0.1rem 0;
     font-family: var(--sans-pro);
     color: #ffffff;
     background-color: var(--light-blue);
     text-align: center;
+    /* border: 1px solid red; */
+    padding: .5rem;
 }
 
 .popWindow__header h2{
+    flex-basis: calc(90% - 1rem);
     display: flex;
     justify-content: center;
     align-items: center;

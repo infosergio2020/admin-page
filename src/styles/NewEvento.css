@@ -1,0 +1,30 @@
+.container-groups-evento{
+    display: flex;
+    justify-content: space-between;
+}
+
+.groups-evento{
+    flex-basis: calc(53.3% - 1rem);
+    display: flex;
+    flex-direction: column;
+    margin-left: 5rem;
+    margin-top: 5rem;
+}
+
+.group-inputs-evento{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group-textarea-evento{
+    flex-basis: calc(33.3% - 1rem);
+    margin-right: 5rem;
+}
+
+.group-buttons-evento{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}

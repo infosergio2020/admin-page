@@ -68,9 +68,9 @@ export const NewEvento = ({setData,evento}) => {
             <div className="flex bg-gray">
                 <form  className="form background-form">
                         <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
-                        <div className="">
-                            <div>
-                                <div className="">
+                        <div className="container-groups-evento">
+                            <div className="groups-evento">
+                                <div className="group-inputs-evento">
                                         <input 
                                             className="input input-background" 
                                             type="text"
@@ -93,12 +93,15 @@ export const NewEvento = ({setData,evento}) => {
                                         </input>  
                                 </div>
 
-                                <div className="">
+                                <div className="group-buttons-evento">
                                     <Boton buttonStyle="azul" icono={iconos.video} onClick={popApV}> <p>Añadir video</p> </Boton>
                                     <Boton buttonStyle="azul" icono={iconos.photo} onClick={popApF}> <p>Añadir foto</p> </Boton>
                                 </div>
+                                <div>
+                                    aca va la tabla para fotos y videos...
+                                </div>
                             </div>
-                            <div className="">
+                            <div className="group-textarea-evento">
                                 <textarea  
                                     className="input-textArea input-background" 
                                     type="text" 
