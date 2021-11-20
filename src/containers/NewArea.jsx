@@ -145,14 +145,14 @@ function popApF(e){
             </div>
             {/* ACA SE ESCONDEN O VISUALIZAN POPUPS */}
             {/* VIDEO */}
-            <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
-                <div className="card-popup">
+            <div className={activeV ? 'container-pop-display-area pop-display-active-area' : 'pop-display'}>
+                <div className="card-popup-area">
                     <PopWindow title="video" icon={iconos.video} video={true} setarray={setarrayV} hidePop={popApF}> </PopWindow>
                 </div>
             </div>
             {/* FOTO */}
-            <div className={activeF ? 'pop-display pop-display-active' : 'pop-display'}>
-                <div className="card-popup">
+            <div className={activeF ? 'container-pop-display-area pop-display-active-area' : 'pop-display'}>
+                <div className="card-popup-area">
                     <PopWindow title="imagen" icon={iconos.photo} video={false} setarray={setarrayF} hidePop={popApF}> </PopWindow>
                 </div>
             </div>
