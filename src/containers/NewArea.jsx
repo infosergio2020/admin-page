@@ -89,8 +89,8 @@ function popApF(e){
                 { arrayV.map( unVideo => { <li>{unVideo}</li> }) }
             </ul> */}
 
-        <div className="container-Switch">
-            <div className="flex bg-gray">
+        <div className="newArea">
+            <div className="flex-block bg-gray">
             {/* aca estaba el form */}
                     {/* mostrar y esconder los campos del primer div de AREA */}
                     <form  className="form background-form">
@@ -98,8 +98,8 @@ function popApF(e){
                             {/* <p>nombre: {datos.nombre} </p>
                             <p>descripcion: {datos.descripcion}  </p> */}
 
-                            <div className="container-evento">
-                                <div className="container-input-evento">
+                            <div className="container-area">
+                                <div className="container-input-area">
                                     <div className="tamañoInputDes">
                                         <input 
                                             className="input input-background" 

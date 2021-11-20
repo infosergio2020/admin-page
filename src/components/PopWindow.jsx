@@ -18,7 +18,7 @@ export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
       
 // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
-        console.log(e.target.value);
+       // console.log(e.target.value);
         setDatos( {
             ...datos, 
             [e.target.name] : e.target.value
@@ -62,7 +62,7 @@ function previewFile(e) {
     var file = document.getElementById('lol').files[0];
     
     var reader = new FileReader();
-
+   // console.log(reader)
     reader.onloadend = function() {
         preview.src = reader.result;
         datos.url=reader.result;
