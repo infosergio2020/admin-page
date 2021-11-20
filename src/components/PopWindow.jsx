@@ -18,7 +18,7 @@ export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
       
 // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
-        console.log(e.target.value);
+        //console.log(e.target.value);
         setDatos( {
             ...datos, 
             [e.target.name] : e.target.value
@@ -57,24 +57,25 @@ export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
         }
 // Funciones
 
-function previewFile(e) {
+const previewFile = ((e) => {
     var preview = document.getElementById('hola');
     var file = document.getElementById('lol').files[0];
-    
-    var reader = new FileReader();
+    //console.log(file.origin + file.name);
+    var reader = new FileReader(); 
+
+    setDatos( {...datos, url:file.name});
 
     reader.onloadend = function() {
         preview.src = reader.result;
-        datos.url=reader.result;
+    //   datos.url=reader.result;   //Todo esto lo tendria que usar cuando guarde todo el evento
     }
 
     if (file) {
-        reader.readAsDataURL(file);
-
+        reader.readAsDataURL(file); 
     } else {
         preview.src = "";
     }
-}
+});
 
 // MAIN()
     return (
@@ -121,6 +122,7 @@ function previewFile(e) {
                     placeholder="Subir archivo"              
                     // value={inputValue}
                     accept="image/gif, image/png, image/peg, "
+                    //src={window.location.origin} //si lo coloco aca me da el host
                     onChange={previewFile}
                     >
                 </input>

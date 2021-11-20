@@ -42,15 +42,26 @@ export const NewArea = ({setData}) => {
 function guardarDatos(e) {
     e.preventDefault(); // la pagina no se regargue
     localStorage.setItem('datos', JSON.stringify(datos));// para el video
-    //localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
+    localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
     guardarFoto();
     guardarVideo();
     console.log(e); // que evento nos tira
+    //convertirFotos();
+}
+/*
+    Convierto las imagenes almacenadas en caché/estado en base 64 
+    Pd: esto deberia estar en el guardar evento, pero lo uso como prueba aca
+*/
+function convertirFotos(){ 
+    var reader = new FileReader();
+    reader.onloadend = function() {
+        datos.url=reader.result;   //Todo esto lo tendria que usar cuando guarde todo el evento
+    }  
 }
 
 function guardarFoto(){
     localStorage.setItem('ListaFotos', JSON.stringify(arrayF));
-    console.log("guardar")
+    console.log(arrayF);
     // verImagen()
 }
 
