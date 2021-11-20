@@ -102,16 +102,11 @@ function popApF(e){
 
         <div className="container-Switch">
             <div className="flex bg-gray">
-            {/* aca estaba el form */}
-                    {/* mostrar y esconder los campos del primer div de AREA */}
                     <form  className="form background-form">
                             <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
-                            {/* <p>nombre: {datos.nombre} </p>
-                            <p>descripcion: {datos.descripcion}  </p> */}
-
-                            <div className="container-evento">
-                                <div className="container-input-evento">
-                                    <div className="tamañoInputDes">
+                            <div className="container-groups-area">
+                                <div className="groups-area">
+                                    <div className="group-inputs-area">
                                         <input 
                                             className="input input-background" 
                                             type="text"
@@ -119,18 +114,14 @@ function popApF(e){
                                             name="nombreArea"
                                         
                                             placeholder="Nombre del area"
-                                            onChange={handleInputChange}>
-                                                
+                                            onChange={handleInputChange}>               
                                         </input>                   
-                                            
                                     </div>
-                                    <div className="">
-                                        <div className="horizontalBotones">
+                                    <div className="group-buttons-area">
+                                        
                                             <Boton buttonStyle="azul" icono={iconos.coord}> Añadir Posicion </Boton>
                                             <Boton buttonStyle="azul" icono={iconos.play}> Añadir juego </Boton> 
-                                        </div>
-
-                                        <div className="horizontalBotones">
+                                            <div className="horizontalBotones">
                                             <Boton buttonStyle="azul" icono={iconos.video} onClick={popApV}> Añadir video </Boton>
                                             {/* boton añadir imagen */}
                                             <label className="label" for="cambio">
@@ -145,11 +136,17 @@ function popApF(e){
                                                 // value={inputValue}
                                                 accept="image/gif, image/png, image/peg, "
                                                 onClick={popApF}>
-                                            </input>
-                                        </div>                             
-                                    </div>                        
+                                            </input>   
+                                            </div>                         
+                                    </div>  
+                                    <div>
+                                        aca va la tabla para fotos y videos
+                                    </div>                      
                                 </div>
-                                <textarea  className="input-textArea input-background" type="text" name="descripcionArea" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+                                <div className="group-textarea-area">
+                                    <textarea  className="input-textArea input-background" type="text" name="descripcionArea" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+                                </div>
+                                
                             </div>  
                             <div className="center">
                                 <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarDatos}> Guardar </Boton>
@@ -158,20 +155,18 @@ function popApF(e){
                                 <img src="" id="hola" height="200" alt="Image preview..."></img> */}
                             </div> 
                 </form>             
-
-            </div>
-            {/* ACA SE ESCONDEN O VISUALIZAN POPUPS */}
-            {/* VIDEO */}
+                </div>
             <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="video" icon={iconos.video} video={true} setarray={setarrayV} esconder={setactiveV}> </PopWindow>
+                    <PopWindow title="video" icon={iconos.video} video={true} setDatosArea={setDatos} > </PopWindow>
                 </div>
+                
             </div>
-            {/* FOTO */}
             <div className={activeF ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="imagen" icon={iconos.photo} video={false} setarray={setarrayF} esconder={setactiveF}> </PopWindow>
+                    <PopWindow title="imagen" icon={iconos.photo} video={false} setDatosArea={setDatos} > </PopWindow>
                 </div>
+                
             </div>
         </div>
         </> 
