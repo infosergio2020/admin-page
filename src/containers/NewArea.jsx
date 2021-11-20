@@ -110,6 +110,7 @@ function popApF(e){
                                         
                                             <Boton buttonStyle="azul" icono={iconos.coord}> Añadir Posicion </Boton>
                                             <Boton buttonStyle="azul" icono={iconos.play}> Añadir juego </Boton> 
+                                            <div className="horizontalBotones">
                                             <Boton buttonStyle="azul" icono={iconos.video} onClick={popApV}> Añadir video </Boton>
                                             {/* boton añadir imagen */}
                                             <label className="label" for="cambio">
@@ -124,7 +125,8 @@ function popApF(e){
                                                 // value={inputValue}
                                                 accept="image/gif, image/png, image/peg, "
                                                 onClick={popApF}>
-                                            </input>                            
+                                            </input>   
+                                            </div>                         
                                     </div>  
                                     <div>
                                         aca va la tabla para fotos y videos
@@ -142,19 +144,18 @@ function popApF(e){
                                 <img src="" id="hola" height="200" alt="Image preview..."></img> */}
                             </div> 
                 </form>             
-            </div>
-            {/* ACA SE ESCONDEN O VISUALIZAN POPUPS */}
-            {/* VIDEO */}
-            <div className={activeV ? 'container-pop-display-area pop-display-active-area' : 'pop-display'}>
-                <div className="card-popup-area">
-                    <PopWindow title="video" icon={iconos.video} video={true} setarray={setarrayV} hidePop={popApF}> </PopWindow>
                 </div>
-            </div>
-            {/* FOTO */}
-            <div className={activeF ? 'container-pop-display-area pop-display-active-area' : 'pop-display'}>
-                <div className="card-popup-area">
-                    <PopWindow title="imagen" icon={iconos.photo} video={false} setarray={setarrayF} hidePop={popApF}> </PopWindow>
+            <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
+                <div className="card-popup">
+                    <PopWindow title="video" icon={iconos.video} video={true} setDatosArea={setDatos} > </PopWindow>
                 </div>
+                
+            </div>
+            <div className={activeF ? 'pop-display pop-display-active' : 'pop-display'}>
+                <div className="card-popup">
+                    <PopWindow title="imagen" icon={iconos.photo} video={false} setDatosArea={setDatos} > </PopWindow>
+                </div>
+                
             </div>
         </div>
         </> 
