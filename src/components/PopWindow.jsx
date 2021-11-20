@@ -7,7 +7,7 @@ import '../styles/popWindow.css'
 //ICONOS
 import iconos from '../../src/assets/img/iconos';
 
-export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
+export const PopWindow = ({title,icon,setData,video, setDatosArea, hidePop }) => {
 // declaracion de un estado
         const [datos, setDatos] = useState({
             titulo:" ",
@@ -15,66 +15,65 @@ export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
             descripcion: " "
         });
 
-      
 // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
-       // console.log(e.target.value);
         setDatos( {
             ...datos, 
             [e.target.name] : e.target.value
         });
-        
     }
 
+    // const guardar = (e)=>{
+    //     setDatosArea( {
+    //         ...datos, 
+    //         datos        
+               
+    //     });
+    //     // revisar si esta parte funciona--> Oriana dice: NO ES NECESARIO TENERLO PORQUE PODEMOS ACCEDER
+    // DESDE CUALQUIER ARCHIVO MEDIANTE EL NOMBRE DE LA CLAVE DEL LOCALSTORAGE
+    // SOY RE CAPA, ME HABIA OLVIDADO DE ESO Y RECIEN ME ACUERDO JE
+    // Nota: tengo la necesidad de separar video de foto, porque se van a pisar 
+    // }
 
     // guardado del LocalStorage
-        function guardar(e){
-            //localStorage.setItem('datosF', JSON.stringify(datos));
-            //insertar elemento en un array
-            e.preventDefault();
-            
-            // if(!video){
-            //     var preview = document.querySelector('img');
-            //     var file    = document.querySelector('input[type=file]').files[0];
-            //     var reader  = new FileReader();
-                
-            //     reader.onloadend = function () {
-            //     preview.src = reader.result;
-            //     }
-            
-            //     if (file) {
-            //         reader.readAsDataURL(file);
-            //         console.log(preview.src)
-            //     } else {
-            //         preview.src = "";
-            //     }                
-            // }  
-            setarray(array=>
-                [...array,datos]  
-            );    
-            esconder(esconder=>!esconder);
-            
+        function guardar(){
+            localStorage.setItem('datos', JSON.stringify(datos));
         }
-// Funciones
 
-function previewFile(e) {
-    var preview = document.getElementById('hola');
-    var file = document.getElementById('lol').files[0];
-    
-    var reader = new FileReader();
-   // console.log(reader)
-    reader.onloadend = function() {
-        preview.src = reader.result;
-        datos.url=reader.result;
+        function guardarF(){
+            localStorage.setItem('datosF', JSON.stringify(datos));
+        }
+
+    // const handleSubmit = (e)=>{
+    //     console.log('hadleSubmit',inputValue);
+    //     e.preventDefault();        
+    //     if(inputValue.trim().length > 2 ){
+    //         setData( cats => [inputValue,...cats]);
+    //         setInputValue('');
+    //     }else {
+    //         setInputValue('');
+    //     }
+    // }
+
+    const [archivos, setArchivos] = useState(
+        {url:" "}
+    );
+// crear funcion para almacenar las imagenes 
+    const subirArchivos = (l)=>{
+        setArchivos( {
+            ...archivos, 
+            [l.target.name] : l.target.value
+        });
     }
+    // const insertarArchivos= async()=>{
+    //     const f=new FormData();
 
-    if (file) {
-        reader.readAsDataURL(file);
+    //     for(let i=0; i<archivos.lenght;i++){
+    //         f.append("files",archivos[i]);
+    //     }
+    // }
 
-    } else {
-        preview.src = "";
-    }
-}
+
 
 // MAIN()
     return (
@@ -82,10 +81,15 @@ function previewFile(e) {
         
         <div className="popWindow__header">
             <h2 tabIndex="0" aria-label={title}> <img alt="imagen. icono de imagen." src={icon}/>  {title}</h2>
+            <Boton buttonStyle={"btn-small-circle blanco"} icono={iconos.close} onClick={hidePop}></Boton>
         </div>
         {/* <form  className="form background-form" onSubmit={handleSubmit}> */}
-        <form  name="formularioUI" className="form background-form">
+        <form  className="form background-form">
             <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
+            <p>titulo: {datos.titulo} </p>
+            <p>url: {datos.url} </p>
+            <p>descripcion: {datos.descripcion} </p>
+            <p>archivos: {archivos.url} </p>
             <div className="input-group">
                 <input 
                     className="input input-background" 
@@ -111,22 +115,23 @@ function previewFile(e) {
 
                 {/* mostrar y esconder el campo cargar imagen */}
                 {!video && 
-
                 <div className="center">
+                
                 <input 
                     className="" 
                     type="file"
                     name="url"
-                    id= "lol"
-                    placeholder="Subir archivo"              
+                    placeholder="Subir archivo"
+                    
+                    
+                
                     // value={inputValue}
                     accept="image/gif, image/png, image/peg, "
-                    onChange={previewFile}
-                    >
+                    multiple onChange={()=>subirArchivos}>
                 </input>
-                <br></br>
-                <img src="" id="hola" height="200" alt="Image preview..."></img>
-                </div>           
+                </div>
+            
+                
                 }
 
                 <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
@@ -143,7 +148,7 @@ function previewFile(e) {
             {!video &&
                 <div className="center">
 
-                    <Boton buttonStyle="verde" icono={iconos.check} onClick={guardar}> GuardarFoto </Boton>
+                    <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarF}> GuardarFoto </Boton>
                     <Boton buttonStyle="rojo" icono={iconos.cancel}> CancelarFOTO </Boton>
                 </div>
             }
