@@ -45,23 +45,28 @@ function guardarDatos(e) {
     localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
     guardarFoto();
     guardarVideo();
-    console.log(e); // que evento nos tira
-    //convertirFotos();
+    //console.log(e); // que evento nos tira
+    convertirFotos();
 }
 /*
     Convierto las imagenes almacenadas en caché/estado en base 64 
     Pd: esto deberia estar en el guardar evento, pero lo uso como prueba aca
 */
 function convertirFotos(){ 
-    var reader = new FileReader();
-    reader.onloadend = function() {
-        datos.url=reader.result;   //Todo esto lo tendria que usar cuando guarde todo el evento
-    }  
+    var reader;
+    arrayF.forEach( element => {  //recorro el arreglo de fotos y convierto
+        reader = new FileReader();
+        reader.onload = function (){
+            element.url=reader.readAsDataURL(element.url);
+        }
+        console.log(element.url);
+    }); 
+        //datos.url=reader.result;   //Todo esto lo tendria que usar cuando guarde todo el evento  
 }
 
 function guardarFoto(){
     localStorage.setItem('ListaFotos', JSON.stringify(arrayF));
-    console.log(arrayF);
+    //console.log(arrayF);
     // verImagen()
 }
 
