@@ -31,7 +31,7 @@ export const AdminApp = () => {
                     <h1>Eventos</h1>
                 </Route>
                 <Route exact path='/CrearEvento'>
-                        <CrearEvento/>
+                    <CrearEvento/>
                 </Route> 
                 <Route exact path='/Areas'>
                     <VerArea/>

@@ -113,6 +113,16 @@ export const NewEvento = ({setData,evento}) => {
                                     onFocus={handleInputFocus}
                                 >
                                 </textarea>
+                                <input 
+                                    className="input input-background" 
+                                    type="text"
+                                    // value={datos.nombreEvento}
+                                    name="nombreEvento"
+                                    placeholder="Red Social"
+                                    onChange={handleInputChange}
+                                    onFocus={handleInputFocus}
+                                    >
+                                    </input>
                             </div>         
                         </div>           
                         <div className="center">
