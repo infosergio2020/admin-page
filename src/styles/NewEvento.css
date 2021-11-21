@@ -28,3 +28,44 @@
     justify-content: space-between;
     padding: 2rem;
 }
+
+
+.group-evento-rightSide{
+    margin-right: 8rem;
+    flex-basis: calc(33.3% - 1rem);
+}
+
+.group-textarea-evento{
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.group-inputRedes-evento{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.list-redesSociales{
+    margin-top: 1rem;
+    list-style: none;
+    padding: .5rem 1rem;
+    background-color: #0000003a;
+    overflow-y: scroll;
+    height: 20rem;
+}
+
+.list-redesSociales li{
+    border-radius: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #444444b9;
+    margin-bottom: .2rem;
+    background-color: #10b6d3a4;
+    font-weight: bold;
+}
+
+.list-item-redesSociales{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

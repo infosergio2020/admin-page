@@ -22,7 +22,7 @@ export const NewEvento = ({setData,evento}) => {
             nombreEvento:"Nombre del evento",
             lugarEvento: "Lugar del evento",
             descripcionEvento:"Descripcion del evento",
-            redesSociales: " ",
+            redesSociales: "Ingrese una red social",
             imagenes: " ",
             videos: " ",
         });
@@ -30,7 +30,7 @@ export const NewEvento = ({setData,evento}) => {
     const handleInputFocus = (e)=>{
         setDatos( {
             ...datos, 
-            [e.target.name] : " "            
+            [e.target.name] : ""            
         });
     }
 // crear funcion para ver los inputs
@@ -61,7 +61,7 @@ export const NewEvento = ({setData,evento}) => {
             nombreEvento:" ",
             lugarEvento: " ",
             descripcionEvento:" ",
-            redesSociales: [],
+            redesSociales: "",
             imagenes: " ",
             videos: " ",
         });
@@ -69,7 +69,13 @@ export const NewEvento = ({setData,evento}) => {
 // FUNCIONES PARA AGREGAR O ELIMINAR REDES SOCIALES
 const addRed = (e,item)=>{
     e.preventDefault();
-    setRedes([item,...redes]);
+    console.log(item);
+    if(item == "" || item == " "){
+        alert("debe completar el campo")
+    } else{
+        setRedes([item,...redes]);
+    }
+    
 }
 const delRed = (e,item)=>{
     e.preventDefault();
@@ -131,8 +137,8 @@ const delRed = (e,item)=>{
                                     aca va la tabla para fotos y videos...
                                 </div>
                             </div>
-                            <div className="group-textarea-evento">
-                                <div>
+                            <div className="group-evento-rightSide">
+                                <div className="group-textarea-evento">
                                     <textarea  
                                         className="input-textArea input-background" 
                                         type="text" 
@@ -144,7 +150,7 @@ const delRed = (e,item)=>{
                                         onFocus={handleInputFocus}
                                     ></textarea>
                                 </div>
-                                <div>
+                                <div className="group-inputRedes-evento">
                                     <input 
                                         className="input input-background" 
                                         type="text"
@@ -156,7 +162,20 @@ const delRed = (e,item)=>{
                                         onKeyPress={_handleKeyPress}
                                         >
                                         </input>
+                                        <Boton className="btn-small-circle" icono={iconos.add} onClick={(e)=> {addRed(e,datos.redesSociales)}}>Agregar</Boton>
                                 </div>
+
+                                <ul className="list-redesSociales">
+                                    { redes.map( red => {
+                                        return (
+                                            <>
+                                                <li className="list-item-redesSociales">{red} 
+                                                <Boton buttonStyle="btn-small-circle rojo" icono={iconos.erase_white} onClick={(e)=>{delRed(e,red)} }></Boton>
+                                                </li>
+                                            </>
+                                        )
+                                    })}
+                                </ul>
                             </div>         
                         </div>           
                         <div className="center">
