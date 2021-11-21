@@ -43,10 +43,11 @@ function guardarDatos(e) {
     e.preventDefault(); // la pagina no se regargue
     localStorage.setItem('datos', JSON.stringify(datos));// para el video
     localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
-    guardarFoto();
+    
     guardarVideo();
     //console.log(e); // que evento nos tira
     convertirFotos();
+    guardarFoto();
 }
 /*
     Convierto las imagenes almacenadas en caché/estado en base 64 
@@ -54,14 +55,16 @@ function guardarDatos(e) {
 */
 function convertirFotos(){ 
     var reader;
+    let resultado;
     arrayF.forEach( element => {  //recorro el arreglo de fotos y convierto
         reader = new FileReader();
         reader.onload = function (){
             element.url=reader.readAsDataURL(element.url);
         }
         console.log(element.url);
+        resultado=element.url;
     }); 
-        //datos.url=reader.result;   //Todo esto lo tendria que usar cuando guarde todo el evento  
+        datos.urlImagenArea=resultado;   //Todo esto lo tendria que usar cuando guarde todo el evento  
 }
 
 function guardarFoto(){

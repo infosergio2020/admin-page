@@ -38,7 +38,39 @@ function getDatosF() {
   return resultado;
 }
 
+function getDatosV() {
+  const area = JSON.parse( localStorage.getItem('ListaVideos'));
+  let resultado=area;
+  console.log(resultado)
+  if (area === null){
+    resultado="Sin informacion";
+  }
+  return resultado;
+}
 
+
+function VideoList(props) {
+  const area = JSON.parse( localStorage.getItem('ListaVideos'));
+  let resultado=area;
+  console.log(resultado)
+  if (area === null){
+    resultado="Sin informacion";
+  }
+  const listItems = resultado.map((number) =>
+ <li className="tamaño center flex">     
+      <div className="apariencia">
+          <VideoApp url={number.url} title={number.titulo} video={true} /> 
+      </div>
+      <div className="apariencia paddingArea">
+          <textarea className="input-textAreaV input-backgroundV" value={number.descripcion} type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
+      </div>
+  </li>
+  );
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+//const numbers = [1, 2, 3, 4, 5];
 // comienzo del MAIN
     return (
         <>
@@ -81,26 +113,13 @@ function getDatosF() {
         <div
           className={toggleState === 1 ? "content  active-content" : "content"}
         >
-          <div>
-
-              <h2 className="izquierda"> Video</h2>
-              <hr />
-                  <div class="tamaño center flex">      
-                      <div className="apariencia">
-                          <VideoApp url={"https://youtu.be/or8QfmradNM"} video={true} />
-                          <VideoApp url={"https://youtu.be/or8QfmradNM"} video={true} />
-                      </div> 
-                      <div className="apariencia paddingArea">
-                          <textarea className="input-textAreaV input-backgroundV" value={getDatos().descripcion} type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
-                          <textarea className="input-textAreaV input-backgroundV" type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
-                     
-                      </div>             
-                </div>
-
+              <div>
+                  <h2 className="izquierda"> Video</h2>
+                  <hr />
+                  {/* LISTADO DE ELEMENTOS DE UN ARRAY */}
+                  <VideoList  />
               </div>
-              
         </div>
-
         <div
           className={toggleState === 2 ? "content  active-content" : "content"}
         >
