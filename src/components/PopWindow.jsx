@@ -91,6 +91,7 @@ const previewFile = ((e) => {
         
         <div className="popWindow__header">
             <h2 tabIndex="0" aria-label={title}> <img alt="imagen. icono de imagen." src={icon}/>  {title}</h2>
+            <Boton buttonStyle={"btn-small-circle blanco"} icono={iconos.close} onClick={hidePop}></Boton>
         </div>
         {/* <form  className="form background-form" onSubmit={handleSubmit}> */}
         <form  name="formularioUI" className="form background-form">

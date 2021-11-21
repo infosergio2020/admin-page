@@ -7,6 +7,7 @@ import coord from './coord.svg';
 import descarga from './descarga.png';
 import edit from './edit.svg';
 import erase from './erase.svg';
+import erase_white from './erase-white.svg';
 import foto from './foto.svg';
 import hand from './hand.svg';
 import logout from './logout.svg';
@@ -15,6 +16,7 @@ import photo from './photo.svg';
 import play from './play.svg';
 import show from './show.svg';
 import video from './video.svg';
+import close from './close.svg';
 
 export default {
     'add':add,
@@ -26,6 +28,7 @@ export default {
     'descarga':descarga,
     'edit':edit,
     'erase':erase,
+    'erase_white':erase_white,
     'foto':foto,
     'hand':hand,
     'logout':logout,
@@ -34,4 +37,5 @@ export default {
     'play':play,
     'show':show,
     'video':video,
+    'close':close,
 }

@@ -5,163 +5,198 @@ import {PopWindow} from '../components/PopWindow';
 // //ICONOS
 import iconos from '../assets/img/iconos';
 //CSS
-import "../styles/NewArea.css"
+import "../styles/NewEvento.css"
 
 export const NewEvento = ({setData,evento}) => {
+        const [eventos, setEventos] = useState([]);
+        // SWITCH PARA LOS POPWINDOWS
         const [activeV, setactiveV] = useState(false);
-        
         const [activeF, setactiveF] = useState(false);
-        
-// Nota: Tuve que crear 2 estados separados para no eliminar 
-// o cambiar la estrucutra del POPWindow que en ese
-// mismo componente estan video y foto---> es una mierda
-
-// declaracion de un estado area para video
+        // FOTOS Y VIDEOS DEL EVENTO
+        const [fotos, setFotos] = useState([]);
+        const [videos, setVideos] = useState([]);        
+        // REDES SOCIALES
+        const [redes, setRedes] = useState([]);        
+        // FORMULARIO DEL EVENTO
         const [datos, setDatos] = useState({
-            nombreArea:" ",
-            nombreEnvivo:" ",
-            nombreEvento:" ",
-            descripcionArea: " ",
-            descripcionEnvivo: " ",
-            descripcionEvento: " ",
-            urlEvento: " ",
-            urlArea: " ",
-            urlEnvivo:" ",
-            urlVideoArea:" ",
-            urlImagenArea:" ",
-    
-            
+            nombreEvento:"Nombre del evento",
+            lugarEvento: "Lugar del evento",
+            descripcionEvento:"Descripcion del evento",
+            redesSociales: "Ingrese una red social",
+            imagenes: " ",
+            videos: " ",
         });
-
-   
+// crear funcion para ver los inputs
+    const handleInputFocus = (e)=>{
+        setDatos( {
+            ...datos, 
+            [e.target.name] : ""            
+        });
+    }
 // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
         setDatos( {
             ...datos, 
-            [e.target.name] : e.target.value
-            
+            [e.target.name] : e.target.value            
         });
     }
-
-    const [archivos, setArchivos] = useState(
-        {url:" "}
-    );
-// crear funcion para almacenar las imagenes
- 
-    const subirArchivos = (l)=>{
-        setArchivos( {
-            ...archivos, 
-            [l.target.name] : l.target.value
-        });
-    }
-// me guardo los datos que se escribieron en el NewArea
-function guardarDatos() {
-    localStorage.setItem('datos', JSON.stringify(datos));// para el video
-    localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
-}
-
-
- 
 // funcion para simular el POPUP del video y la foto
-function popApV(e){
-    e.preventDefault()
-    setactiveV(!activeV);
-} 
-function popApF(e){
-    e.preventDefault()
-    setactiveF(!activeF);
-} 
-
-
+    const popApV= (e) =>{       
+        e.preventDefault()
+        setactiveV(!activeV);
+    }
+    
+    function popApF(e){
+        e.preventDefault()
+        setactiveF(!activeF);
+    } 
+// FUNCIONES DEL FORMULARIO
+    const save = (e)=>{
+        e.preventDefault();
+        setEventos( eventos => [...eventos,datos]);
+    };
+    const reset = (e)=>{
+        e.preventDefault();
+        setDatos({
+            nombreEvento:" ",
+            lugarEvento: " ",
+            descripcionEvento:" ",
+            redesSociales: "",
+            imagenes: " ",
+            videos: " ",
+        });
+    };
+// FUNCIONES PARA AGREGAR O ELIMINAR REDES SOCIALES
+const addRed = (e,item)=>{
+    e.preventDefault();
+    console.log(item);
+    if(item == "" || item == " "){
+        alert("debe completar el campo")
+    } else{
+        setRedes([item,...redes]);
+    }
+    
+}
+const delRed = (e,item)=>{
+    e.preventDefault();
+    let newRedes = redes.filter(red => red !== item);
+    setRedes(newRedes);
+}
+    // class Input extends React.Component {
+    //     _handleKeyPress(e) {
+    //       if (e.key === 'Enter') {
+    //         console.log('do validate');
+    //       }
+    //     }
+    // }
+    const _handleKeyPress = (e)=>{
+        if (e.key === 'Enter') {
+            console.log('do validate');
+            setactiveV(!activeV);
+          }
+    }
 // COMIENZO DEL MAIN()
     return (
         <>
         <div className="container-Switch">
             <div className="flex bg-gray">
-            {/* aca estaba el form */}
-                
-                {/* mostrar y esconder los campos del primer div de EVENTO */}
-                {evento && 
                 <form  className="form background-form">
                         <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
-                        <div className="container-evento">
-                                <div className="container-input-evento">
+                        <div className="container-groups-evento">
+                            <div className="groups-evento">
+                                <div className="group-inputs-evento">
                                         <input 
                                             className="input input-background" 
                                             type="text"
-                                            // value={inputValue}
+                                            value={datos.nombreEvento}
                                             name="nombreEvento"
                                             placeholder="Nombre del evento"
-                                            onChange={handleInputChange}>
+                                            onChange={handleInputChange}
+                                            onFocus={handleInputFocus}
+                                            onKeyPress={_handleKeyPress}
+                                            >
                                         </input>
                                         <input 
                                             className="input input-background" 
                                             type="text"
-                                            // value={inputValue}
-                                            name="url"
+                                            value={datos.lugarEvento}
+                                            name="lugarEvento"
                                             placeholder="Lugar del evento"
-                                            onChange={handleInputChange}>
+                                            onChange={handleInputChange}
+                                            onFocus={handleInputFocus}
+                                            onKeyPress={_handleKeyPress}
+                                            >
                                         </input>  
                                 </div>
 
-                                <div className="container-addBtn-evento">
-                                        <Boton buttonStyle="azul" icono={iconos.video}> <p>Añadir video</p> </Boton>
-                                        {/* <Button buttonStyle="azul" icono={iconos.check} type="file" accept="image/gif, image/png, image/peg," multiple onChange={()=>subirArchivos}  name="url" placeholder="Subir archivo" > mm </Button> */}
-                                        <label className="label" for="cambio"> 
-                                            <p>Añadir imagen</p> 
-                                            <img src={iconos.photo} />
-                                        </label>
-                                        
-                                            <input 
-                                                id="cambio"
-                                                
-                                                type="file"
-                                                name="urlEvento"
-                                                placeholder="Añadir imagen"                       
-                                                // value={inputValue}
-                                                accept="image/gif, image/png, image/peg, "
-                                                multiple onChange={()=>subirArchivos}>
-                                            </input>
-                
-                                    </div>
-                                    <textarea  className="input-textArea input-background" type="text" name="descripcionEvento" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
-
-                            
-                        </div>  
-                        
-                            
-                            
-                            <div className="center">
-
-                                <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarDatos}> Guardar </Boton>
-                                <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
+                                <div className="group-buttons-evento">
+                                    <Boton buttonStyle="azul" icono={iconos.video} onClick={popApV}> <p>Añadir video</p> </Boton>
+                                    <Boton buttonStyle="azul" icono={iconos.photo} onClick={popApF}> <p>Añadir foto</p> </Boton>
+                                </div>
+                                <div>
+                                    aca va la tabla para fotos y videos...
+                                </div>
                             </div>
+                            <div className="group-evento-rightSide">
+                                <div className="group-textarea-evento">
+                                    <textarea  
+                                        className="input-textArea input-background" 
+                                        type="text" 
+                                        placeholder="Descripción" 
+                                        name="descripcionEvento"
+                                        value={datos.descripcionEvento}
+                                        aria-multiline="true"
+                                        onChange={handleInputChange}
+                                        onFocus={handleInputFocus}
+                                    ></textarea>
+                                </div>
+                                <div className="group-inputRedes-evento">
+                                    <input 
+                                        className="input input-background" 
+                                        type="text"
+                                        value={datos.redesSociales}
+                                        name="redesSociales"
+                                        placeholder="Red Social"
+                                        onChange={handleInputChange}
+                                        onFocus={handleInputFocus}
+                                        onKeyPress={_handleKeyPress}
+                                        >
+                                        </input>
+                                        <Boton className="btn-small-circle" icono={iconos.add} onClick={(e)=> {addRed(e,datos.redesSociales)}}>Agregar</Boton>
+                                </div>
 
+                                <ul className="list-redesSociales">
+                                    { redes.map( red => {
+                                        return (
+                                            <>
+                                                <li className="list-item-redesSociales">{red} 
+                                                <Boton buttonStyle="btn-small-circle rojo" icono={iconos.erase_white} onClick={(e)=>{delRed(e,red)} }></Boton>
+                                                </li>
+                                            </>
+                                        )
+                                    })}
+                                </ul>
+                            </div>         
+                        </div>           
+                        <div className="center">
+                            <Boton buttonStyle="verde" icono={iconos.check} onClick={save}> Guardar </Boton>
+                            <Boton buttonStyle="rojo" icono={iconos.cancel} onClick={reset}> Cancelar </Boton>
+                        </div>
                 </form> 
-                }
-
             </div>
+            {/* POPUP PARA VIDEOS */}
             <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="video" icon={iconos.video} video={true} setDatosArea={setDatos} > </PopWindow>
+                    <PopWindow title="video" icon={iconos.video} video={true} setArray={setVideos} esconder={popApV}> </PopWindow>
                 </div>
-                
             </div>
+            {/* POPUP PARA IMAGENES */}
             <div className={activeF ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="imagen" icon={iconos.photo} video={false} setDatosArea={setDatos} > </PopWindow>
+                    <PopWindow title="imagen" icon={iconos.photo} video={false} setArray={setFotos} esconder={popApF}> </PopWindow>
                 </div>
-                
             </div>
         </div>
         </>
-        
-      
     )
-
-}
-
-// con esto prevengo que alguien que reutilize mi funcion se olvide de mandar una funcion como parametro
-NewEvento.propTypes = { 
-    setData: PropTypes.func.isRequired,
 }
