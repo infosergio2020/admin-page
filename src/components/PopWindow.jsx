@@ -10,9 +10,9 @@ import iconos from '../../src/assets/img/iconos';
 export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
 // declaracion de un estado
         const [datos, setDatos] = useState({
-            titulo:" ",
-            url:" ",
-            descripcion: " "
+            titulo:"",
+            url:"",
+            descripcion: ""
         });
 
       
@@ -25,6 +25,7 @@ export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
         });
         
     }
+
 
 
     // guardado del LocalStorage
@@ -54,14 +55,20 @@ export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
             // url:" ",
             // descripcion: " "
 
-            if(datos.titulo !==" " && datos.descripcion !==" " && datos.url !==" "){
+            if(datos.titulo !=="" && datos.descripcion !=="" && datos.url !==""){
                 setarray(array=>
                     [...array,datos]  
                 );    
+ 
             }
             else {
                 alert("Usted debe completar todo los campos!!!");                
             }
+            setDatos({
+                titulo:"",
+                url:"",
+                descripcion: ""
+            });
             esconder(esconder=>!esconder);
         }
 // Funciones
@@ -91,7 +98,6 @@ const previewFile = ((e) => {
         
         <div className="popWindow__header">
             <h2 tabIndex="0" aria-label={title}> <img alt="imagen. icono de imagen." src={icon}/>  {title}</h2>
-            <Boton buttonStyle={"btn-small-circle blanco"} icono={iconos.close} onClick={hidePop}></Boton>
         </div>
         {/* <form  className="form background-form" onSubmit={handleSubmit}> */}
         <form  name="formularioUI" className="form background-form">
@@ -100,7 +106,7 @@ const previewFile = ((e) => {
                 <input 
                     className="input input-background" 
                     type="text"
-                    // value={inputValue}
+                    value={datos.titulo}
                     name="titulo"
                     placeholder="Titulo"
                     onChange={handleInputChange}>
@@ -113,7 +119,7 @@ const previewFile = ((e) => {
                     type="text"
                     name="url"
                     placeholder="Url"
-                    // value={inputValue}
+                    value={datos.url}
                     onChange={handleInputChange}>
                 </input>
                 
@@ -150,7 +156,7 @@ const previewFile = ((e) => {
                 </div>           
                 }
 
-                <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+                <textarea className="input-textArea input-background" type="text" name="descripcion" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true" value={datos.descripcion}></textarea>
 
             </div>
             {/* si es un VIDEO muestra los botones de video */}

@@ -20,7 +20,7 @@ export const ViewEvento = () => {
             <div className="eventoContainer">
                 <div className="tablaContainer">        
                     <Buscador setTitle={setTitulo}/>
-                    <TablaEventos item={titulo} />
+                    <TablaEventos  titulo={'Lista de eventos'} />
                 </div>
                 <div className="boton-AddEvento">
                         <Boton buttonStyle={'btn-circle'} icono={add} onClick={changeDirection}/>

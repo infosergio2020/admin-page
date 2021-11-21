@@ -23,8 +23,10 @@ export const NewEvento = ({setData,evento}) => {
             lugarEvento: "Lugar del evento",
             descripcionEvento:"Descripcion del evento",
             redesSociales: "Ingrese una red social",
-            imagenes: " ",
-            videos: " ",
+            horaEvento:"",
+            fechaEvento:"",
+            fotos: [],
+            videos: [],
         });
 // crear funcion para ver los inputs
     const handleInputFocus = (e)=>{
@@ -35,9 +37,24 @@ export const NewEvento = ({setData,evento}) => {
     }
 // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
+        console.log(e.target.type);
+        let valor;
+
+        switch(e.target.type) {
+            case 'date':
+                valor = e.target.value.toString();
+                break;
+            case 'time':
+                valor = e.target.value.toString();
+                break;
+            default:
+                valor = e.target.value;
+                break;
+          }
+
         setDatos( {
             ...datos, 
-            [e.target.name] : e.target.value            
+            [e.target.name] : valor
         });
     }
 // funcion para simular el POPUP del video y la foto
@@ -53,17 +70,25 @@ export const NewEvento = ({setData,evento}) => {
 // FUNCIONES DEL FORMULARIO
     const save = (e)=>{
         e.preventDefault();
+        // enlazo las fotos y los videos con el evento a crear
+        setDatos( {
+            ...datos, 
+            ['videos'] : videos,
+            ['fotos'] : fotos,
+            ['redesSociales'] : redes
+        });
         setEventos( eventos => [...eventos,datos]);
+        // localStorage.setItem('Listaeventos', JSON.stringify(eventos));
     };
     const reset = (e)=>{
         e.preventDefault();
         setDatos({
-            nombreEvento:" ",
-            lugarEvento: " ",
-            descripcionEvento:" ",
+            nombreEvento:"",
+            lugarEvento: "",
+            descripcionEvento:"",
             redesSociales: "",
-            imagenes: " ",
-            videos: " ",
+            imagenes: "",
+            videos: "",
         });
     };
 // FUNCIONES PARA AGREGAR O ELIMINAR REDES SOCIALES
@@ -82,13 +107,7 @@ const delRed = (e,item)=>{
     let newRedes = redes.filter(red => red !== item);
     setRedes(newRedes);
 }
-    // class Input extends React.Component {
-    //     _handleKeyPress(e) {
-    //       if (e.key === 'Enter') {
-    //         console.log('do validate');
-    //       }
-    //     }
-    // }
+  
     const _handleKeyPress = (e)=>{
         if (e.key === 'Enter') {
             console.log('do validate');
@@ -122,6 +141,28 @@ const delRed = (e,item)=>{
                                             value={datos.lugarEvento}
                                             name="lugarEvento"
                                             placeholder="Lugar del evento"
+                                            onChange={handleInputChange}
+                                            onFocus={handleInputFocus}
+                                            onKeyPress={_handleKeyPress}
+                                            >
+                                        </input>  
+                                        <input 
+                                            className="input input-background" 
+                                            type="date"
+                                            // value={datos.fechaEvento}
+                                            name="fechaEvento"
+                                            placeholder="Fecha del evento"
+                                            onChange={handleInputChange}
+                                            onFocus={handleInputFocus}
+                                            onKeyPress={_handleKeyPress}
+                                            >
+                                        </input>  
+                                        <input 
+                                            className="input input-background" 
+                                            type="time"
+                                            // value={datos.horaEvento}
+                                            name="horaEvento"
+                                            placeholder="Hora del evento"
                                             onChange={handleInputChange}
                                             onFocus={handleInputFocus}
                                             onKeyPress={_handleKeyPress}
@@ -166,11 +207,11 @@ const delRed = (e,item)=>{
                                 </div>
 
                                 <ul className="list-redesSociales">
-                                    { redes.map( red => {
+                                    { redes.map( (red,indice) => {
                                         return (
                                             <>
                                                 <li className="list-item-redesSociales">{red} 
-                                                <Boton buttonStyle="btn-small-circle rojo" icono={iconos.erase_white} onClick={(e)=>{delRed(e,red)} }></Boton>
+                                                <Boton key={indice} buttonStyle="btn-small-circle rojo" icono={iconos.erase_white} onClick={(e)=>{delRed(e,red)} }></Boton>
                                                 </li>
                                             </>
                                         )
@@ -187,13 +228,13 @@ const delRed = (e,item)=>{
             {/* POPUP PARA VIDEOS */}
             <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="video" icon={iconos.video} video={true} setArray={setVideos} esconder={popApV}> </PopWindow>
+                    <PopWindow title="video" icon={iconos.video} video={true} setarray={setVideos} esconder={setactiveV}> </PopWindow>
                 </div>
             </div>
             {/* POPUP PARA IMAGENES */}
             <div className={activeF ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
-                    <PopWindow title="imagen" icon={iconos.photo} video={false} setArray={setFotos} esconder={popApF}> </PopWindow>
+                    <PopWindow title="imagen" icon={iconos.photo} video={false} setarray={setFotos} esconder={setactiveF}> </PopWindow>
                 </div>
             </div>
         </div>
