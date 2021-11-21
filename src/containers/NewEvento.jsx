@@ -38,10 +38,11 @@ export const NewEvento = ({setData,evento}) => {
         });
     }
 // funcion para simular el POPUP del video y la foto
-    function popApV(e){
+    const popApV= (e) =>{       
         e.preventDefault()
         setactiveV(!activeV);
-    } 
+    }
+    
     function popApF(e){
         e.preventDefault()
         setactiveF(!activeF);
@@ -61,6 +62,20 @@ export const NewEvento = ({setData,evento}) => {
             videos: " ",
         });
     };
+
+    // class Input extends React.Component {
+    //     _handleKeyPress(e) {
+    //       if (e.key === 'Enter') {
+    //         console.log('do validate');
+    //       }
+    //     }
+    // }
+    const _handleKeyPress = (e)=>{
+        if (e.key === 'Enter') {
+            console.log('do validate');
+            setactiveV(!activeV);
+          }
+    }
 // COMIENZO DEL MAIN()
     return (
         <>
@@ -79,6 +94,7 @@ export const NewEvento = ({setData,evento}) => {
                                             placeholder="Nombre del evento"
                                             onChange={handleInputChange}
                                             onFocus={handleInputFocus}
+                                            onKeyPress={_handleKeyPress}
                                             >
                                         </input>
                                         <input 
@@ -89,6 +105,7 @@ export const NewEvento = ({setData,evento}) => {
                                             placeholder="Lugar del evento"
                                             onChange={handleInputChange}
                                             onFocus={handleInputFocus}
+                                            onKeyPress={_handleKeyPress}
                                             >
                                         </input>  
                                 </div>
@@ -121,6 +138,7 @@ export const NewEvento = ({setData,evento}) => {
                                     placeholder="Red Social"
                                     onChange={handleInputChange}
                                     onFocus={handleInputFocus}
+                                    onKeyPress={_handleKeyPress}
                                     >
                                     </input>
                             </div>         
@@ -131,13 +149,13 @@ export const NewEvento = ({setData,evento}) => {
                         </div>
                 </form> 
             </div>
-            {/* POPUP PARA IMAGENES */}
+            {/* POPUP PARA VIDEOS */}
             <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
                     <PopWindow title="video" icon={iconos.video} video={true} setArray={setVideos} hidePop={popApV}> </PopWindow>
                 </div>
             </div>
-            {/* POPUP PARA VIDEOS */}
+            {/* POPUP PARA IMAGENES */}
             <div className={activeF ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
                     <PopWindow title="imagen" icon={iconos.photo} video={false} setArray={setFotos} hidePop={popApF}> </PopWindow>
