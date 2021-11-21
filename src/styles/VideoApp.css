@@ -44,13 +44,15 @@ para el componente de video */
 estilos para el area de descripcion */
 
 .input-textAreaV{
-  margin: 0rem;
-  padding:0rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'sans-serif';
+  line-height: 1.8;
+  margin: 0;
+  padding: 1rem 2rem;
   border: 2px solid #e3e3e3;
   border-radius: 1rem;
-  /* width: 30rem;
-  height: 30rem; */
-  width: 63rem;
+  width: 90%;
   height: 25rem;
   color: #646464;
 } 

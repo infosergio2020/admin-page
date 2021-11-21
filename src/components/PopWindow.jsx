@@ -49,11 +49,20 @@ export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
             //         preview.src = "";
             //     }                
             // }  
-            setarray(array=>
-                [...array,datos]  
-            );    
+
+            // titulo:" ",
+            // url:" ",
+            // descripcion: " "
+
+            if(datos.titulo !==" " && datos.descripcion !==" " && datos.url !==" "){
+                setarray(array=>
+                    [...array,datos]  
+                );    
+            }
+            else {
+                alert("Usted debe completar todo los campos del video!!!");
+            }
             esconder(esconder=>!esconder);
-            
         }
 // Funciones
 

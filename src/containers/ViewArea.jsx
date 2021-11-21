@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // COMPONENTES
 import PropTypes from 'prop-types';
-import {Button} from "../components/Boton";
+import {Boton, Button} from "../components/Boton";
 import  {VideoApp}  from "../components/VideoApp";
 // CSS
 import '../styles/ViewArea.css'
@@ -10,9 +10,7 @@ import '../styles/ViewArea.css'
 import iconos from '../../src/assets/img/iconos';
 // FUNCION para los TABS view
 export const ViewArea = () => {
-
     const [toggleState, setToggleState] = useState(1);
-
     const toggleTab = (index) => {
       setToggleState(index);
     };
@@ -51,24 +49,27 @@ function getDatosV() {
 
 function VideoList(props) {
   const area = JSON.parse( localStorage.getItem('ListaVideos'));
-  let resultado=area;
+  let resultado=area;  
   console.log(resultado)
   if (area === null){
     resultado="Sin informacion";
   }
-  const listItems = resultado.map((number) =>
+  const listItems = resultado.map((video) =>
  <li className="tamaño center flex">     
       <div className="apariencia">
-          <VideoApp url={number.url} title={number.titulo} video={true} /> 
+          <VideoApp url={video.url} title={video.titulo} video={true} /> 
       </div>
       <div className="apariencia paddingArea">
-          <textarea className="input-textAreaV input-backgroundV" value={number.descripcion} type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
+          <textarea className="input-textAreaV" value={video.descripcion} type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true" disabled={false}></textarea>
       </div>
   </li>
   );
-  return (
-    <ul>{listItems}</ul>
-  );
+
+    if(area.length === 0){
+      return (    <h3 className={"center color-blanco"}> No hay videos :C </h3> );
+    }else{
+      return (    <ul>{listItems}</ul> );
+    }
 }
 //const numbers = [1, 2, 3, 4, 5];
 // comienzo del MAIN

@@ -40,6 +40,7 @@ export const NewArea = ({setData}) => {
     }
 // me guardo los datos que se escribieron en el NewArea
 function guardarDatos(e) {
+
     e.preventDefault(); // la pagina no se regargue
     localStorage.setItem('datos', JSON.stringify(datos));// para el video
     localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
