@@ -62,9 +62,8 @@ const previewFile = ((e) => {
     var file = document.getElementById('lol').files[0];
     //console.log(file.origin + file.name);
     var reader = new FileReader(); 
-
-    setDatos( {...datos, url:file.name});
-
+    setDatos( {...datos, url:file});
+    //console.log(datos.url);
     reader.onloadend = function() {
         preview.src = reader.result;
     //   datos.url=reader.result;   //Todo esto lo tendria que usar cuando guarde todo el evento
