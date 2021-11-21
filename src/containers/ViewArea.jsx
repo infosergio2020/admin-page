@@ -104,6 +104,35 @@ function FotoList(props) {
       return (    <ul>{listItems}</ul> );
     }
 }
+// Juegos
+function JuegoList(props) {
+  let listItems = []
+  const area = JSON.parse( localStorage.getItem('ListaJuegos'));
+  let resultado=area;  
+  console.log(resultado)
+  if (area === null){
+    resultado="Sin informacion";
+  } else{
+    listItems = resultado.map((Juego) =>
+    <li className="tamaño center flex">     
+         <div className="apariencia">
+             <VideoApp url={Juego.urlImg} title={Juego.titulo} Juego={false} /> 
+         </div>
+         <div className="apariencia paddingArea desplazarAbajo">
+             <textarea className="input-textAreaV" value={Juego.descripcion} type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true" disabled={false}></textarea>
+             <h3 className={"center color-blanco"}> Url del juego= {Juego.url} </h3>
+         </div>
+     </li>
+     );
+  }
+  
+
+    if(listItems.length === 0){
+      return (    <h3 className={"center color-blanco"}> No hay juegos :C </h3> );
+    }else{
+      return (    <ul>{listItems}</ul> );
+    }
+}
 
 // comienzo del MAIN
     return (
@@ -161,19 +190,6 @@ function FotoList(props) {
           <hr />
           {/* LISTADO DE ELEMENTOS DE UN ARRAY */}
           <FotoList  />
-          {/* <div class="tamaño center flex">      
-                      <div className="apariencia">
-                          <VideoApp url={iconos.img} video={false} />
-                          <VideoApp url={iconos.lol} video={false} />
-                      </div> 
-                      <div className="apariencia paddingArea">
-                          <textarea className="input-textAreaV input-backgroundV" value={getDatosF().descripcion} type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
-                          <textarea className="input-textAreaV input-backgroundV" type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
-                      
-                      </div>
-                                   
-          </div>   */}
-          
         </div>
 
         <div
@@ -183,52 +199,29 @@ function FotoList(props) {
           <hr />
           <div className="valor-latitud">
                 <label>
-                        {/* Latitud:{title} */}
-                        Latitud:-32423543
-                    
+                        <h3 className={"center color-blanco"}> Latitud: {getDatos().latitud}</h3>
+                        <h3 className={"center color-blanco"}> Longitud: {getDatos().longitud}</h3>
+                
                 </label>
-                <label>
-                        Longitud:-334234
-                    
-                </label>
-
-
           </div>
                     <div class="tamaño center flex">      
                       
                       <div className="apariencia paddingArea">
                           <textarea className="input-textAreaV input-backgroundV" type="text" value={getDatos().descripcionArea} name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
-                         
-                      </div>
-                                   
-          </div>
-
-
-                 
+                      </div>                   
+          </div>         
     </div>
     <div
           className={toggleState === 4 ? "content  active-content" : "content"}
         >
           <h2 className="izquierda"> Juegos</h2>
-          <hr />
-          
-          <div class="tamaño center flex">      
-                      <div className="apariencia">
-                          <VideoApp url={iconos.img} video={false} />
-                          <VideoApp url={iconos.lol} video={false} />
-                      </div> 
-                      <div className="apariencia paddingArea">
-                          <textarea className="input-textAreaV input-backgroundV" type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
-                          <textarea className="input-textAreaV input-backgroundV" type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
-                      
-                      </div>
-                                   
-          </div>  
-
+          <hr />  
+          {/* LISTADO DE ELEMENTOS DE UN ARRAY */}
+          <JuegoList  />
         </div>
         {/* fin de las pestañas del envivo */}
 
-      </div>
+    </div>
 </div>
     </>
   )

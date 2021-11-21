@@ -117,3 +117,10 @@ button {
 .asanchar {
     width: 95rem;
 }
+
+
+/* esto es para agregar padding en la vista de juegos  */
+
+.desplazarAbajo {
+    padding-top: 10rem;
+}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Boton } from '../components/Boton';
 import {PopWindow} from '../components/PopWindow';
+import {PopJuego} from '../components/PopJuego';
 // //ICONOS
 import iconos from '../assets/img/iconos';
 //CSS
@@ -10,10 +11,14 @@ import "../styles/NewArea.css"
 export const NewArea = ({setData}) => {
         const [activeV, setactiveV] = useState(false);
         const [activeF, setactiveF] = useState(false);
+        const [activeJ, setactiveJ] = useState(false);
         const [arrayF, setarrayF] = useState( // para la foto
             []
         );
         const [arrayV, setarrayV] = useState( // para el video
+            []
+        );
+        const [arrayJ, setarrayJ] = useState( // para el juego
             []
         );
         useEffect(()=>{    }, [ arrayV ]);
@@ -24,6 +29,8 @@ export const NewArea = ({setData}) => {
         const [datos, setDatos] = useState({
             nombreArea:" ",
             descripcionArea: " ",
+            latitud:" ",
+            longitud:" ",
             urlArea: " ",
             urlEnvivo:" ",
             urlVideoArea:" ",
@@ -43,7 +50,9 @@ function guardarDatos(e) {
     e.preventDefault(); // la pagina no se regargue
     localStorage.setItem('datos', JSON.stringify(datos));// para el video
     localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
+
     
+    localStorage.setItem('ListaJuegos', JSON.stringify(arrayJ));
     guardarVideo();
     //console.log(e); // que evento nos tira
     convertirFotos();
@@ -85,6 +94,10 @@ function popApV(e){
 function popApF(e){
     e.preventDefault()
     setactiveF(!activeF);
+}
+function popApJ(e){
+    e.preventDefault()
+    setactiveJ(!activeJ);
 } 
 
 // function verImagen(){
@@ -129,13 +142,33 @@ function popApF(e){
                                             placeholder="Nombre del area"
                                             onChange={handleInputChange}>
                                                 
+                                        </input>  
+                                        <input 
+                                            className="input input-background" 
+                                            type="text"
+                                            // value={inputValue}
+                                            name="longitud"
+                                        
+                                            placeholder="Longitud del area"
+                                            onChange={handleInputChange}>
+                                                
+                                        </input>
+                                        <input 
+                                            className="input input-background" 
+                                            type="text"
+                                            // value={inputValue}
+                                            name="latitud"
+                                        
+                                            placeholder="Latitud del area"
+                                            onChange={handleInputChange}>
+                                                
                                         </input>                   
                                             
                                     </div>
                                     <div className="">
                                         <div className="horizontalBotones">
-                                            <Boton buttonStyle="azul" icono={iconos.coord}> Añadir Posicion </Boton>
-                                            <Boton buttonStyle="azul" icono={iconos.play}> Añadir juego </Boton> 
+
+                                            <Boton buttonStyle="azul" icono={iconos.play} onClick={popApJ}> Añadir juego </Boton> 
                                         </div>
 
                                         <div className="horizontalBotones">
@@ -179,6 +212,12 @@ function popApF(e){
             <div className={activeF ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
                     <PopWindow title="imagen" icon={iconos.photo} video={false} setarray={setarrayF} esconder={setactiveF}> </PopWindow>
+                </div>
+            </div>
+            {/* JUEGO */}
+            <div className={activeJ ? 'pop-display pop-display-active' : 'pop-display'}>
+                <div className="card-popup">
+                    <PopJuego title="Juego" icon={iconos.play} video={false} setarray={setarrayJ} esconder={setactiveJ}> </PopJuego>
                 </div>
             </div>
         </div>
