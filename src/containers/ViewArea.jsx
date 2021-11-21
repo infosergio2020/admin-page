@@ -49,24 +49,27 @@ function getDatosV() {
 
 
 function VideoList(props) {
+  let listItems = []
   const area = JSON.parse( localStorage.getItem('ListaVideos'));
   let resultado=area;  
   console.log(resultado)
   if (area === null){
     resultado="Sin informacion";
+  } else{
+    listItems = resultado.map((video) =>
+    <li className="tamaño center flex">     
+         <div className="apariencia">
+             <VideoApp url={video.url} title={video.titulo} video={true} /> 
+         </div>
+         <div className="apariencia paddingArea">
+             <textarea className="input-textAreaV" value={video.descripcion} type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true" disabled={false}></textarea>
+         </div>
+     </li>
+     );
   }
-  const listItems = resultado.map((video) =>
- <li className="tamaño center flex">     
-      <div className="apariencia">
-          <VideoApp url={video.url} title={video.titulo} video={true} /> 
-      </div>
-      <div className="apariencia paddingArea">
-          <textarea className="input-textAreaV" value={video.descripcion} type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true" disabled={false}></textarea>
-      </div>
-  </li>
-  );
+  
 
-    if(area.length === 0){
+    if(listItems.length === 0){
       return (    <h3 className={"center color-blanco"}> No hay videos :C </h3> );
     }else{
       return (    <ul>{listItems}</ul> );
