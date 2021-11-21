@@ -15,11 +15,14 @@ export const NewEvento = ({setData,evento}) => {
         // FOTOS Y VIDEOS DEL EVENTO
         const [fotos, setFotos] = useState([]);
         const [videos, setVideos] = useState([]);        
+        // REDES SOCIALES
+        const [redes, setRedes] = useState([]);        
         // FORMULARIO DEL EVENTO
         const [datos, setDatos] = useState({
             nombreEvento:"Nombre del evento",
             lugarEvento: "Lugar del evento",
             descripcionEvento:"Descripcion del evento",
+            redesSociales: " ",
             imagenes: " ",
             videos: " ",
         });
@@ -58,11 +61,21 @@ export const NewEvento = ({setData,evento}) => {
             nombreEvento:" ",
             lugarEvento: " ",
             descripcionEvento:" ",
+            redesSociales: [],
             imagenes: " ",
             videos: " ",
         });
     };
-
+// FUNCIONES PARA AGREGAR O ELIMINAR REDES SOCIALES
+const addRed = (e,item)=>{
+    e.preventDefault();
+    setRedes([item,...redes]);
+}
+const delRed = (e,item)=>{
+    e.preventDefault();
+    let newRedes = redes.filter(red => red !== item);
+    setRedes(newRedes);
+}
     // class Input extends React.Component {
     //     _handleKeyPress(e) {
     //       if (e.key === 'Enter') {
@@ -119,28 +132,31 @@ export const NewEvento = ({setData,evento}) => {
                                 </div>
                             </div>
                             <div className="group-textarea-evento">
-                                <textarea  
-                                    className="input-textArea input-background" 
-                                    type="text" 
-                                    placeholder="Descripción" 
-                                    name="descripcionEvento"
-                                    value={datos.descripcionEvento}
-                                    aria-multiline="true"
-                                    onChange={handleInputChange}
-                                    onFocus={handleInputFocus}
-                                >
-                                </textarea>
-                                <input 
-                                    className="input input-background" 
-                                    type="text"
-                                    // value={datos.nombreEvento}
-                                    name="nombreEvento"
-                                    placeholder="Red Social"
-                                    onChange={handleInputChange}
-                                    onFocus={handleInputFocus}
-                                    onKeyPress={_handleKeyPress}
-                                    >
-                                    </input>
+                                <div>
+                                    <textarea  
+                                        className="input-textArea input-background" 
+                                        type="text" 
+                                        placeholder="Descripción" 
+                                        name="descripcionEvento"
+                                        value={datos.descripcionEvento}
+                                        aria-multiline="true"
+                                        onChange={handleInputChange}
+                                        onFocus={handleInputFocus}
+                                    ></textarea>
+                                </div>
+                                <div>
+                                    <input 
+                                        className="input input-background" 
+                                        type="text"
+                                        value={datos.redesSociales}
+                                        name="redesSociales"
+                                        placeholder="Red Social"
+                                        onChange={handleInputChange}
+                                        onFocus={handleInputFocus}
+                                        onKeyPress={_handleKeyPress}
+                                        >
+                                        </input>
+                                </div>
                             </div>         
                         </div>           
                         <div className="center">
