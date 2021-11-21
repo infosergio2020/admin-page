@@ -75,11 +75,40 @@ function VideoList(props) {
       return (    <ul>{listItems}</ul> );
     }
 }
-//const numbers = [1, 2, 3, 4, 5];
+
+
+function FotoList(props) {
+  let listItems = []
+  const area = JSON.parse( localStorage.getItem('ListaFotos'));
+  let resultado=area;  
+  console.log(resultado)
+  if (area === null){
+    resultado="Sin informacion";
+  } else{
+    listItems = resultado.map((foto) =>
+    <li className="tamaño center flex">     
+         <div className="apariencia">
+             <VideoApp url={foto.url} title={foto.titulo} foto={false} /> 
+         </div>
+         <div className="apariencia paddingArea">
+             <textarea className="input-textAreaV" value={foto.descripcion} type="text" name="descripcion"  placeholder="Descripción" aria-multiline="true" disabled={false}></textarea>
+         </div>
+     </li>
+     );
+  }
+  
+
+    if(listItems.length === 0){
+      return (    <h3 className={"center color-blanco"}> No hay imagenes :C </h3> );
+    }else{
+      return (    <ul>{listItems}</ul> );
+    }
+}
+
 // comienzo del MAIN
     return (
         <>
-<h3  className="nombreArea" tabIndex="0">Complete los campos a continuación.</h3>
+
       
 <div className="container">
                         
@@ -130,7 +159,9 @@ function VideoList(props) {
         >
           <h2 className="izquierda">Imagen</h2>
           <hr />
-          <div class="tamaño center flex">      
+          {/* LISTADO DE ELEMENTOS DE UN ARRAY */}
+          <FotoList  />
+          {/* <div class="tamaño center flex">      
                       <div className="apariencia">
                           <VideoApp url={iconos.img} video={false} />
                           <VideoApp url={iconos.lol} video={false} />
@@ -141,7 +172,7 @@ function VideoList(props) {
                       
                       </div>
                                    
-          </div>  
+          </div>   */}
           
         </div>
 

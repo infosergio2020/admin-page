@@ -60,7 +60,7 @@ export const PopWindow = ({title,icon,setData,video, setarray , esconder}) => {
                 );    
             }
             else {
-                alert("Usted debe completar todo los campos del video!!!");
+                alert("Usted debe completar todo los campos!!!");                
             }
             esconder(esconder=>!esconder);
         }
@@ -122,10 +122,20 @@ const previewFile = ((e) => {
                 {!video && 
 
                 <div className="center">
+                    <input 
+                    className="input input-background" 
+                    type="text"
+                    name="url"
+                    placeholder="Url"
+                    // value={inputValue}
+                    onChange={handleInputChange}>
+                </input>
+                
+
                 <input 
                     className="" 
                     type="file"
-                    name="url"
+                    name="img"
                     id= "lol"
                     placeholder="Subir archivo"              
                     // value={inputValue}
