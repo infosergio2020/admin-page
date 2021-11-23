@@ -9,6 +9,7 @@ import { CrearEvento } from '../pages/CrearEvento';
 import { VerArea } from '../pages/VerArea';
 import { VerMultimedia } from '../pages/VerMultimedia';
 import { VerEnvivo } from '../pages/VerEnvivo';
+import { VerCaracteristicas } from '../pages/VerCaracteristicas';
 // REACT-ROUTER
 import {
     BrowserRouter as Router,
@@ -29,7 +30,7 @@ export const AdminApp = () => {
                     <VerDetalleEvento/>
                 </Route>
                 <Route exact path='/Eventos'>
-                    <h1>Eventos</h1>
+                    <VerCaracteristicas/>
                 </Route>
                 <Route exact path='/CrearEvento'>
                     <CrearEvento/>

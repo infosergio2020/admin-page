@@ -43,6 +43,8 @@ export const NewEvento = ({setData,evento}) => {
         switch(e.target.type) {
             case 'date':
                 valor = e.target.value.toString();
+                console.log(valor)
+
                 break;
             case 'time':
                 valor = e.target.value.toString();
@@ -71,14 +73,12 @@ export const NewEvento = ({setData,evento}) => {
     const save = (e)=>{
         e.preventDefault();
         // enlazo las fotos y los videos con el evento a crear
-        setDatos( {
-            ...datos, 
-            ['videos'] : videos,
-            ['fotos'] : fotos,
-            ['redesSociales'] : redes
-        });
-        setEventos( eventos => [...eventos,datos]);
-        // localStorage.setItem('Listaeventos', JSON.stringify(eventos));
+    
+        //     ['fotos'] : fotos,
+        //     ['redesSociales'] : redes
+        // });
+        // setEventos( eventos => [...eventos,datos]);
+        localStorage.setItem('Listaeventos', JSON.stringify(eventos));
     };
     const reset = (e)=>{
         e.preventDefault();
@@ -164,8 +164,8 @@ const delRed = (e,item)=>{
                                             name="horaEvento"
                                             placeholder="Hora del evento"
                                             onChange={handleInputChange}
-                                            onFocus={handleInputFocus}
-                                            onKeyPress={_handleKeyPress}
+                                            // onFocus={handleInputFocus}
+                                            // onKeyPress={_handleKeyPress}
                                             >
                                         </input>  
                                 </div>
