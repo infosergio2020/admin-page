@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Boton } from '../components/Boton';
 import {PopWindow} from '../components/PopWindow';
@@ -8,23 +8,31 @@ import iconos from '../assets/img/iconos';
 import "../styles/NewEvento.css"
 
 export const NewEvento = ({setData,evento}) => {
+        const [nombreRed, setnombreRed] = useState("ingrese una red social")
         const [eventos, setEventos] = useState([]);
         // SWITCH PARA LOS POPWINDOWS
         const [activeV, setactiveV] = useState(false);
         const [activeF, setactiveF] = useState(false);
         // FOTOS Y VIDEOS DEL EVENTO
         const [fotos, setFotos] = useState([]);
-        const [videos, setVideos] = useState([]);        
+        const [videos, setVideos] = useState([]);
         // REDES SOCIALES
-        const [redes, setRedes] = useState([]);        
+        const [redes, setRedes] = useState([]);           
+        useEffect(() => {
+            setDatos( {
+                ...datos, 
+                ['fotos'] : fotos,          
+                ['videos'] : videos,
+                ['redesSociales'] : redes,
+            });
+        }, [fotos,videos,redes])
+     
         // FORMULARIO DEL EVENTO
         const [datos, setDatos] = useState({
             nombreEvento:"Nombre del evento",
             lugarEvento: "Lugar del evento",
             descripcionEvento:"Descripcion del evento",
             redesSociales: "Ingrese una red social",
-            horaEvento:"",
-            fechaEvento:"",
             fotos: [],
             videos: [],
         });
@@ -39,24 +47,21 @@ export const NewEvento = ({setData,evento}) => {
     const handleInputChange = (e)=>{
         console.log(e.target.type);
         let valor;
-
         switch(e.target.type) {
             case 'date':
                 valor = e.target.value.toString();
-                console.log(valor)
-
                 break;
             case 'time':
                 valor = e.target.value.toString();
                 break;
             default:
-                valor = e.target.value;
+                valor = e.target.value
                 break;
           }
-
+        console.log(`se esta por asignar ${valor} a ${e.target.name}`);
         setDatos( {
             ...datos, 
-            [e.target.name] : valor
+            [e.target.name]:valor
         });
     }
 // funcion para simular el POPUP del video y la foto
@@ -72,14 +77,11 @@ export const NewEvento = ({setData,evento}) => {
 // FUNCIONES DEL FORMULARIO
     const save = (e)=>{
         e.preventDefault();
-        // enlazo las fotos y los videos con el evento a crear
-    
-        //     ['fotos'] : fotos,
-        //     ['redesSociales'] : redes
-        // });
-        // setEventos( eventos => [...eventos,datos]);
-        localStorage.setItem('Listaeventos', JSON.stringify(eventos));
+
+        setEventos( eventos => [...eventos,datos]);
+        setTimeout(()=>{localStorage.setItem('Listaeventos', JSON.stringify(eventos));},5000)
     };
+
     const reset = (e)=>{
         e.preventDefault();
         setDatos({
@@ -153,7 +155,6 @@ const delRed = (e,item)=>{
                                             name="fechaEvento"
                                             placeholder="Fecha del evento"
                                             onChange={handleInputChange}
-                                            onFocus={handleInputFocus}
                                             onKeyPress={_handleKeyPress}
                                             >
                                         </input>  
@@ -164,8 +165,7 @@ const delRed = (e,item)=>{
                                             name="horaEvento"
                                             placeholder="Hora del evento"
                                             onChange={handleInputChange}
-                                            // onFocus={handleInputFocus}
-                                            // onKeyPress={_handleKeyPress}
+                                            onKeyPress={_handleKeyPress}
                                             >
                                         </input>  
                                 </div>
@@ -195,15 +195,15 @@ const delRed = (e,item)=>{
                                     <input 
                                         className="input input-background" 
                                         type="text"
-                                        value={datos.redesSociales}
+                                        value={nombreRed}
                                         name="redesSociales"
                                         placeholder="Red Social"
-                                        onChange={handleInputChange}
+                                        onChange={(e)=>{setnombreRed(e.target.value)}}
                                         onFocus={handleInputFocus}
                                         onKeyPress={_handleKeyPress}
                                         >
                                         </input>
-                                        <Boton className="btn-small-circle" icono={iconos.add} onClick={(e)=> {addRed(e,datos.redesSociales)}}>Agregar</Boton>
+                                        <Boton className="btn-small-circle" icono={iconos.add} onClick={(e)=> {addRed(e,nombreRed)}}>Agregar</Boton>
                                 </div>
 
                                 <ul className="list-redesSociales">
