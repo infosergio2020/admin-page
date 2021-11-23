@@ -12,6 +12,12 @@
     flex-basis: calc(31% - 1rem);
 }
 
+.detalle-sideA article{
+    width: 100%;
+    padding: 0 3rem;
+    text-align: center;
+}
+
 .detalle-sideB{
     display: flex;
     justify-content: center;
@@ -24,10 +30,19 @@
 /* LISTA DE AREAS */
 
 .listAreasDetailsEvent-list{
+    margin: 2rem 0 0 0;
     list-style: none;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .listAreasDetailsEvent-item{
+    transition: all 300ms ease-in-out;
+    padding: 1rem;
+    border-bottom: 1px solid #ffffff41;
+    border-radius: 1rem;
+}
 
+.listAreasDetailsEvent-item:hover{
+    background-color: rgba(245, 245, 220, 0.335);    
+    transform: scale(1.05);
 }

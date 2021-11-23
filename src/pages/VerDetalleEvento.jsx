@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/VerDetalleEvento.css'
 import { VerArea } from "./VerArea";
+import { ViewMultimedia } from "../containers/ViewMultimedia";
 
 const ListAreas = ({items}) =>{
     return (
@@ -29,6 +30,8 @@ export const VerDetalleEvento = ({areas=["Area-1","Area-2","Area-3","Area-4"]}) 
             <section className="detalle-sideB">
 
                 {flagArea && <VerArea />}
+                {!flagArea && <ViewMultimedia />}
+                
             </section>
         </div>
     )
