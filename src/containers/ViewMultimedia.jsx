@@ -17,28 +17,48 @@ export const ViewMultimedia = () => {
       setToggleState(index);
     };
 
+
+    
+// LocalStorage
+function getDatos() {
+  var evento = JSON.parse( localStorage.getItem('datos'));
+  let resultado=evento;
+  console.log(resultado)
+  if (evento === null){
+    resultado="Sin informacion";
+  }
+  return resultado;
+}
+
 // comienzo del MAIN
+
     return (
         <>
 
 <div className="container">
-      {/* las 3 pestañas de arriba */}
+      {/* las 4 pestañas de arriba */}
       <div className="bloc-tabs">
         <button
           className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(1)}
         >
-          Video
+          Caracteristicas
         </button>
         <button
           className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(2)}
         >
-           Imagen
+          Video
         </button>
         <button
           className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(3)}
+        >
+           Imagen
+        </button>
+        <button
+          className={toggleState === 4 ? "tabs active-tabs" : "tabs"}
+          onClick={() => toggleTab(4)}
         >
           En vivo
         </button>
@@ -49,6 +69,40 @@ export const ViewMultimedia = () => {
       <div className="content-tabs">
         <div
           className={toggleState === 1 ? "content  active-content" : "content"}
+        >
+            <div>
+                <h2 className="izquierda">  Caracteristicas del Evento</h2>
+                <hr />
+                <div className="valor-latitud">
+                      {/* TABLA  */}
+                      <table>
+                          <tr className="th-verde">
+                              <th>Lugar</th>
+                              <th>Hora</th>
+                              <th>Fecha</th>
+                          </tr>
+                          
+                          <tr className="td-gris">
+                              <td>{getDatos().lugar}</td>
+                              <td>{getDatos().hora}</td>
+                              <td>lol</td>
+                              {/* <td>{getDatos().fecha}</td> */}
+                          </tr>
+                      </table>
+                </div>
+                <div class="tamaño center flex">     
+                          
+                          {/* DESCRIPCION */}
+                              <div className="apariencia paddingArea">
+                                  <textarea className="input-textAreaV input-backgroundV" type="text" value={getDatos().descripcionArea} name="descripcion"  placeholder="Descripción" aria-multiline="true"></textarea>
+                              </div>                   
+                </div>
+
+            </div>
+        </div>
+        {/* FIN DE LAS CARACTERISTICASS */}
+        <div
+          className={toggleState === 2 ? "content  active-content" : "content"}
         >
           <div>
 
@@ -71,7 +125,7 @@ export const ViewMultimedia = () => {
         </div>
 
         <div
-          className={toggleState === 2 ? "content  active-content" : "content"}
+          className={toggleState === 3 ? "content  active-content" : "content"}
         >
           <h2>Imagen</h2>
           <hr />
@@ -91,7 +145,7 @@ export const ViewMultimedia = () => {
         </div>
 
         <div
-          className={toggleState === 3 ? "content  active-content" : "content"}
+          className={toggleState === 4 ? "content  active-content" : "content"}
         >
           <h2> En vivo</h2>
           <hr />
