@@ -1,28 +1,17 @@
+// Mis imports
 import React, { useState} from 'react';
 import '../styles/VerDetalleEvento.css'
 import { VerArea } from "./VerArea";
 import { ViewMultimedia } from "../containers/ViewMultimedia";
+import { ViewArea } from '../containers/ViewArea';
 
-
-
-    
-
-
-
+//Comienzo de la clase
 export const VerDetalleEvento = ({areas=["Area-1","Area-2","Area-3","Area-4"]}) => {
-    const [mostrar, setmostrarM] = useState(false);
-    const [mostrarA, setmostrarA] = useState(false);
-
-    function activarMostrarMultimedia(e){
-        setmostrarM(!mostrar);
-    } 
-    function activarMostrarArea(e){
-        setmostrarA(!mostrarA);
-    } 
+        //Funcion de las listas de area
     const ListAreas = ({items}) =>{
         return (
             <ul className="listAreasDetailsEvent-list">
-                {items.map(item =>  <li className="listAreasDetailsEvent-item" onClick={activarMostrarArea}>{item}</li>)}
+                {items.map(item =>  <li className="listAreasDetailsEvent-item" onClick={() => toggleTab(2)}>{item}</li>)}
             </ul>
         )
     }
@@ -45,30 +34,39 @@ export const VerDetalleEvento = ({areas=["Area-1","Area-2","Area-3","Area-4"]}) 
         }
     }
     
+    const [toggleState, setToggleState] = useState(1);
+    //funcion para cambiar las vistas
+    const toggleTab = (index) => {
+      setToggleState(index);
+    };
+
 //MAIN
-
-
     return (
         <div className="detalle-container">
         {/* botones para pestañas */}
             <section className="detalle-sideA">
                 <article>
                   
-                    <button className="listAreasDetailsEvent-item" onClick={activarMostrarMultimedia}><h3>Multimedia</h3></button>
+                    <button className="listAreasDetailsEvent-item" onClick={() => toggleTab(1)}><h3>Multimedia</h3></button>
                     <button className="accordion listAreasDetailsEvent-item" onClick={acordion()}><h3>Areas</h3></button>
                         <div className="panel">
                            <ListAreas items={areas}/>
                         </div>
-                    
                 </article>
             </section>
 
         {/* pestañas */}
             <section className="detalle-sideB">
+                <div className={toggleState === 1 ? "active-content" : "content"}>
+                    {/* <ViewArea/>                     */}
+                    <ViewMultimedia />
+                </div>
+                <div className={toggleState === 2 ? "active-content" : "content"}>
+                    <ViewArea/>                    
+                    
+                </div>
 
-                {mostrarA && <VerArea />}
-                {mostrar && <ViewMultimedia />}
-                
+
             </section>
         </div>
     )
