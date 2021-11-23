@@ -1,0 +1,33 @@
+.detalle-container{
+    display: flex;
+    justify-content: space-between;
+    background-color: aqua;
+}
+
+.detalle-sideA{
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #0e1957;
+    flex-basis: calc(31% - 1rem);
+}
+
+.detalle-sideB{
+    display: flex;
+    justify-content: center;
+    background-color: coral;
+    flex-basis: calc(68% - 1rem);
+}
+
+
+
+/* LISTA DE AREAS */
+
+.listAreasDetailsEvent-list{
+    list-style: none;
+    border: 1px solid red;
+}
+
+.listAreasDetailsEvent-item{
+
+}

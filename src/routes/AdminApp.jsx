@@ -17,6 +17,7 @@ import {
   } from "react-router-dom";
 //CSS
 import '../styles/AdminApp.css';
+import { VerDetalleEvento } from '../pages/VerDetalleEvento';
 
 export const AdminApp = () => {
     return (
@@ -25,7 +26,7 @@ export const AdminApp = () => {
             <NavBar />
             <Switch>
                 <Route exact path='/'>
-                    <h1>Welcome!</h1>
+                    <VerDetalleEvento/>
                 </Route>
                 <Route exact path='/Eventos'>
                     <h1>Eventos</h1>
