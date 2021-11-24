@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Boton } from '../components/Boton';
 import {PopWindow} from '../components/PopWindow';
-import { Link } from 'react-router-dom';
+import { Redirect,Link } from 'react-router-dom';
 
 // //ICONOS
 import iconos from '../assets/img/iconos';
@@ -122,6 +122,14 @@ const delRed = (e,item)=>{
           }
     }
 
+  //Funciones para redireccionar
+const redireccionar_to_AñadirArea =(e) =>{
+    return <Link to='CrearArea'/>;
+}
+const redireccionar_to_AñadirEnVivo=() =>{
+    return <Link to='/CrearEnvivo'/>;
+}
+
 // COMIENZO DEL MAIN()
     return (
         <>
@@ -223,15 +231,17 @@ const delRed = (e,item)=>{
                                         )
                                     })}
                                 </ul>
-                            </div>         
+                            </div>     
                         </div>
-                        <div>
-                            Inserte aqui la tabla de areas
+                        <div className="container-groups-evento">
+                            <div className="groups-evento">
+                            <div className="group-buttons-evento">
+                                    <Boton buttonStyle="azul" icono={iconos.add} onClick={redireccionar_to_AñadirArea}> <p>Añadir Area</p> </Boton>
+                                    <Boton buttonStyle="azul" icono={iconos.add} onClick={redireccionar_to_AñadirEnVivo}> <p>Añadir en vivo</p> </Boton>
+                            </div>
+                            </div>
                         </div>
-                        <div className="button-newarea">
-                        {/** Comienzo de la lista de areas - Crear area**/}
-                        <Link to="/CrearArea">+</Link>
-                        </div>
+                        Inserte la tabla de area aqui (:
                         <div className="center">
                             <Boton buttonStyle="verde" icono={iconos.check} onClick={save}> Guardar </Boton>
                             <Boton buttonStyle="rojo" icono={iconos.cancel} onClick={reset}> Cancelar </Boton>
