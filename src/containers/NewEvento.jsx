@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Boton } from '../components/Boton';
 import {PopWindow} from '../components/PopWindow';
-import { Redirect,Link } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 // //ICONOS
 import iconos from '../assets/img/iconos';
@@ -11,6 +11,7 @@ import "../styles/NewEvento.css"
 import { NewArea } from './NewArea';
 import { CrearArea } from '../pages/CrearArea';
 import { ViewEvento } from './ViewEvento';
+import { render } from '@testing-library/react';
 
 export const NewEvento = ({setData,evento}) => {
         const [nombreRed, setnombreRed] = useState("ingrese una red social")
@@ -122,12 +123,13 @@ const delRed = (e,item)=>{
           }
     }
 
+const history = useHistory();
   //Funciones para redireccionar
 const redireccionar_to_AñadirArea =(e) =>{
-    return <Link to='CrearArea'/>;
+    history.push('/CrearArea')  //Me dice a que lugar direcciono
 }
 const redireccionar_to_AñadirEnVivo=() =>{
-    return <Link to='/CrearEnvivo'/>;
+    history.push('/CrearEnvivo')  //Me dice a que lugar direcciono
 }
 
 // COMIENZO DEL MAIN()
