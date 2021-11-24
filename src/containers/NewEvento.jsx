@@ -2,10 +2,15 @@ import React, { useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Boton } from '../components/Boton';
 import {PopWindow} from '../components/PopWindow';
+import { Link } from 'react-router-dom';
+
 // //ICONOS
 import iconos from '../assets/img/iconos';
 //CSS
 import "../styles/NewEvento.css"
+import { NewArea } from './NewArea';
+import { CrearArea } from '../pages/CrearArea';
+import { ViewEvento } from './ViewEvento';
 
 export const NewEvento = ({setData,evento}) => {
         const [nombreRed, setnombreRed] = useState("ingrese una red social")
@@ -116,6 +121,7 @@ const delRed = (e,item)=>{
             setactiveV(!activeV);
           }
     }
+
 // COMIENZO DEL MAIN()
     return (
         <>
@@ -218,13 +224,20 @@ const delRed = (e,item)=>{
                                     })}
                                 </ul>
                             </div>         
-                        </div>           
+                        </div>
+                        <div>
+                            Inserte aqui la tabla de areas
+                        </div>
+                        <div className="button-newarea">
+                        {/** Comienzo de la lista de areas - Crear area**/}
+                        <Link to="/CrearArea">+</Link>
+                        </div>
                         <div className="center">
                             <Boton buttonStyle="verde" icono={iconos.check} onClick={save}> Guardar </Boton>
                             <Boton buttonStyle="rojo" icono={iconos.cancel} onClick={reset}> Cancelar </Boton>
-                        </div>
-                </form> 
-            </div>
+                        </div>  
+                </form>  {/*Fin del formulario*/}
+            </div> 
             {/* POPUP PARA VIDEOS */}
             <div className={activeV ? 'pop-display pop-display-active' : 'pop-display'}>
                 <div className="card-popup">
