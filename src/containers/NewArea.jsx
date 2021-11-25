@@ -86,18 +86,6 @@ function popApJ(e){
     setactiveJ(!activeJ);
 } 
 
-// function verImagen(){
-//     console.log("hola")
-//     const area = JSON.parse( localStorage.getItem('ListaFotos'));
-//     let resultado=area;
-//     console.log(resultado[0].src)
-//     var preview = document.getElementById('hola');
-//         preview.url = resultado[0].url
-//     if (area === null){
-//         resultado="Sin informacion";
-//     }
-//     //return resultado;
-// }
 
 // COMIENZO DEL MAIN()
     return (
