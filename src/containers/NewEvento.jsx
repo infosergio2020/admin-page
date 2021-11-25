@@ -1,17 +1,14 @@
 import React, { useState,useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Boton } from '../components/Boton';
+import { TablaFotosVideos } from "../components/tabla/TablaFotosVideos";
 import {PopWindow} from '../components/PopWindow';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 // //ICONOS
 import iconos from '../assets/img/iconos';
 //CSS
 import "../styles/NewEvento.css"
-import { NewArea } from './NewArea';
-import { CrearArea } from '../pages/CrearArea';
-import { ViewEvento } from './ViewEvento';
-import { render } from '@testing-library/react';
+
 
 export const NewEvento = ({setData,evento}) => {
         const [nombreRed, setnombreRed] = useState("ingrese una red social")
@@ -22,6 +19,7 @@ export const NewEvento = ({setData,evento}) => {
         // FOTOS Y VIDEOS DEL EVENTO
         const [fotos, setFotos] = useState([]);
         const [videos, setVideos] = useState([]);
+        // const [FotoVideo, setFotoVideo] = useState([])
         // REDES SOCIALES
         const [redes, setRedes] = useState([]);           
         useEffect(() => {
@@ -113,18 +111,31 @@ const addRed = (e,item)=>{
     }
     
 }
+// BORRADO DE REDES
 const delRed = (e,item)=>{
     e.preventDefault();
     let newRedes = redes.filter(red => red !== item);
     setRedes(newRedes);
 }
-  
-    const _handleKeyPress = (e)=>{
-        if (e.key === 'Enter') {
-            console.log('do validate');
-            setactiveV(!activeV);
-          }
-    }
+// BORRADO DE FOTOS
+const delFoto = (e,item)=>{
+    e.preventDefault();
+    let newFotos = fotos.filter(foto => foto !== item);
+    setFotos(newFotos);
+}
+// BORRADO DE VIDEOS
+const delVideo = (e,item)=>{
+    e.preventDefault();
+    let newVideos = videos.filter(video => video !== item);
+    setVideos(newVideos);
+}
+
+const _handleKeyPress = (e)=>{
+    if (e.key === 'Enter') {
+        console.log('do validate');
+        setactiveV(!activeV);
+        }
+}
 
 const history = useHistory();
   //Funciones para redireccionar
@@ -194,7 +205,7 @@ const redireccionar_to_AñadirEnVivo=() =>{
                                     <Boton buttonStyle="azul" icono={iconos.photo} onClick={popApF}> <p>Añadir foto</p> </Boton>
                                 </div>
                                 <div>
-                                    aca va la tabla para fotos y videos...
+                                    <TablaFotosVideos arrayFoto={fotos} arrayVideo={videos} eliminarFoto={delFoto} eliminarVideo={delVideo} />
                                 </div>
                             </div>
                             <div className="group-evento-rightSide">
