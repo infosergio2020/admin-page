@@ -6,7 +6,6 @@ export const CrearEvento = () => {
     return (
         <>
             <NewEvento evento={true}  />
-            {/* <ViewEvento /> */}
         </>
     )
 }
