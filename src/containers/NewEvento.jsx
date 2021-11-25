@@ -87,19 +87,37 @@ export const NewEvento = ({setData,evento}) => {
     const save = (e)=>{
         e.preventDefault();
         setEventos( eventos => [...eventos,datos]);
+        // alert("Se ha guardado el evento");
+        resetAllForm();
     };
 
     const reset = (e)=>{
         e.preventDefault();
-        setDatos({
-            nombreEvento:"",
-            lugarEvento: "",
-            descripcionEvento:"",
-            redesSociales: "",
-            imagenes: "",
-            videos: "",
-        });
+        resetAllForm()
     };
+
+    const resetAllForm = ()=>{
+        document.querySelector("#fecha").value=""
+        document.querySelector("#hora").value=""
+        // RESETEAR FORMULARIO
+        setDatos({
+                nombreEvento:"Nombre del evento",
+                lugarEvento: "Lugar del evento",
+                descripcionEvento:"Descripcion del evento",
+                redesSociales: "Ingrese una red social",
+                fotos: [],
+                videos: [],
+            });
+        // RESETEAR ARREGLO DE FOTO
+        setFotos([]);
+        // RESETEAR ARREGLO DE VIDEOS
+        setVideos([]);
+        // RESETEAR ARREGLO REDES SOCIALES
+        setRedes([]);
+        // RESETEAR INPUT REDSOCIAL
+        setnombreRed("ingrese una red social");
+    }
+
 // FUNCIONES PARA AGREGAR O ELIMINAR REDES SOCIALES
 const addRed = (e,item)=>{
     e.preventDefault();
@@ -179,6 +197,7 @@ const redireccionar_to_AñadirEnVivo=() =>{
                                             >
                                         </input>  
                                         <input 
+                                            id={"fecha"}
                                             className="input input-background" 
                                             type="date"
                                             // value={datos.fechaEvento}
@@ -189,6 +208,7 @@ const redireccionar_to_AñadirEnVivo=() =>{
                                             >
                                         </input>  
                                         <input 
+                                            id={"hora"}
                                             className="input input-background" 
                                             type="time"
                                             // value={datos.horaEvento}
