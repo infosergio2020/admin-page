@@ -33,6 +33,11 @@ export const NewEvento = ({setData,evento}) => {
             });
         }, [fotos,videos,redes])
      
+        useEffect(() => {
+            console.log("se ha cambiado eventos");
+            localStorage.setItem('Listaeventos', JSON.stringify(eventos));
+        }, [eventos]);
+
         // FORMULARIO DEL EVENTO
         const [datos, setDatos] = useState({
             nombreEvento:"Nombre del evento",
@@ -83,9 +88,7 @@ export const NewEvento = ({setData,evento}) => {
 // FUNCIONES DEL FORMULARIO
     const save = (e)=>{
         e.preventDefault();
-
         setEventos( eventos => [...eventos,datos]);
-        setTimeout(()=>{localStorage.setItem('Listaeventos', JSON.stringify(eventos));},5000)
     };
 
     const reset = (e)=>{

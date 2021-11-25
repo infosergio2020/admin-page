@@ -6,7 +6,6 @@ export const CrearArea = () => {
     return (
         <>
             <NewArea area={true}/>
-            {/* <ViewArea /> */}
         </>
     )
 }

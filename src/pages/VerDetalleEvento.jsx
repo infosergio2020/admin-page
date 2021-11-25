@@ -5,7 +5,7 @@ import { ViewMultimedia } from "../containers/ViewMultimedia";
 import { ViewArea } from '../containers/ViewArea';
 
 //Comienzo de la clase
-export const VerDetalleEvento = () => {
+export const VerDetalleEvento = ({areas=['area-1','area-2','area-3']}) => {
         //Funcion de las listas de area
     const ListAreas = ({items}) =>{
         return (

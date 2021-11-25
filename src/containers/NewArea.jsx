@@ -36,6 +36,11 @@ export const NewArea = ({setData}) => {
             });
         }, [arrayF,arrayV,arrayJ])
 
+        useEffect(() => {
+            console.log("se ha cambiado areas");
+            localStorage.setItem('Listaeventos', JSON.stringify(areas));
+        }, [areas]);
+
         //formulario del area
         const [datos, setDatos] = useState({
             nombreArea:" ",
@@ -59,13 +64,10 @@ export const NewArea = ({setData}) => {
 function guardarDatos(e) {
     e.preventDefault(); // la pagina no se regargue
     setAreas(areas => [...areas,datos]);
-    setTimeout(()=>{localStorage.setItem('Listaareas', JSON.stringify(areas));},5000) //me guarda toda el area en LS
 }
 /*Esto se usaba cuando se tenia un arreglo por separado*/
 function guardarFoto(){
     localStorage.setItem('ListaFotos', JSON.stringify(arrayF));
-    //console.log(arrayF);
-    // verImagen()
 }
 
 function guardarVideo(){
@@ -122,20 +124,16 @@ function popApJ(e){
                                             type="text"
                                             // value={inputValue}
                                             name="longitud"
-                                        
                                             placeholder="Longitud del area"
-                                            onChange={handleInputChange}>
-                                                
+                                            onChange={handleInputChange}>      
                                         </input>
                                         <input 
                                             className="input input-background" 
                                             type="text"
                                             // value={inputValue}
                                             name="latitud"
-                                        
                                             placeholder="Latitud del area"
                                             onChange={handleInputChange}>
-                                                
                                         </input>                   
                                             
                                     </div>
