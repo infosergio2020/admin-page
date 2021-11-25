@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Boton } from '../components/Boton';
 import {PopWindow} from '../components/PopWindow';
 import {PopJuego} from '../components/PopJuego';
+import { Redirect, useHistory } from 'react-router-dom';
 // //ICONOS
 import iconos from '../assets/img/iconos';
 //CSS
@@ -61,9 +62,13 @@ export const NewArea = ({setData}) => {
         });
     }
 // me guardo los datos que se escribieron en el NewArea - ME GUARDO EL AREA
+
+const history = useHistory();
+  //Funciones para redireccionar
 function guardarDatos(e) {
     e.preventDefault(); // la pagina no se regargue
     setAreas(areas => [...areas,datos]);
+    history.push('/CrearEvento')  //Me dice a que lugar direcciono
 }
 /*Esto se usaba cuando se tenia un arreglo por separado*/
 function guardarFoto(){
