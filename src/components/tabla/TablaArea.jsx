@@ -7,7 +7,8 @@ import { useFetchAreas } from '../../../hooks/useFetchAreas';
 import "./tabla.css";
 
 export const TablaArea = ({item}) => {
-    const {data:areas,loading} = useFetchAreas(item);
+    const {data:areas,loading} = useFetchAreas(item); //Esto ya no iria porque busco a partir del localstorage
+    //Busco a partir del localstorage
     return (
         <>
             {loading && <p>Cargando...</p>}
