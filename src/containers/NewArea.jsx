@@ -9,34 +9,44 @@ import iconos from '../assets/img/iconos';
 import "../styles/NewArea.css"
 
 export const NewArea = ({setData}) => {
+        const [areas,setAreas] = useState([]);
         const [activeV, setactiveV] = useState(false);
         const [activeF, setactiveF] = useState(false);
         const [activeJ, setactiveJ] = useState(false);
-        const [arrayF, setarrayF] = useState( // para la foto
+        const [arrayF, setarrayF] = useState( // para las FOTOS
             []
         );
-        const [arrayV, setarrayV] = useState( // para el video
+        const [arrayV, setarrayV] = useState( // para los VIDEOS
             []
         );
-        const [arrayJ, setarrayJ] = useState( // para el juego
+        const [arrayJ, setarrayJ] = useState( // para los JUEGOS
             []
         );
-        useEffect(()=>{    }, [ arrayV ]);
         // Nota: Tuve que crear 2 estados separados para no eliminar 
         // o cambiar la estrucutra del POPWindow que en ese
         // mismo componente estan video y foto---> es una mierda
         // declaracion de un estado area para video
+
+        useEffect(() => {
+            setDatos( {
+                ...datos, 
+                ['urlImagenArea'] : arrayF,          
+                ['urlVideoArea'] : arrayV,
+                ['juegos'] : arrayJ,
+            });
+        }, [arrayF,arrayV,arrayJ])
+
+        //formulario del area
         const [datos, setDatos] = useState({
             nombreArea:" ",
             descripcionArea: " ",
             latitud:" ",
             longitud:" ",
-            urlArea: " ",
-            urlEnvivo:" ",
-            urlVideoArea:" ",
-            urlImagenArea:" ", 
+            urlArea: " ", 
+            urlVideoArea:[],
+            urlImagenArea:[], 
+            juegos:[],
         });
-
    
 // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
@@ -45,37 +55,13 @@ export const NewArea = ({setData}) => {
             [e.target.name] : e.target.value
         });
     }
-// me guardo los datos que se escribieron en el NewArea
+// me guardo los datos que se escribieron en el NewArea - ME GUARDO EL AREA
 function guardarDatos(e) {
     e.preventDefault(); // la pagina no se regargue
-    localStorage.setItem('datos', JSON.stringify(datos));// para el video
-    localStorage.setItem('datosF', JSON.stringify(datos)); // para la foto
-
-    
-    localStorage.setItem('ListaJuegos', JSON.stringify(arrayJ));
-    guardarVideo();
-    //console.log(e); // que evento nos tira
-    convertirFotos();
-    guardarFoto();
+    setAreas(areas => [...areas,datos]);
+    setTimeout(()=>{localStorage.setItem('Listaareas', JSON.stringify(areas));},5000) //me guarda toda el area en LS
 }
-/*
-    Convierto las imagenes almacenadas en caché/estado en base 64 
-    Pd: esto deberia estar en el guardar evento, pero lo uso como prueba aca
-*/
-function convertirFotos(){ 
-    var reader;
-    let resultado;
-    arrayF.forEach( element => {  //recorro el arreglo de fotos y convierto
-        reader = new FileReader();
-        reader.onload = function (){
-            element.url=reader.readAsDataURL(element.url);
-        }
-        console.log(element.url);
-        resultado=element.url;
-    }); 
-        datos.urlImagenArea=resultado;   //Todo esto lo tendria que usar cuando guarde todo el evento  
-}
-
+/*Esto se usaba cuando se tenia un arreglo por separado*/
 function guardarFoto(){
     localStorage.setItem('ListaFotos', JSON.stringify(arrayF));
     //console.log(arrayF);
@@ -86,7 +72,7 @@ function guardarVideo(){
     localStorage.setItem('ListaVideos', JSON.stringify(arrayV));
 }
 
-// funcion para simular el POPUP del video y la foto
+// funcion para simular el POPUP del video, la foto y juego
 function popApV(e){
     e.preventDefault()
     setactiveV(!activeV);
@@ -100,18 +86,6 @@ function popApJ(e){
     setactiveJ(!activeJ);
 } 
 
-// function verImagen(){
-//     console.log("hola")
-//     const area = JSON.parse( localStorage.getItem('ListaFotos'));
-//     let resultado=area;
-//     console.log(resultado[0].src)
-//     var preview = document.getElementById('hola');
-//         preview.url = resultado[0].url
-//     if (area === null){
-//         resultado="Sin informacion";
-//     }
-//     //return resultado;
-// }
 
 // COMIENZO DEL MAIN()
     return (
