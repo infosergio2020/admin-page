@@ -12,9 +12,9 @@ import "../styles/NewEvento.css"
 
 
 export const NewEvento = ({setData,evento}) => {
-    const { eventos,fotos,videos,redes,datos,nombreRed,
+    const { eventos,fotos,videos,redes,formulario,nombreRed,
             setFotos,setVideos,setnombreRed,
-            addRed,delFoto,delVideo,delRed,handleInputFocus,handleInputChange,save,reset } = useEvento();
+            addRed,delFoto,delVideo,delRed,handleInputChange,save,reset } = useEvento();
 
 
     // SWITCH PARA LOS POPWINDOWS
@@ -59,24 +59,22 @@ const redireccionar_to_AñadirEnVivo=() =>{
                             <div className="groups-evento">
                                 <div className="group-inputs-evento">
                                         <input 
+                                            id={"nombreEvento"}
                                             className="input input-background" 
                                             type="text"
-                                            value={datos.nombreEvento}
                                             name="nombreEvento"
                                             placeholder="Nombre del evento"
                                             onChange={handleInputChange}
-                                            onFocus={handleInputFocus}
                                             onKeyPress={_handleKeyPress}
                                             >
                                         </input>
                                         <input 
+                                            id={"lugarEvento"}
                                             className="input input-background" 
                                             type="text"
-                                            value={datos.lugarEvento}
                                             name="lugarEvento"
                                             placeholder="Lugar del evento"
                                             onChange={handleInputChange}
-                                            onFocus={handleInputFocus}
                                             onKeyPress={_handleKeyPress}
                                             >
                                         </input>  
@@ -84,7 +82,6 @@ const redireccionar_to_AñadirEnVivo=() =>{
                                             id={"fecha"}
                                             className="input input-background" 
                                             type="date"
-                                            // value={datos.fechaEvento}
                                             name="fechaEvento"
                                             placeholder="Fecha del evento"
                                             onChange={handleInputChange}
@@ -95,7 +92,6 @@ const redireccionar_to_AñadirEnVivo=() =>{
                                             id={"hora"}
                                             className="input input-background" 
                                             type="time"
-                                            // value={datos.horaEvento}
                                             name="horaEvento"
                                             placeholder="Hora del evento"
                                             onChange={handleInputChange}
@@ -115,25 +111,23 @@ const redireccionar_to_AñadirEnVivo=() =>{
                             <div className="group-evento-rightSide">
                                 <div className="group-textarea-evento">
                                     <textarea  
+                                        id={"descripcionEvento"}
                                         className="input-textArea input-background" 
                                         type="text" 
                                         placeholder="Descripción" 
                                         name="descripcionEvento"
-                                        value={datos.descripcionEvento}
                                         aria-multiline="true"
                                         onChange={handleInputChange}
-                                        onFocus={handleInputFocus}
                                     ></textarea>
                                 </div>
                                 <div className="group-inputRedes-evento">
-                                    <input 
+                                    <input
+                                        id={"redesSociales"} 
                                         className="input input-background" 
                                         type="text"
-                                        value={nombreRed}
                                         name="redesSociales"
                                         placeholder="Red Social"
                                         onChange={(e)=>{setnombreRed(e.target.value)}}
-                                        onFocus={handleInputFocus}
                                         onKeyPress={_handleKeyPress}
                                         >
                                         </input>

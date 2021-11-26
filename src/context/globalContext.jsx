@@ -3,39 +3,36 @@ import React, { useEffect,useState,useMemo } from 'react';
 export const EventoContext = React.createContext();
 
 export function EventoProvider (props){
-    
     //ARREGLO DE EVENTOS
     const [eventos, setEventos] = useState([]);
-    // FOTOS Y VIDEOS DEL EVENTO
+    // FOTOS
     const [fotos, setFotos] = useState([]);
+    // VIDEOS
     const [videos, setVideos] = useState([]);
     // REDES SOCIALES
     const [redes, setRedes] = useState([]);       
     //DATO FORMULARIO  
-    const [datos, setDatos] = useState({
-        // nombreEvento:"Nombre del evento",
-        // lugarEvento: "Lugar del evento",
-        // descripcionEvento:"Descripcion del evento",
-        // redesSociales: "Ingrese una red social",
-    });
+    const [formulario, setFormulario] = useState({});
     // ESTADO DE INPUT REDES-SOCIALES
-    const [nombreRed, setnombreRed] = useState("ingrese una red social");
-
+    const [nombreRed, setnombreRed] = useState("");
+    // SOLO ACTUALIZAR SI HAY ELEMENTOS EN LOS ARRAY
     useEffect(() => {
-        setDatos( {
-            ...datos, 
-            ['fotos'] : fotos,          
-            ['videos'] : videos,
-            ['redesSociales'] : redes,
-        });
+        if(fotos.length !=0 ){
+            setFormulario( { ...formulario, ['fotos'] : fotos });
+        }
+        if(videos.length !=0){
+            setFormulario( { ...formulario, ['videos'] : videos });
+        }
+        if(redes.length !=0){
+            setFormulario( { ...formulario, ['redesSociales'] : redes });
+        }
     }, [fotos,videos,redes])
-
+    // ALMACENA EN EL LOCAL SOLO
     useEffect(() => {
         if(eventos.length != 0){
             localStorage.setItem('Listaeventos', JSON.stringify(eventos));
         }
     }, [eventos]);
-
     // FUNCIONES PARA AGREGAR O ELIMINAR REDES SOCIALES
     const addRed = (e,item)=>{
         e.preventDefault();
@@ -65,10 +62,7 @@ export function EventoProvider (props){
         let newVideos = videos.filter(video => video !== item);
         setVideos(newVideos);
     }
-    // metodos para operar con los estados
-    const handleInputFocus = (e)=>{
-        setDatos( { ...datos,  [e.target.name] : "" });
-    }
+
     // crear funcion para ver los inputs
     const handleInputChange = (e)=>{
         let valor;
@@ -83,20 +77,25 @@ export function EventoProvider (props){
                 valor = e.target.value
                 break;
           }
-        setDatos( { ...datos, [e.target.name]:valor });
+        setFormulario( { ...formulario, [e.target.name]:valor });
     }
     const resetAllForm = ()=>{
-        document.querySelector("#fecha").value=""
-        document.querySelector("#hora").value=""
+        // BUSCAR EL INPUT
+        let fecha = document.querySelector("#fecha");
+        let hora = document.querySelector("#hora");
+        let nombreEvento = document.querySelector("#nombreEvento");
+        let lugarEvento = document.querySelector("#lugarEvento");
+        let descripcionEvento = document.querySelector("#descripcionEvento");
+        let redesSociales = document.querySelector("#redesSociales");
+        // SOLO BORRAR SI EXISTE
+        if(fecha != null){fecha.value=""}
+        if(hora != null){hora.value=""}
+        if(nombreEvento != null){nombreEvento.value=""}
+        if(lugarEvento != null){lugarEvento.value=""}
+        if(descripcionEvento != null){descripcionEvento.value=""}
+        if(redesSociales != null){redesSociales.value=""}
         // RESETEAR FORMULARIO
-        setDatos({
-                nombreEvento:"Nombre del evento",
-                lugarEvento: "Lugar del evento",
-                descripcionEvento:"Descripcion del evento",
-                redesSociales: "Ingrese una red social",
-                fotos: [],
-                videos: [],
-            });
+        setFormulario({});
         // RESETEAR ARREGLO DE FOTO
         setFotos([]);
         // RESETEAR ARREGLO DE VIDEOS
@@ -104,14 +103,14 @@ export function EventoProvider (props){
         // RESETEAR ARREGLO REDES SOCIALES
         setRedes([]);
         // RESETEAR INPUT REDSOCIAL
-        setnombreRed("ingrese una red social");
+        setnombreRed("");
     }
     // FUNCIONES DEL FORMULARIO
     const save = (e)=>{
         e.preventDefault();
-        setEventos( eventos => [...eventos,datos]);
-        // alert("Se ha guardado el evento");
+        setEventos( eventos => [...eventos,formulario]);
         resetAllForm();
+        // alert("Se ha guardado el evento");
     };
     const reset = (e)=>{
         e.preventDefault();
@@ -120,15 +119,14 @@ export function EventoProvider (props){
     //GENERA EL ARCHIVO AUX  
     const value = useMemo(()=>{
         return ({
-            eventos,fotos,videos,redes,datos,nombreRed,setnombreRed,
+            eventos,fotos,videos,redes,formulario,nombreRed,setnombreRed,
             setFotos,setVideos,
-            addRed,delFoto,delVideo,delRed,handleInputFocus,handleInputChange,save,reset
+            addRed,delFoto,delVideo,delRed,handleInputChange,save,reset
         })
-    },[eventos,fotos,videos,redes,datos,nombreRed]);
+    },[eventos,fotos,videos,redes,formulario,nombreRed]);
     
     return <EventoContext.Provider value={value} {...props} />
 }
-
 
 export function useEvento() {
     const context = React.useContext(EventoContext);
