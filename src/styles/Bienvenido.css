@@ -1,0 +1,32 @@
+.main-welcome{
+
+}
+
+.main-container{
+    color: #ffffff;
+    background-color: #008060;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.btn-welcome{
+    font-size: 6rem;
+    padding: 1rem 2rem;
+    background-color: #042b3b;
+    border: none;
+    border-radius: 1rem;
+    width: 90%;
+    text-align: center;
+    transition: all 500ms ease-in-out;
+}
+
+.btn-welcome:hover{
+    border: none;
+    box-shadow: 9px 15px 5px -4px rgba(0,0,0,0.81);
+    background-color: #042b3bc7;
+    transform: scale(1.05);
+}
+

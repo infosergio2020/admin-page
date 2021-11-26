@@ -1,0 +1,198 @@
+:root {
+    --verdeBoton: #439889;
+    --blanco: #ffffff;
+    --azul: #10b5d3;
+    --rojo: #db1111;
+    --verde: #19e74d;
+}
+
+
+/* Areas */
+
+.newArea {
+    padding: 0 1rem;
+}
+
+.flex-block {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .flex-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.bg-gray {
+    background-color: #BACFCB;
+}
+
+
+/* AREAS */
+
+.container-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container-input-area {
+    width: 95%;
+}
+
+@media (min-width: 768px) {
+    .container-input-area {
+        width: 60%;
+    }
+}
+
+.container-addBtn-area {
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .container-addBtn-area {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 60%;
+    }
+}
+
+.container-addBtn-area #cambhio {
+    display: none;
+}
+
+
+/* AREA */
+
+.tamañoInputDes {
+    background-color: chartreuse;
+    width: 80%;
+    display: grid;
+    /* grid-auto-columns: ;: ; */
+}
+
+
+/* ENVIVO */
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    font-family: var(--sans-pro);
+    padding: 1rem 2rem;
+    border: 2px solid #e3e3e3;
+    border-radius: 5rem;
+    outline-color: orange;
+    outline: none;
+}
+
+.input:focus,
+input:focus-within {
+    border-color: orange;
+    border-width: .3rem;
+}
+
+.input-textArea {
+    margin: 1rem 5rem;
+    padding: 1rem 2rem;
+    border: 2px solid #e3e3e3;
+    border-radius: 1rem;
+    width: 50rem;
+    height: 35rem;
+    color: #646464;
+}
+
+@media (min-width: 768px) {
+    .input-textArea {
+        flex: 0 0 calc(35% - 1rem);
+    }
+}
+
+.input-textArea:focus,
+.input-textArea:focus-within {
+    color: #000000;
+}
+
+.input-background {
+    background-color: var(--super-soft-green);
+}
+
+.form h3 {
+    text-align: center;
+    font-family: var(--sans-pro);
+}
+
+.background-form {
+    background-color: var(--light-soft-green);
+    padding: 2rem 0;
+    width: 100%;
+}
+
+.center {
+    text-align: center;
+}
+
+
+/* comienzo del boton label */
+
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Source Sans Pro", sans-serif;
+    text-align: center;
+    font-weight: 400;
+    border-radius: 50px;
+    border: 1px solid #000000;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background-color: var(--azul);
+    padding: .5rem 3rem;
+    color: #ffffff;
+    font-size: 1.8rem;
+}
+
+.label:hover {
+    transform: translateY(-3px);
+}
+
+.label p {
+    margin: 0;
+}
+
+#cambio {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+
+/*CSS PARA LOS CONTENEDORES DEL POPUP*/
+
+.pop-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000de;
+    position: fixed;
+    right: 0;
+    left: 100%;
+    top: 0;
+    bottom: 0;
+    transition: all 400ms cubic-bezier(0.46, -0.45, 0.64, 0.16);
+}
+
+.pop-display-active {
+    left: 0;
+}
+
+.card-popup {
+    width: 45%;
+}

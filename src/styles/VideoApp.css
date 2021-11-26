@@ -1,0 +1,61 @@
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.video-title{
+    padding: 1rem;
+    text-align: center;
+}
+
+.img-w100{
+    max-width: 100%;
+}
+
+
+/* 
+para el componente de video */
+.paddingArea{
+  padding-top: 4rem;
+}
+
+.center{
+  align-items: center;
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  gap:2rem;
+}
+
+.tamaño{
+  /* width: 50rem;
+  height: 30rem; */
+}
+/* 
+estilos para el area de descripcion */
+
+.input-textAreaV{
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'sans-serif';
+  line-height: 1.8;
+  margin: 0;
+  padding: 1rem 2rem;
+  border: 2px solid #e3e3e3;
+  border-radius: 1rem;
+  width: 90%;
+  height: 25rem;
+  color: #646464;
+} 
+.input-backgroundV{
+  background-color: var(--super-soft-green);
+}
