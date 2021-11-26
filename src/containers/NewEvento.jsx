@@ -4,6 +4,7 @@ import { TablaFotosVideos } from "../components/tabla/TablaFotosVideos";
 import {PopWindow} from '../components/PopWindow';
 import { useHistory } from 'react-router-dom';
 
+import { useEvento } from "../context/globalContext";
 // //ICONOS
 import iconos from '../assets/img/iconos';
 //CSS
@@ -11,68 +12,15 @@ import "../styles/NewEvento.css"
 
 
 export const NewEvento = ({setData,evento}) => {
-        const [nombreRed, setnombreRed] = useState("ingrese una red social")
-        const [eventos, setEventos] = useState([]);
-        // SWITCH PARA LOS POPWINDOWS
-        const [activeV, setactiveV] = useState(false);
-        const [activeF, setactiveF] = useState(false);
-        // FOTOS Y VIDEOS DEL EVENTO
-        const [fotos, setFotos] = useState([]);
-        const [videos, setVideos] = useState([]);
-        // const [FotoVideo, setFotoVideo] = useState([])
-        // REDES SOCIALES
-        const [redes, setRedes] = useState([]);           
-        useEffect(() => {
-            setDatos( {
-                ...datos, 
-                ['fotos'] : fotos,          
-                ['videos'] : videos,
-                ['redesSociales'] : redes,
-            });
-        }, [fotos,videos,redes])
-     
-        useEffect(() => {
-            console.log("se ha cambiado eventos");
-            localStorage.setItem('Listaeventos', JSON.stringify(eventos));
-        }, [eventos]);
+    const { eventos,fotos,videos,redes,datos,nombreRed,
+            setFotos,setVideos,setnombreRed,
+            addRed,delFoto,delVideo,delRed,handleInputFocus,handleInputChange,save,reset } = useEvento();
 
-        // FORMULARIO DEL EVENTO
-        const [datos, setDatos] = useState({
-            nombreEvento:"Nombre del evento",
-            lugarEvento: "Lugar del evento",
-            descripcionEvento:"Descripcion del evento",
-            redesSociales: "Ingrese una red social",
-            fotos: [],
-            videos: [],
-        });
-// crear funcion para ver los inputs
-    const handleInputFocus = (e)=>{
-        setDatos( {
-            ...datos, 
-            [e.target.name] : ""            
-        });
-    }
-// crear funcion para ver los inputs
-    const handleInputChange = (e)=>{
-        console.log(e.target.type);
-        let valor;
-        switch(e.target.type) {
-            case 'date':
-                valor = e.target.value.toString();
-                break;
-            case 'time':
-                valor = e.target.value.toString();
-                break;
-            default:
-                valor = e.target.value
-                break;
-          }
-        console.log(`se esta por asignar ${valor} a ${e.target.name}`);
-        setDatos( {
-            ...datos, 
-            [e.target.name]:valor
-        });
-    }
+
+    // SWITCH PARA LOS POPWINDOWS
+    const [activeV, setactiveV] = useState(false);
+    const [activeF, setactiveF] = useState(false);
+ 
 // funcion para simular el POPUP del video y la foto
     const popApV= (e) =>{       
         e.preventDefault()
@@ -83,70 +31,6 @@ export const NewEvento = ({setData,evento}) => {
         e.preventDefault()
         setactiveF(!activeF);
     } 
-// FUNCIONES DEL FORMULARIO
-    const save = (e)=>{
-        e.preventDefault();
-        setEventos( eventos => [...eventos,datos]);
-        // alert("Se ha guardado el evento");
-        resetAllForm();
-    };
-
-    const reset = (e)=>{
-        e.preventDefault();
-        resetAllForm()
-    };
-
-    const resetAllForm = ()=>{
-        document.querySelector("#fecha").value=""
-        document.querySelector("#hora").value=""
-        // RESETEAR FORMULARIO
-        setDatos({
-                nombreEvento:"Nombre del evento",
-                lugarEvento: "Lugar del evento",
-                descripcionEvento:"Descripcion del evento",
-                redesSociales: "Ingrese una red social",
-                fotos: [],
-                videos: [],
-            });
-        // RESETEAR ARREGLO DE FOTO
-        setFotos([]);
-        // RESETEAR ARREGLO DE VIDEOS
-        setVideos([]);
-        // RESETEAR ARREGLO REDES SOCIALES
-        setRedes([]);
-        // RESETEAR INPUT REDSOCIAL
-        setnombreRed("ingrese una red social");
-    }
-
-// FUNCIONES PARA AGREGAR O ELIMINAR REDES SOCIALES
-const addRed = (e,item)=>{
-    e.preventDefault();
-    console.log(item);
-    if(item == "" || item == " "){
-        alert("debe completar el campo")
-    } else{
-        setRedes([item,...redes]);
-    }
-    
-}
-// BORRADO DE REDES
-const delRed = (e,item)=>{
-    e.preventDefault();
-    let newRedes = redes.filter(red => red !== item);
-    setRedes(newRedes);
-}
-// BORRADO DE FOTOS
-const delFoto = (e,item)=>{
-    e.preventDefault();
-    let newFotos = fotos.filter(foto => foto !== item);
-    setFotos(newFotos);
-}
-// BORRADO DE VIDEOS
-const delVideo = (e,item)=>{
-    e.preventDefault();
-    let newVideos = videos.filter(video => video !== item);
-    setVideos(newVideos);
-}
 
 const _handleKeyPress = (e)=>{
     if (e.key === 'Enter') {
