@@ -24,10 +24,14 @@ export const NavBar = () => {
         <>
         <IconContext.Provider value={{color: '#fff'}}>
           <div className="navbar">
-              <Link to="#" className="menu-bars">
-                <FaIcons.FaBars onClick={showSidebar}/>
-              </Link>
-              <Header src={'#'} titulo={title} saludo={false}/>
+            <div className="a-container">
+                <Link to="#" className="menu-bars">
+                  <FaIcons.FaBars onClick={showSidebar}/>
+                </Link>
+            </div>
+            <div className="h-container">
+                <Header src={'#'} titulo={title} saludo={false}/>
+            </div>
           </div>
           <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
               <ul className='nav-menu-items' onClick={showSidebar}>

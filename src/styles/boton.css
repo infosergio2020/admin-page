@@ -49,8 +49,15 @@
 }
 
 .sesion p{
+    font-size: 1.4rem;
     text-transform: uppercase;
     flex: 0 0 calc(80% - 1rem);
+}
+
+@media (min-width: 486px){
+    .sesion p{
+        font-size: 1.8rem;
+    }
 }
 
 .sesion img{

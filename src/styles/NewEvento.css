@@ -56,8 +56,9 @@
 
 .group-buttons-evento{
     display: flex;
-    justify-content: space-between;
-    padding: 2rem;
+    /* justify-content: space-between; */
+    justify-content: center;
+    column-gap: .5rem;
 }
 
 
