@@ -110,7 +110,7 @@ function popApJ(e){
                             <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
                             {/* <p>nombre: {datos.nombre} </p>
                             <p>descripcion: {datos.descripcion}  </p> */}
-
+ 
                             <div className="container-evento">
                                 <div className="container-input-evento">
                                     <div className="tamañoInputDes">
