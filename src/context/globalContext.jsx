@@ -119,9 +119,12 @@ export function EventoProvider (props){
     //GENERA EL ARCHIVO AUX  
     const value = useMemo(()=>{
         return ({
+            // EVENTOS
             eventos,fotos,videos,redes,formulario,nombreRed,setnombreRed,
             setFotos,setVideos,
             addRed,delFoto,delVideo,delRed,handleInputChange,save,reset
+            // AREAS
+            
         })
     },[eventos,fotos,videos,redes,formulario,nombreRed]);
     

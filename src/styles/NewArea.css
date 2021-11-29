@@ -5,174 +5,71 @@
     --rojo: #db1111;
     --verde: #19e74d;
 }
-
-
 /* Areas */
-
-.newArea {
-    padding: 0 1rem;
+.form-container-area{
+    margin: 0 auto;
+    width: 100%;
+    /* border: 2px solid red; */
 }
-
-.flex-block {
-    display: block;
-}
-
-@media (min-width: 768px) {
-    .flex-block {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-
-.bg-gray {
-    background-color: #BACFCB;
-}
-
-
-/* AREAS */
-
-.container-area {
+.container-area{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.container-input-area {
-    width: 95%;
-}
-
-@media (min-width: 768px) {
-    .container-input-area {
-        width: 60%;
-    }
-}
-
-.container-addBtn-area {
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
 }
 
-@media (min-width: 768px) {
-    .container-addBtn-area {
+@media (min-width: 768px){
+    .container-area{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 60%;
+        padding: 0 1rem;
+        margin-bottom: 2rem;
     }
 }
 
-.container-addBtn-area #cambhio {
-    display: none;
-}
-
-
-/* AREA */
-
-.tamañoInputDes {
-    background-color: chartreuse;
-    width: 80%;
-    display: grid;
-    /* grid-auto-columns: ;: ; */
-}
-
-
-/* ENVIVO */
-
-.input-group {
+.side-input-area{
+    flex-basis: calc(49% - 1rem);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 95%;
+}
+.side-area-textArea{
+    flex-basis: calc(49% - 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 95%;
 }
 
-.input {
-    font-family: var(--sans-pro);
-    padding: 1rem 2rem;
-    border: 2px solid #e3e3e3;
-    border-radius: 5rem;
-    outline-color: orange;
-    outline: none;
-}
-
-.input:focus,
-input:focus-within {
-    border-color: orange;
-    border-width: .3rem;
-}
-
-.input-textArea {
-    margin: 1rem 5rem;
-    padding: 1rem 2rem;
-    border: 2px solid #e3e3e3;
-    border-radius: 1rem;
-    width: 50rem;
-    height: 35rem;
-    color: #646464;
-}
-
-@media (min-width: 768px) {
-    .input-textArea {
-        flex: 0 0 calc(35% - 1rem);
-    }
-}
-
-.input-textArea:focus,
-.input-textArea:focus-within {
-    color: #000000;
-}
-
-.input-background {
-    background-color: var(--super-soft-green);
-}
-
-.form h3 {
-    text-align: center;
-    font-family: var(--sans-pro);
-}
-
-.background-form {
-    background-color: var(--light-soft-green);
-    padding: 2rem 0;
+.group-btn-area{
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
-.center {
-    text-align: center;
+.group-btn-area > *{
+    margin: .8rem 0;
 }
 
+@media (min-width: 768px){    
+    .group-btn-area{
+        flex-direction: row;
+    }
 
-/* comienzo del boton label */
-
-.label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Source Sans Pro", sans-serif;
-    text-align: center;
-    font-weight: 400;
-    border-radius: 50px;
-    border: 1px solid #000000;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    background-color: var(--azul);
-    padding: .5rem 3rem;
-    color: #ffffff;
-    font-size: 1.8rem;
+    .group-btn-area > *{
+        margin: .5rem;
+    }
 }
 
-.label:hover {
-    transform: translateY(-3px);
-}
+.input-area{}
 
-.label p {
-    margin: 0;
+.btn-submit-area{
+    margin: 9rem auto;
 }
-
-#cambio {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-}
-
 
 /*CSS PARA LOS CONTENEDORES DEL POPUP*/
 
@@ -188,11 +85,5 @@ input:focus-within {
     bottom: 0;
     transition: all 400ms cubic-bezier(0.46, -0.45, 0.64, 0.16);
 }
-
-.pop-display-active {
-    left: 0;
-}
-
-.card-popup {
-    width: 45%;
-}
+.pop-display-active { left: 0; }
+.card-popup { width: 45%; }

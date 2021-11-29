@@ -97,37 +97,24 @@ function popApJ(e){
 // COMIENZO DEL MAIN()
     return (
         <>
-            {/* LISTADO DE ELEMENTOS DE UN ARRAY */}
-            {/* <ul>
-                { arrayV.map( unVideo => { <li>{unVideo}</li> }) }
-            </ul> */}
-
         <div className="container-Switch">
             <div className="flex bg-gray">
-            {/* aca estaba el form */}
-                    {/* mostrar y esconder los campos del primer div de AREA */}
+                <div className="form-container-area">
                     <form  className="form background-form">
                             <h3 tabIndex="0" aria-describedby="Complete los campos a continuación" >Complete los campos a continuación.</h3>
-                            {/* <p>nombre: {datos.nombre} </p>
-                            <p>descripcion: {datos.descripcion}  </p> */}
- 
-                            <div className="container-evento">
-                                <div className="container-input-evento">
-                                    <div className="tamañoInputDes">
+                            <div className="container-area">
+                                <div className="side-input-area">
+                                    <div className="input-area">
                                         <input 
                                             className="input input-background" 
                                             type="text"
-                                            // value={inputValue}
                                             name="nombreArea"
-                                        
                                             placeholder="Nombre del area"
                                             onChange={handleInputChange}>
-                                                
                                         </input>  
                                         <input 
                                             className="input input-background" 
                                             type="text"
-                                            // value={inputValue}
                                             name="longitud"
                                             placeholder="Longitud del area"
                                             onChange={handleInputChange}>      
@@ -135,48 +122,29 @@ function popApJ(e){
                                         <input 
                                             className="input input-background" 
                                             type="text"
-                                            // value={inputValue}
                                             name="latitud"
                                             placeholder="Latitud del area"
                                             onChange={handleInputChange}>
                                         </input>                   
-                                            
                                     </div>
-                                    <div className="">
-                                        <div className="horizontalBotones">
-
-                                            <Boton buttonStyle="azul" icono={iconos.play} onClick={popApJ}> Añadir juego </Boton> 
-                                        </div>
-
-                                        <div className="horizontalBotones">
-                                            <Boton buttonStyle="azul" icono={iconos.video} onClick={popApV}> Añadir video </Boton>
-                                            {/* boton añadir imagen */}
-                                            <label className="label" for="cambio">
-                                                        <p>Añadir imagen</p> 
-                                                        <img src={iconos.photo} />
-                                            </label>                                   
-                                            <input 
-                                                id="cambio"                                    
-                                                type="file"
-                                                name="urlArea"
-                                                placeholder="Añadir imagen"                                                                                                              
-                                                // value={inputValue}
-                                                accept="image/gif, image/png, image/peg, "
-                                                onClick={popApF}>
-                                            </input>
-                                        </div>                             
-                                    </div>                        
                                 </div>
-                                <textarea  className="input-textArea input-background" type="text" name="descripcionArea" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+                                <div className="side-area-textArea">
+                                    <textarea className="input-textArea input-background" type="text" name="descripcionArea" onChange={handleInputChange} placeholder="Descripción" aria-multiline="true"></textarea>
+                                </div>
                             </div>  
-                            <div className="center">
+                            <div className="group-btn-area">
+                                        <Boton buttonStyle="azul" icono={iconos.play} onClick={popApJ}> Añadir juego </Boton> 
+                                        <Boton buttonStyle="azul" icono={iconos.video} onClick={popApV}> Añadir video </Boton>
+                                        <Boton buttonStyle="azul" icono={iconos.photo} onClick={popApF}> Añadir imagen </Boton>                                        
+                            </div>   
+                            <div className="btn-submit-area">
                                 <Boton buttonStyle="verde" icono={iconos.check} onClick={guardarDatos}> Guardar </Boton>
                                 <Boton buttonStyle="rojo" icono={iconos.cancel}> Cancelar </Boton>
                                 {/* <br></br>
                                 <img src="" id="hola" height="200" alt="Image preview..."></img> */}
                             </div> 
-                </form>             
-
+                    </form>             
+                </div>
             </div>
             {/* ACA SE ESCONDEN O VISUALIZAN POPUPS */}
             {/* VIDEO */}
