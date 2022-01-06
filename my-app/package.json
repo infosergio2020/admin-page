@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "g": "^2.0.1",
     "react": "^17.0.2",
+    "react-app-rewire-workbox": "^2.0.1",
+    "react-app-rewired": "^1.5.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "serve": "^13.0.2",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.4",
     "workbox-broadcast-update": "^5.1.4",
@@ -24,10 +29,12 @@
     "workbox-streams": "^5.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "dev": "react-app-rewired start",
+    "start": "serve ./build -s -p ${PORT:-5000}",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
+
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "workbox-webpack-plugin": "^3.3.1"
   }
 }
